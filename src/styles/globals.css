@@ -2,7 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-ink text-white antialiased;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  @apply bg-ink text-white antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(196, 161, 90, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0, transparent 18%),
+    linear-gradient(180deg, #050506 0%, #0a0a0b 40%, #111216 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.22;
+  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.25));
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(196, 161, 90, 0.28);
+  color: #f7f3e8;
+}
+
+a {
+  text-underline-offset: 0.22em;
+}

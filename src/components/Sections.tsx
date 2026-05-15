@@ -1,63 +1,251 @@
+import Link from "next/link";
+import newsItems from "../data/news.json";
+import { TrackedEmailLink } from "./TrackedEmailLink";
+
+function SocialIcon({
+  platform,
+  className = "h-4 w-4",
+}: {
+  platform: "facebook" | "x" | "threads" | "linkedin";
+  className?: string;
+}) {
+  if (platform === "facebook") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+        <path d="M13.5 21v-7.2H16l.4-2.8h-2.9V9.2c0-.8.3-1.4 1.5-1.4h1.6V5.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4v1.8H8v2.8h2.5V21h3Z" />
+      </svg>
+    );
+  }
+
+  if (platform === "x") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+        <path d="M18.9 3H22l-6.8 7.8L23 21h-6.1l-4.8-6.2L6.7 21H3.6l7.3-8.3L3.4 3h6.2l4.3 5.7L18.9 3Zm-1.1 16h1.7L8.7 4.9H6.9L17.8 19Z" />
+      </svg>
+    );
+  }
+
+  if (platform === "threads") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16.7 10.7c-.3-2.3-1.8-4-4.7-4-3.4 0-5.4 2.2-5.4 5.6 0 3.4 2 5.6 5.5 5.6 2.8 0 4.7-1.4 5.2-3.7.4-1.8-.2-3.3-1.8-4.2-1.5-.9-3.5-1.3-5.8-1.2" />
+        <path d="M17.2 13.4c0 2.8-2.1 4.9-5 4.9-2.7 0-4.6-1.5-4.6-3.7 0-2.1 1.6-3.4 4.3-3.4 2.4 0 4.4.5 5.3 2.2Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M6.9 8.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM5.5 9.8h2.8V18H5.5V9.8Zm4.6 0h2.7V11h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5V18h-2.8v-3.5c0-.8 0-1.9-1.2-1.9s-1.4.9-1.4 1.8V18h-2.8V9.8Z" />
+    </svg>
+  );
+}
+
 export function AboutSection() {
   return (
-    <section className="border-b border-stone-light/40 bg-ink">
-      <div className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_minmax(0,1fr)] lg:items-start">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight text-stone-50 sm:text-2xl">
-              關於墨石資本
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-stone-300/90 sm:text-base">
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0f1013_0%,#111216_54%,#15161a_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="grid gap-7 sm:gap-10 lg:grid-cols-[1.1fr_minmax(320px,0.9fr)] lg:items-start">
+          <div className="space-y-6 sm:space-y-7">
+            <div>
+              <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
+                About Inkstone Capital
+              </div>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+                以資本市場經驗為基礎，為企業建立跨境成長框架
+              </h2>
+            </div>
+            <p className="text-sm leading-8 text-stone-300/90 sm:text-base">
               墨石資本（Inkstone Capital）成立於 2012 年，由張義發先生於美國華盛頓州 Mercer Island 創立，
               目前營運據點位於高雄市，並在美國與中國大陸擁有長期合作夥伴。團隊深耕跨境資本市場與企業財務顧問服務，
               協助客戶在不同法域之間銜接資本與策略資源。
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-stone-300/80 sm:text-base">
+            <p className="text-sm leading-8 text-stone-300/82 sm:text-base">
               我們專注服務成長中的中小企業（Small Cap），涵蓋傳統產業升級、新經濟與科技應用等領域，透過併購重組、
               私募融資、上市規劃與過橋融資等工具，協助企業完成從在地成長到登陸美國 Nasdaq / NYSE 資本市場的關鍵里程碑，
               同時兼顧公司治理與長期價值。
             </p>
-          </div>
-          <div className="space-y-4 rounded-2xl border border-stone-light/40 bg-gradient-to-br from-black/60 via-stone/80 to-ink/80 p-5 text-xs text-stone-300 sm:text-sm">
-            <div className="flex items-center justify-between border-b border-stone-light/30 pb-3">
-              <div>
-                <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-                  Core principles
+            <div className="grid gap-3 sm:gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Mandate
                 </div>
-                <div className="mt-1 font-medium text-stone-100">
-                  紀律 · 獨立 · 穩健
+                <div className="mt-2 text-sm font-semibold text-stone-100">成長企業資本規劃</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-400">
+                  聚焦中小企業在募資、交易與市場布局的關鍵決策。
+                </p>
+              </div>
+              <div className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Execution
                 </div>
+                <div className="mt-2 text-sm font-semibold text-stone-100">結構與執行並重</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-400">
+                  從架構設計到交易節奏協調，兼顧落地可行性。
+                </p>
+              </div>
+              <div className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Network
+                </div>
+                <div className="mt-2 text-sm font-semibold text-stone-100">跨境資源銜接</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-400">
+                  結合資本市場、產業夥伴與區域合作網絡。
+                </p>
               </div>
             </div>
-            <ul className="space-y-3">
-              <li className="flex gap-3">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-gold" />
+          </div>
+          <div className="rounded-[1.7rem] border border-stone-light/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(0,0,0,0.25))] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:rounded-[2rem] sm:p-5">
+            <div className="rounded-[1.25rem] border border-stone-light/25 bg-black/35 p-4 text-xs text-stone-300 sm:rounded-[1.5rem] sm:p-5 sm:text-sm">
+              <div className="flex items-center justify-between border-b border-stone-light/20 pb-4">
                 <div>
-                  <div className="font-medium text-stone-100">跨境結構設計經驗</div>
-                  <p className="text-[0.8rem] leading-relaxed text-stone-300/90">
-                    熟悉多地監管與資本市場規則，為企業量身訂製兼顧成長與風險控管的交易架構。
-                  </p>
+                  <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                    Core principles
+                  </div>
+                  <div className="mt-2 text-lg font-semibold text-stone-100">
+                    紀律 · 獨立 · 穩健
+                  </div>
                 </div>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-gold" />
-                <div>
-                  <div className="font-medium text-stone-100">長期實務與落地能力</div>
-                  <p className="text-[0.8rem] leading-relaxed text-stone-300/90">
-                    結合理論與實務操作，從洽談、估值、盡職調查到交割與整合，提供一站式顧問服務。
-                  </p>
+                <div className="rounded-full border border-accent-gold/35 bg-accent-gold/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-accent-gold">
+                  Principles
                 </div>
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-gold" />
-                <div>
-                  <div className="font-medium text-stone-100">與企業家並肩同行</div>
-                  <p className="text-[0.8rem] leading-relaxed text-stone-300/90">
-                    以前瞻策略與務實執行為核心，陪伴企業從在地走向區域乃至國際資本市場。
-                  </p>
+              </div>
+              <div className="mt-5 space-y-4">
+                {[
+                  {
+                    title: "跨境結構設計經驗",
+                    body: "熟悉多地監管與資本市場規則，為企業量身訂製兼顧成長與風險控管的交易架構。",
+                  },
+                  {
+                    title: "長期實務與落地能力",
+                    body: "結合理論與實務操作，從洽談、估值、盡職調查到交割與整合，提供一站式顧問服務。",
+                  },
+                  {
+                    title: "與企業家並肩同行",
+                    body: "以前瞻策略與務實執行為核心，陪伴企業從在地走向區域乃至國際資本市場。",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-stone-light/20 bg-white/5 p-4"
+                  >
+                    <div className="mb-2 flex items-center gap-3">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent-gold/35 bg-accent-gold/10 text-[0.68rem] font-semibold text-accent-gold">
+                        0{index + 1}
+                      </span>
+                      <div className="font-medium text-stone-100">{item.title}</div>
+                    </div>
+                    <p className="text-[0.8rem] leading-relaxed text-stone-300/90">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function OverviewSection() {
+  const previewNews = newsItems.slice(0, 3);
+
+  return (
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#15161a_0%,#17191d_45%,#1e1f23_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="grid gap-5 sm:gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-[1.7rem] border border-stone-light/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.22))] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.34)] sm:rounded-[2rem] sm:p-6">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Site structure
                 </div>
-              </li>
-            </ul>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50">
+                  完整呈現核心資訊與專業內容
+                </h2>
+              </div>
+              <div className="hidden rounded-full border border-accent-gold/35 bg-accent-gold/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-accent-gold sm:block">
+                Structured
+              </div>
+            </div>
+            <p className="mt-5 max-w-3xl text-sm leading-8 text-stone-300/90">
+              本網站採分頁式資訊架構，將服務內容、團隊介紹、相關公司與最新消息分別整理於獨立頁面，
+              以提升資訊呈現的清晰度、閱讀效率與整體瀏覽體驗，並有利於後續內容擴充與品牌長期發展。
+            </p>
+            <div className="mt-5 grid gap-3 sm:mt-6 sm:gap-4 md:grid-cols-2">
+              <Link
+                href="/services/"
+                className="rounded-2xl border border-stone-light/25 bg-black/28 p-4 transition hover:border-accent-gold/80 hover:bg-white/[0.06]"
+              >
+                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">Services</div>
+                <div className="mt-2 text-sm font-semibold text-stone-100">服務頁</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-300/85">
+                  集中整理併購重組、私募融資與上市規劃等核心服務。
+                </p>
+              </Link>
+              <Link
+                href="/team/"
+                className="rounded-2xl border border-stone-light/25 bg-black/28 p-4 transition hover:border-accent-gold/80 hover:bg-white/[0.06]"
+              >
+                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">Team</div>
+                <div className="mt-2 text-sm font-semibold text-stone-100">團隊頁</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-300/85">
+                  將核心成員與顧問背景獨立陳列，避免首頁資訊過長。
+                </p>
+              </Link>
+              <Link
+                href="/companies/"
+                className="rounded-2xl border border-stone-light/25 bg-black/28 p-4 transition hover:border-accent-gold/80 hover:bg-white/[0.06]"
+              >
+                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">Companies</div>
+                <div className="mt-2 text-sm font-semibold text-stone-100">相關公司頁</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-300/85">
+                  拆開介紹 AI、健康科技與消費品牌等相關布局。
+                </p>
+              </Link>
+              <Link
+                href="/news/"
+                className="rounded-2xl border border-stone-light/25 bg-black/28 p-4 transition hover:border-accent-gold/80 hover:bg-white/[0.06]"
+              >
+                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">News</div>
+                <div className="mt-2 text-sm font-semibold text-stone-100">最新消息頁</div>
+                <p className="mt-2 text-xs leading-relaxed text-stone-300/85">
+                  首頁只放摘要，完整新聞列表放到獨立頁面閱讀。
+                </p>
+              </Link>
+            </div>
+          </div>
+          <div className="rounded-[1.7rem] border border-stone-light/35 bg-black/45 p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Latest highlights
+                </div>
+                <div className="mt-2 text-xl font-semibold text-stone-50">
+                  首頁新聞摘要
+                </div>
+              </div>
+              <Link href="/news/" className="text-xs text-accent-gold">
+                查看全部
+              </Link>
+            </div>
+            <div className="mt-5 space-y-3">
+              {previewNews.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-2xl border border-stone-light/25 bg-black/25 px-4 py-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
+                >
+                  <div className="mb-2 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                    Media Coverage
+                  </div>
+                  <div className="text-sm font-medium text-stone-100">{item.title}</div>
+                  <div className="mt-1 text-xs text-stone-400">{item.source}</div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -67,53 +255,73 @@ export function AboutSection() {
 
 export function StrategySection() {
   return (
-    <section className="border-b border-stone-light/40 bg-gradient-to-b from-ink to-stone">
-      <div className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight text-stone-50 sm:text-2xl">
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#111216_0%,#14161a_48%,#1b1d21_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-end">
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Advisory Scope
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
               服務與策略
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-stone-300/90 sm:text-base">
+            <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
               我們結合投資銀行與產業顧問的視角，為企業設計兼顧股權、債權與結構性工具的整體方案，
               協助企業於關鍵節點取得所需資金與夥伴。
             </p>
+            <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-3">
+              {[
+                ["Structuring", "交易架構與資本安排"],
+                ["Execution", "跨團隊協調與節奏管理"],
+                ["Positioning", "市場定位與成長規劃"],
+              ].map(([label, text]) => (
+                <div key={label} className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
+                  <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">{label}</div>
+                  <div className="mt-2 text-sm font-medium text-stone-100">{text}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="max-w-md text-xs leading-relaxed text-stone-400 sm:text-sm">
-            以下範疇為示意，可依實際基金策略調整。待你提供具體定位與案例後，我可以為你改寫成精準版本。
-          </p>
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-black/35 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.25)] sm:rounded-[2rem] sm:p-5">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Approach
+            </div>
+            <p className="mt-3 leading-relaxed">
+              墨石資本以結構設計、交易可行性與執行節奏為核心，協助企業在不同發展階段建立合宜的資本市場方案。
+            </p>
+          </div>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-5">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
             <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
               M&A / Restructuring
             </div>
-            <div className="mt-2 text-sm font-semibold text-stone-100">
+            <div className="mt-3 text-base font-semibold text-stone-100">
               併購與重組顧問
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-stone-300/90">
+            <p className="mt-3 text-sm leading-7 text-stone-300/90">
               協助企業評估標的、設計交易架構並進行談判與整合，包含跨境併購與產業整合專案。
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-5">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
             <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
               Private Placement
             </div>
-            <div className="mt-2 text-sm font-semibold text-stone-100">
+            <div className="mt-3 text-base font-semibold text-stone-100">
               私募融資與過橋融資
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-stone-300/90">
+            <p className="mt-3 text-sm leading-7 text-stone-300/90">
               為成長期企業媒合策略投資人與金融機構，設計股權、可轉換工具與過橋融資解決方案。
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-5">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
             <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
               Capital Markets
             </div>
-            <div className="mt-2 text-sm font-semibold text-stone-100">
+            <div className="mt-3 text-base font-semibold text-stone-100">
               上市與資本市場規劃
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-stone-300/90">
+            <p className="mt-3 text-sm leading-7 text-stone-300/90">
               依產業屬性與公司階段，協助評估適合的資本市場（含美股與亞洲市場），並規劃上市前準備與持續性資訊揭露。
             </p>
           </div>
@@ -123,44 +331,45 @@ export function StrategySection() {
   );
 }
 
-import fs from "fs/promises";
-import path from "path";
-
-async function loadNews() {
-  const filePath = path.join(process.cwd(), "src", "data", "news.json");
-  const raw = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(raw) as { title: string; href: string; source: string }[];
-}
-
-export async function NewsSection() {
-  const newsItems = await loadNews();
+export function NewsSection() {
   return (
-    <section className="border-b border-stone-light/40 bg-ink-dark">
-      <div className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight text-stone-50 sm:text-2xl">
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0b0c0f_0%,#101114_42%,#17191d_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-end">
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.16))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Media & Updates
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
               最新消息與媒體報導
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-stone-300/90 sm:text-base">
+            <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
               以下連結節錄自公開媒體與專欄，涵蓋墨石資本相關資訊、創辦人觀點以及團隊成員在人工智慧與產業應用上的分享。
             </p>
           </div>
-          <p className="max-w-md text-xs leading-relaxed text-stone-500 sm:text-sm">
-            連結將開啟外部網站，相關內容與觀點由各原發布單位與作者提供。
-          </p>
+          <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Notice
+            </div>
+            <p className="mt-3 leading-relaxed">
+              連結將開啟外部網站，相關內容與觀點由各原發布單位與作者提供，本站僅就公開資訊進行整理與索引。
+            </p>
+          </div>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {newsItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-xl border border-stone-light/40 bg-black/40 px-4 py-3 text-sm text-stone-200 transition hover:border-accent-gold/80 hover:bg-black/60"
+              className="block rounded-[1.35rem] border border-stone-light/30 bg-black/35 px-4 py-4 text-sm text-stone-200 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition hover:border-accent-gold/80 hover:bg-white/[0.04] sm:rounded-[1.6rem] sm:px-5 sm:py-5"
             >
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                <div className="font-medium text-stone-50">{item.title}</div>
+              <div className="mb-3 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                External Coverage
+              </div>
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                <div className="max-w-3xl text-[0.95rem] font-medium text-stone-50 sm:text-base">{item.title}</div>
                 <div className="text-xs text-stone-400 sm:text-right">
                   {item.source}
                 </div>
@@ -175,19 +384,32 @@ export async function NewsSection() {
 
 export function TeamSection() {
   return (
-    <section className="border-b border-stone-light/40 bg-ink">
-      <div className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
-        <div className="mb-8 max-w-2xl">
-          <h2 className="text-xl font-semibold tracking-tight text-stone-50 sm:text-2xl">
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0f1013_0%,#111216_44%,#17191d_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-end">
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Team Overview
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
             投資團隊
           </h2>
-            <p className="mt-3 text-sm leading-relaxed text-stone-300/90 sm:text-base">
+            <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
               團隊成員具多年投資銀行、資本市場與企業經營實務經驗，熟悉跨境規範與產業動態，
               能在不同總體環境下為企業與投資人設計合宜的解決方案。
             </p>
+          </div>
+          <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Perspective
+            </div>
+            <p className="mt-3 leading-relaxed">
+              團隊背景橫跨資本市場、科技、醫美健康與跨界整合，能就企業不同發展階段提供更貼近實務的策略支援。
+            </p>
+          </div>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-5">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm font-semibold text-stone-100">
@@ -196,14 +418,22 @@ export function TeamSection() {
                 <div className="text-xs text-stone-400">
                   創辦人兼負責人
                 </div>
+                <div className="mt-1 text-[0.7rem] text-stone-400">
+                  E-mail：
+                  <TrackedEmailLink
+                    email="ivan@inkstonecapital.com"
+                    context="team_ivan"
+                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
+                  />
+                </div>
               </div>
             </div>
-            <p className="mt-3 text-xs leading-relaxed text-stone-300/90">
+            <p className="mt-4 text-sm leading-7 text-stone-300/90">
               墨石資本創辦人，長期專注於中小企業跨境資本運作與國際市場佈局，具備豐富實務案例與產業人脈。
               近年亦參與多項新經濟與科技相關投資與企業發展規劃。
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-5">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm font-semibold text-stone-100">
@@ -212,29 +442,191 @@ export function TeamSection() {
                 <div className="text-xs text-stone-400">
                   首席科技投資長
                 </div>
+                <div className="mt-1 text-[0.7rem] text-stone-400">
+                  E-mail：
+                  <TrackedEmailLink
+                    email="tian@partner.inkstonecapital.com"
+                    context="team_jiangsen_tian"
+                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
+                  />
+                </div>
               </div>
             </div>
-            <p className="mt-3 text-xs leading-relaxed text-stone-300/90">
+            <p className="mt-4 text-sm leading-7 text-stone-300/90">
               美國紐約市立大學電腦科學博士，曾任貝爾實驗室研究員與創業公司技術主管，後加入微軟亞洲研究院，
               歷任技術轉化工程總監與副院長等職務，累積超過二十年人工智慧與雲端服務研發經驗。
               目前亦擔任 Yushan.AI 首席人工智慧科學家，專注於AI技術在實體經濟與產業升級中的應用。
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-5">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm font-semibold text-stone-100">
-                  團隊成員（示意）
+                  Kevin Vassily
                 </div>
                 <div className="text-xs text-stone-400">
-                  Senior Advisor / Partner
+                  Senior Advisor
                 </div>
               </div>
             </div>
-            <p className="mt-3 text-xs leading-relaxed text-stone-300/90">
-              此處可放入其他核心成員或顧問的背景說明，包括產業專長、過往任職機構與代表性專案，待未來名單確認後再行補充。
+            <p className="mt-4 text-sm leading-7 text-stone-300/90">
+              Kevin Vassily 具跨資本市場、金融科技與上市公司治理經驗，曾於 2021 年出任 iPower Inc.（Nasdaq: IPW）
+              的 Chief Financial Officer，並於同年加入董事會，後於 2025 年離任。加入 iPower 前，他曾擔任 Facteus 的市場發展副總裁，
+              亦曾於 Go Capture、Woodseer 與 Prometheus Fund 等機構參與策略、產品與業務發展工作，長期涉獵資本市場、
+              數據服務與跨境投資相關領域。
             </p>
           </div>
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-sm font-semibold text-stone-100">
+                  孔靖媛 Nico Kung
+                </div>
+                <div className="text-xs text-stone-400">
+                  醫美與抗衰老產業顧問
+                </div>
+                <div className="mt-1 text-[0.7rem] text-stone-400">
+                  E-mail：
+                  <TrackedEmailLink
+                    email="nico.kung@partner.inkstonecapital.com"
+                    context="team_nico_kung"
+                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
+                  />
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-stone-300/90">
+              孔靖媛女士為資深醫學美容與抗衰老領域專業人士，於醫美健康產業深耕逾二十年，
+              長期專注於醫學美容技術應用、抗衰老管理及美容健康產業發展，累積豐富的專業實務經驗與產業洞察能力。
+              其職業生涯曾於中國及韓國醫學美容相關機構從事專業工作與產業交流，熟悉亞洲醫學美容產業技術發展與市場趨勢，
+              具備跨國產業經驗與國際視野。
+            </p>
+          </div>
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-sm font-semibold text-stone-100">
+                  陳柏銘 Chen Po-Ming
+                </div>
+                <div className="text-xs text-stone-400">
+                  資源整合與跨界策展顧問
+                </div>
+                <div className="mt-1 text-[0.7rem] text-stone-400">
+                  E-mail：
+                  <TrackedEmailLink
+                    email="popoming.chen@partner.inkstonecapital.com"
+                    context="team_chen_po_ming"
+                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
+                  />
+                </div>
+              </div>
+              <a
+                href="/cv-chen-po-ming.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-stone-light/40 px-3 py-1 text-[0.7rem] text-stone-300 transition hover:border-accent-gold/70 hover:text-stone-100"
+              >
+                查看 CV
+              </a>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-stone-300/90">
+              畢業於世新大學公共傳播學系，專長資源整合、PR 規劃與跨界策展，產業經歷橫跨電影、公關、視覺科技、
+              文旅與園區開發。曾任 BD ART 弼達多媒體藝術行銷有限公司總經理、The Pan Bay 大鵬灣國際開發有限公司總管理處總監、
+              杭州晴光科技有限公司創辦人暨執行長等職務，並參與新北市電影藝術節、宜蘭國際綠色影展、文旅景區規劃與 BOT 開發案等專案。
+            </p>
+            <p className="mt-3 text-sm leading-7 text-stone-400">
+              目前掛職安泰商業銀行股份有限公司副董事長特別助理，並擔任象藝創意有限公司業務總監。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function PortfolioSection() {
+  return (
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#17191d_0%,#14161a_45%,#0f1013_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-end">
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Affiliated Companies
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+              相關公司
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
+              墨石資本長期關注人工智慧、健康科技與消費品牌等領域，以下為目前網站所介紹的相關公司與品牌。
+            </p>
+          </div>
+          <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Navigation
+            </div>
+            <p className="mt-3 leading-relaxed">
+              點擊各卡片即可前往品牌或公司官方網站，以了解其產品定位、技術方向與市場發展。
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
+          <a
+            href="https://www.yushan.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
+          >
+            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
+              AI Infrastructure
+            </div>
+            <div className="mt-3 text-base font-semibold text-stone-100">
+              Yushan.AI
+            </div>
+            <p className="mt-3 text-sm leading-7 text-stone-300/90">
+              聚焦地端大型語言模型與企業級 AI 應用，強調隱私保護、離線運作與產業落地能力。
+            </p>
+            <div className="mt-4 text-xs text-accent-gold">
+              www.yushan.ai
+            </div>
+          </a>
+          <a
+            href="https://www.docter.one/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
+          >
+            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
+              Health Technology
+            </div>
+            <div className="mt-3 text-base font-semibold text-stone-100">
+              Docter Inc.
+            </div>
+            <p className="mt-3 text-sm leading-7 text-stone-300/90">
+              以 AI 智慧照護、健康管理與非接觸式感測技術為核心，提供醫療與居家照護解決方案。
+            </p>
+            <div className="mt-4 text-xs text-accent-gold">
+              www.docter.one
+            </div>
+          </a>
+          <a
+            href="https://uncle-datou.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
+          >
+            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
+              Consumer Brand
+            </div>
+            <div className="mt-3 text-base font-semibold text-stone-100">
+              大頭叔叔
+            </div>
+            <p className="mt-3 text-sm leading-7 text-stone-300/90">
+              以創意包裝與台灣在地零食為特色的消費品牌，涵蓋爆米花、果乾與聯名商品等產品線。
+            </p>
+            <div className="mt-4 text-xs text-accent-gold">
+              uncle-datou.com
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -243,49 +635,130 @@ export function TeamSection() {
 
 export function ContactSection() {
   return (
-    <section className="bg-ink-dark">
-      <div className="mx-auto max-w-6xl px-6 py-12 lg:py-14">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-          <div>
-            <h2 className="text-lg font-semibold tracking-tight text-stone-50 sm:text-xl">
-              聯絡我們
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-stone-300/90 sm:text-base">
-              如欲進一步了解墨石資本，或分享合作與投資機會，歡迎透過電話或電子郵件與我們聯繫。
+    <section className="border-t border-stone-light/20 bg-[linear-gradient(180deg,#0d0e11_0%,#09090b_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:py-18">
+        <div className="grid gap-5 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] sm:rounded-[2.2rem] sm:p-7">
+            <div className="flex items-start justify-between gap-5">
+              <div>
+                <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
+                  Contact
+                </div>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+                  聯絡我們
+                </h2>
+              </div>
+              <div className="hidden rounded-full border border-accent-gold/35 bg-accent-gold/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-accent-gold sm:block">
+                Reach Us
+              </div>
+            </div>
+            <p className="mt-5 max-w-3xl text-sm leading-7 text-stone-300/90 sm:text-base sm:leading-8">
+              如欲進一步了解墨石資本，或分享合作與投資機會，歡迎透過電話或電子郵件與我們聯繫。我們將依需求安排後續溝通，提供更適切的交流與協作方式。
             </p>
-            <div className="mt-4 space-y-2 text-sm text-stone-300">
-              <div>
-                電話：
-                <span className="font-mono">+886 2 7755 7057</span>
+            <div className="mt-5 grid gap-3 sm:mt-6 sm:gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
+                <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                  Telephone
+                </div>
+                <div className="mt-2 font-mono text-sm text-stone-100">+886 2 7755 7057</div>
               </div>
-              <div>
-                E-mail：
-                <span className="font-mono">corp@inkstonecapital.com</span>
+              <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
+                <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                  E-mail
+                </div>
+                <div className="mt-2 text-sm">
+                  <TrackedEmailLink
+                    email="corp@inkstonecapital.com"
+                    context="contact_section"
+                    className="font-mono text-stone-100 hover:text-accent-gold"
+                  />
+                </div>
               </div>
-              <div>
-                地址：
-                <span className="font-mono">高雄市輔仁路 155 號 4 樓</span>
+              <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
+                <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                  Taiwan Office
+                </div>
+                <div className="mt-2 font-mono text-sm leading-relaxed text-stone-100">
+                  高雄市輔仁路 155 號 4 樓
+                </div>
               </div>
-              <div className="text-xs text-stone-500">
-                上述信箱為示意，可依實際聯絡方式調整。
+              <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
+                <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                  U.S. Presence
+                </div>
+                <div className="mt-2 font-mono text-sm leading-relaxed text-stone-100">
+                  Mercer Island, Washington, United States
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 rounded-[1.15rem] border border-stone-light/20 bg-black/25 p-4 sm:mt-5 sm:rounded-2xl">
+              <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                Social Media
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2.5">
+                {[
+                  ["Facebook", "https://www.facebook.com/Ifachang/", "facebook"],
+                  ["X", "https://x.com/ifachang_us", "x"],
+                  ["Threads", "https://www.threads.com/@ifachang", "threads"],
+                  ["LinkedIn", "https://www.linkedin.com/in/ifachang/", "linkedin"],
+                ].map(([label, href, platform]) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-light/25 bg-white/[0.04] text-stone-200 transition hover:border-accent-gold/70 hover:bg-accent-gold/10 hover:text-stone-50"
+                  >
+                    <SocialIcon platform={platform as "facebook" | "x" | "threads" | "linkedin"} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
-          <div className="rounded-2xl border border-stone-light/40 bg-black/40 p-4 text-xs text-stone-400">
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-500">
-              Notice
+          <div className="grid gap-4 sm:gap-5">
+            <div className="rounded-[1.7rem] border border-stone-light/28 bg-black/30 p-4 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
+              <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                Communication
+              </div>
+              <div className="mt-3 text-base font-semibold text-stone-100 sm:text-lg">
+                以需求導向安排後續接洽
+              </div>
+              <div className="mt-4 space-y-2.5 sm:space-y-3">
+                {[
+                  "初步了解服務方向與合作需求。",
+                  "釐清可公開資訊與後續討論範圍。",
+                  "由團隊評估適合的聯繫窗口與回覆節奏。",
+                ].map((item, index) => (
+                  <div
+                    key={item}
+                    className="rounded-[1.15rem] border border-stone-light/18 bg-white/[0.04] px-3.5 py-3 sm:rounded-2xl sm:px-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full border border-accent-gold/35 bg-accent-gold/10 text-[0.64rem] font-semibold text-accent-gold">
+                        0{index + 1}
+                      </span>
+                      <p className="text-[0.82rem] leading-relaxed text-stone-300/90">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <p className="mt-2 leading-relaxed">
-              本網站內容僅供一般資訊之用，不構成任何形式之證券招攬、要約或投資建議。
-              投資涉及風險，過去績效不代表未來表現。
-            </p>
+            <div className="rounded-[1.7rem] border border-stone-light/28 bg-black/35 p-4 text-xs text-stone-400 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
+              <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-500">
+                Notice
+              </div>
+              <p className="mt-3 leading-relaxed">
+                本網站內容僅供一般資訊之用，不構成任何形式之證券招攬、要約或投資建議。投資涉及風險，過去績效不代表未來表現。
+              </p>
+            </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-stone-light/40 pt-4 text-[0.7rem] text-stone-500">
+        <div className="mt-8 border-t border-stone-light/25 pt-5 text-[0.7rem] text-stone-500">
           © {new Date().getFullYear()} Inkstone Capital 墨石資本. All rights reserved.
         </div>
       </div>
     </section>
   );
 }
-
