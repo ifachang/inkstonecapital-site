@@ -54,6 +54,18 @@ const insightThemes = [
   },
 ] as const;
 
+const featuredInsight = {
+  volume: "Vol. 1",
+  title: "Direct Listing vs IPO",
+  subtitle: "當企業準備走向公開市場，選擇的不只是上市方式，更是價格形成、股東結構與市場敘事的起點。",
+  zh:
+    "Direct Listing 與傳統 IPO 的差異，不只在承銷流程，而在企業希望如何進入市場。IPO 的優勢在於承銷商可協助定價、配售與穩定初期交易，較適合需要募資、希望建立機構股東基礎，或仍需市場教育的新創與成長公司。Direct Listing 則更強調市場化定價與流動性釋放，既有股東可直接進場交易，成本結構通常更精簡，但也意味著公司必須具備更高品牌辨識度、成熟財務揭露能力，以及足以承受首日波動的投資人溝通準備。對管理層而言，真正的問題不是哪種形式較新，而是哪種方式更符合企業現階段的資本需求與敘事能力。",
+  en:
+    "The real distinction between a Direct Listing and a traditional IPO is strategic, not procedural. An IPO is often better for companies that need primary capital, want underwriter support on price discovery, and benefit from building a stable base of institutional investors before public trading begins. A Direct Listing can be more efficient and market-driven, allowing existing shareholders to sell without the same underwriting structure, but it places greater pressure on the issuer’s brand visibility, disclosure discipline, and investor communication. For management teams, the better path is not the newer format or the cheaper headline. It is the route that best matches capital needs, shareholder objectives, and the company’s readiness to let the market set the narrative from day one.",
+  imageSrc: "/insight-d-boral.png",
+  imageAlt: "D. Boral Capital official logo",
+} as const;
+
 function SocialIcon({
   platform,
   className = "h-4 w-4",
@@ -335,6 +347,52 @@ export function InsightsSection() {
             </p>
           </div>
         </div>
+
+        <article className="mb-5 overflow-hidden rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(0,0,0,0.22))] shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:mb-6 sm:rounded-[2rem]">
+          <div className="grid lg:grid-cols-[minmax(0,1.16fr)_minmax(300px,0.84fr)]">
+            <div className="p-5 sm:p-6 lg:p-7">
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="rounded-full border border-accent-gold/35 bg-accent-gold/10 px-3 py-1 text-[0.68rem] uppercase tracking-[0.18em] text-accent-gold">
+                  {featuredInsight.volume}
+                </div>
+                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">
+                  Featured Insight
+                </div>
+              </div>
+              <h3 className="mt-4 text-[1.65rem] font-semibold tracking-tight text-stone-50 sm:text-[2rem]">
+                {featuredInsight.title}
+              </h3>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-300/88 sm:text-base sm:leading-8">
+                {featuredInsight.subtitle}
+              </p>
+              <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                <div className="rounded-[1.35rem] border border-stone-light/20 bg-black/25 p-4 sm:rounded-[1.5rem]">
+                  <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">中文</div>
+                  <p className="mt-3 text-sm leading-7 text-stone-200/92">{featuredInsight.zh}</p>
+                </div>
+                <div className="rounded-[1.35rem] border border-stone-light/20 bg-black/25 p-4 sm:rounded-[1.5rem]">
+                  <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">English</div>
+                  <p className="mt-3 text-sm leading-7 text-stone-200/92">{featuredInsight.en}</p>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-stone-light/15 bg-[radial-gradient(circle_at_top,rgba(196,161,90,0.18),transparent_58%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.16))] p-5 lg:border-l lg:border-t-0 lg:p-7">
+              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">Illustration</div>
+              <div className="relative mt-4 aspect-[16/10] rounded-[1.45rem] border border-stone-light/20 bg-black/35">
+                <Image
+                  src={featuredInsight.imageSrc}
+                  alt={featuredInsight.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 28vw, 100vw"
+                  className="object-contain p-6 sm:p-8"
+                />
+              </div>
+              <div className="mt-4 text-xs leading-6 text-stone-400">
+                Visual reference sourced from D. Boral Capital’s official site and used here as an illustrative market-facing brand element for this topic.
+              </div>
+            </div>
+          </div>
+        </article>
 
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1.04fr)_minmax(320px,0.96fr)]">
           <div className="grid gap-4 sm:gap-5">
