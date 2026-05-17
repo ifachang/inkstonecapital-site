@@ -3,6 +3,7 @@ import { Hero } from "../components/Hero";
 import {
   AboutSection,
   ContactSection,
+  InsightsSection,
   OverviewSection,
 } from "../components/Sections";
 import { SiteHeader } from "../components/SiteHeader";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Hero />
       <AboutSection />
       <OverviewSection />
+      <InsightsSection />
       <div id="contact">
         <ContactSection />
       </div>

@@ -6,6 +6,7 @@ const navItems = [
   { href: "/services/", label: "服務" },
   { href: "/team/", label: "團隊" },
   { href: "/companies/", label: "相關公司" },
+  { href: "/#insights", label: "觀點與動態" },
   { href: "/news/", label: "最新消息" },
   { href: "/#contact", label: "聯絡" },
 ];
@@ -57,6 +58,26 @@ export function SiteHeader({ currentPath = "/" }: { currentPath?: string }) {
                   active
                     ? "rounded-full border border-accent-gold/50 bg-accent-gold/12 px-4 py-2 text-xs font-medium text-accent-gold"
                     : "rounded-full border border-transparent px-4 py-2 text-xs font-medium text-stone-300 transition hover:border-stone-light/50 hover:bg-white/5 hover:text-stone-100"
+                }
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+      <div className="border-t border-stone-light/10 md:hidden">
+        <nav className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-3 text-sm [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {navItems.map((item) => {
+            const active = item.href === currentPath;
+            return (
+              <Link
+                key={`${item.href}-mobile`}
+                href={item.href}
+                className={
+                  active
+                    ? "whitespace-nowrap rounded-full border border-accent-gold/50 bg-accent-gold/12 px-3.5 py-2 text-xs font-medium text-accent-gold"
+                    : "whitespace-nowrap rounded-full border border-stone-light/20 bg-white/[0.03] px-3.5 py-2 text-xs font-medium text-stone-300 transition hover:border-stone-light/50 hover:bg-white/5 hover:text-stone-100"
                 }
               >
                 {item.label}

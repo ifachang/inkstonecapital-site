@@ -1,6 +1,58 @@
+import Image from "next/image";
 import Link from "next/link";
 import newsItems from "../data/news.json";
 import { TrackedEmailLink } from "./TrackedEmailLink";
+
+const affiliatedCompanies = [
+  {
+    href: "https://www.yushan.ai/",
+    category: "AI Infrastructure",
+    name: "Yushan.AI",
+    description:
+      "聚焦地端大型語言模型與企業級 AI 應用，強調隱私保護、離線運作與產業落地能力。",
+    domain: "www.yushan.ai",
+    imageSrc: "/company-yushan-ai.png",
+    imageAlt: "Yushan.AI official logo",
+    imageClassName: "object-contain p-8 sm:p-10",
+  },
+  {
+    href: "https://www.docter.one/",
+    category: "Health Technology",
+    name: "Docter Inc.",
+    description:
+      "以 AI 智慧照護、健康管理與非接觸式感測技術為核心，提供醫療與居家照護解決方案。",
+    domain: "www.docter.one",
+    imageSrc: "/company-docter.jpg",
+    imageAlt: "Docter official company image",
+    imageClassName: "object-cover",
+  },
+  {
+    href: "https://uncle-datou.com/",
+    category: "Consumer Brand",
+    name: "大頭叔叔",
+    description:
+      "以創意包裝與台灣在地零食為特色的消費品牌，涵蓋爆米花、果乾與聯名商品等產品線。",
+    domain: "uncle-datou.com",
+    imageSrc: "/company-uncle-datou.webp",
+    imageAlt: "大頭叔叔 official product image",
+    imageClassName: "object-cover",
+  },
+] as const;
+
+const insightThemes = [
+  {
+    label: "Capital View",
+    title: "跨境資本市場不只是募資窗口，更是企業治理與節奏重整的起點",
+    body:
+      "墨石資本關注的不僅是交易是否完成，更在於企業是否已準備好承接更高密度的資訊揭露、跨市場溝通與長期資本配置要求。",
+  },
+  {
+    label: "Industry Signal",
+    title: "AI、健康科技與消費品牌的下一輪競爭，將回到可驗證的商業化能力",
+    body:
+      "無論是模型、產品或品牌聲量，最終仍需回到市場接受度、營運效率與擴張路徑。這也是我們觀察相關公司與產業節點時的核心判準。",
+  },
+] as const;
 
 function SocialIcon({
   platform,
@@ -243,6 +295,102 @@ export function OverviewSection() {
                   </div>
                   <div className="text-sm font-medium text-stone-100">{item.title}</div>
                   <div className="mt-1 text-xs text-stone-400">{item.source}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function InsightsSection() {
+  const latestUpdates = newsItems.slice(0, 3);
+
+  return (
+    <section
+      id="insights"
+      className="border-b border-stone-light/40 bg-[radial-gradient(circle_at_top_right,rgba(196,161,90,0.16),transparent_24%),linear-gradient(180deg,#0f1013_0%,#131519_44%,#191b20_100%)]"
+    >
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-end">
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Insights & Updates
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+              觀點與動態
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
+              用較精煉的方式整理墨石資本對產業與資本市場的觀察，同時收錄近期公開動態，讓訪客更快掌握我們正在關注的議題與節奏。
+            </p>
+          </div>
+          <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Editorial Use
+            </div>
+            <p className="mt-3 leading-relaxed">
+              這個區塊適合後續持續新增產業短評、交易觀察、媒體露出與墨石最新進展，作為品牌內容更新的固定入口。
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1.04fr)_minmax(320px,0.96fr)]">
+          <div className="grid gap-4 sm:gap-5">
+            {insightThemes.map((item, index) => (
+              <article
+                key={item.title}
+                className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-6"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">
+                    {item.label}
+                  </div>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-accent-gold/30 bg-accent-gold/10 text-[0.72rem] font-semibold text-accent-gold">
+                    0{index + 1}
+                  </div>
+                </div>
+                <h3 className="mt-4 text-lg font-semibold leading-8 text-stone-50 sm:text-[1.35rem]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-stone-300/90 sm:text-[0.95rem] sm:leading-8">
+                  {item.body}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-black/35 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-6">
+            <div className="flex items-center justify-between gap-4 border-b border-stone-light/15 pb-4">
+              <div>
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Recent Updates
+                </div>
+                <div className="mt-2 text-xl font-semibold text-stone-50">
+                  墨石近期動態
+                </div>
+              </div>
+              <Link href="/news/" className="text-xs text-accent-gold">
+                查看全部
+              </Link>
+            </div>
+            <div className="mt-5 space-y-3">
+              {latestUpdates.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-2xl border border-stone-light/20 bg-white/[0.03] px-4 py-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
+                >
+                  <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                    Update
+                  </div>
+                  <div className="mt-2 text-sm font-medium leading-7 text-stone-100">
+                    {item.title}
+                  </div>
+                  <div className="mt-2 text-xs text-stone-400">{item.source}</div>
                 </a>
               ))}
             </div>
@@ -570,63 +718,33 @@ export function PortfolioSection() {
           </div>
         </div>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
-          <a
-            href="https://www.yushan.ai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
-          >
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-              AI Infrastructure
-            </div>
-            <div className="mt-3 text-base font-semibold text-stone-100">
-              Yushan.AI
-            </div>
-            <p className="mt-3 text-sm leading-7 text-stone-300/90">
-              聚焦地端大型語言模型與企業級 AI 應用，強調隱私保護、離線運作與產業落地能力。
-            </p>
-            <div className="mt-4 text-xs text-accent-gold">
-              www.yushan.ai
-            </div>
-          </a>
-          <a
-            href="https://www.docter.one/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
-          >
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-              Health Technology
-            </div>
-            <div className="mt-3 text-base font-semibold text-stone-100">
-              Docter Inc.
-            </div>
-            <p className="mt-3 text-sm leading-7 text-stone-300/90">
-              以 AI 智慧照護、健康管理與非接觸式感測技術為核心，提供醫療與居家照護解決方案。
-            </p>
-            <div className="mt-4 text-xs text-accent-gold">
-              www.docter.one
-            </div>
-          </a>
-          <a
-            href="https://uncle-datou.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
-          >
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-              Consumer Brand
-            </div>
-            <div className="mt-3 text-base font-semibold text-stone-100">
-              大頭叔叔
-            </div>
-            <p className="mt-3 text-sm leading-7 text-stone-300/90">
-              以創意包裝與台灣在地零食為特色的消費品牌，涵蓋爆米花、果乾與聯名商品等產品線。
-            </p>
-            <div className="mt-4 text-xs text-accent-gold">
-              uncle-datou.com
-            </div>
-          </a>
+          {affiliatedCompanies.map((company) => (
+            <a
+              key={company.name}
+              href={company.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block overflow-hidden rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/80 hover:bg-white/[0.04]"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-stone-light/15 bg-[radial-gradient(circle_at_top,rgba(196,161,90,0.18),transparent_55%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(0,0,0,0.08))]">
+                <Image
+                  src={company.imageSrc}
+                  alt={company.imageAlt}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className={`${company.imageClassName} transition duration-500 group-hover:scale-[1.03]`}
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
+                  {company.category}
+                </div>
+                <div className="mt-3 text-base font-semibold text-stone-100">{company.name}</div>
+                <p className="mt-3 text-sm leading-7 text-stone-300/90">{company.description}</p>
+                <div className="mt-4 text-xs text-accent-gold">{company.domain}</div>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
