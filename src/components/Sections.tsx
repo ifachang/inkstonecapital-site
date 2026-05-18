@@ -459,6 +459,129 @@ export function InsightsSection() {
   );
 }
 
+export function HomeShowcaseSection() {
+  const latestUpdates = newsItems.slice(0, 2);
+  const advisoryTracks = [
+    {
+      label: "01",
+      title: "交易與重組",
+      body: "協助企業釐清併購、整合、股權調整與跨境交易的可行架構。",
+      href: "/services/",
+    },
+    {
+      label: "02",
+      title: "融資與資本規劃",
+      body: "依企業階段配置私募、過橋融資、策略投資人與長期資本市場路徑。",
+      href: "/services/",
+    },
+    {
+      label: "03",
+      title: "產業與生態連結",
+      body: "聚焦 AI、健康科技與消費品牌等主題，串接企業成長所需資源。",
+      href: "/companies/",
+    },
+  ];
+
+  return (
+    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#15161a_0%,#101115_52%,#0d0e11_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-7 flex flex-col gap-4 sm:mb-9 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
+              What We Build Around
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+              從資本結構到產業落地，形成可延展的成長路徑
+            </h2>
+            <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
+              首頁以更精簡的方式呈現墨石資本的核心工作面向，讓訪客能快速理解服務、團隊、相關公司與最新動態之間的關聯。
+            </p>
+          </div>
+          <Link
+            href="/services/"
+            className="inline-flex w-fit rounded-full border border-accent-gold/45 bg-accent-gold/10 px-5 py-2.5 text-sm font-medium text-accent-gold transition hover:border-accent-gold hover:bg-accent-gold/15"
+          >
+            查看完整服務
+          </Link>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {advisoryTracks.map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="group rounded-[1.6rem] border border-stone-light/25 bg-white/[0.035] p-5 transition hover:border-accent-gold/70 hover:bg-white/[0.055] sm:p-6"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[0.68rem] uppercase tracking-[0.2em] text-accent-gold">
+                  {item.label}
+                </span>
+                <span className="text-sm text-stone-500 transition group-hover:text-accent-gold">
+                  →
+                </span>
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-stone-50">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-stone-300/88">{item.body}</p>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]">
+          <div className="rounded-[1.8rem] border border-stone-light/25 bg-[linear-gradient(135deg,rgba(196,161,90,0.14),rgba(255,255,255,0.035)_42%,rgba(0,0,0,0.18))] p-5 sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Featured Perspective
+            </div>
+            <h3 className="mt-3 text-xl font-semibold tracking-tight text-stone-50 sm:text-2xl">
+              {featuredInsight.title}
+            </h3>
+            <p className="mt-3 text-sm leading-8 text-stone-300/90">
+              {featuredInsight.subtitle}
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {insightThemes.map((item) => (
+                <div key={item.title} className="rounded-2xl border border-stone-light/20 bg-black/20 p-4">
+                  <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                    {item.label}
+                  </div>
+                  <p className="mt-2 text-sm leading-7 text-stone-200/90">{item.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[1.8rem] border border-stone-light/25 bg-black/28 p-5 sm:p-6">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+                  Recent Updates
+                </div>
+                <h3 className="mt-2 text-xl font-semibold text-stone-50">最新動態摘要</h3>
+              </div>
+              <Link href="/news/" className="text-xs text-accent-gold">
+                全部消息
+              </Link>
+            </div>
+            <div className="mt-5 space-y-3">
+              {latestUpdates.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-2xl border border-stone-light/18 bg-white/[0.035] px-4 py-4 transition hover:border-accent-gold/70 hover:bg-white/[0.055]"
+                >
+                  <div className="text-sm font-medium leading-7 text-stone-100">{item.title}</div>
+                  <div className="mt-1 text-xs text-stone-400">{item.source}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function StrategySection() {
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#111216_0%,#14161a_48%,#1b1d21_100%)]">
@@ -530,6 +653,44 @@ export function StrategySection() {
             <p className="mt-3 text-sm leading-7 text-stone-300/90">
               依產業屬性與公司階段，協助評估適合的資本市場（含美股與亞洲市場），並規劃上市前準備與持續性資訊揭露。
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function ServiceProcessSection() {
+  const steps = [
+    ["01", "Initial Review", "釐清公司階段、股權結構、資金需求與策略目標。"],
+    ["02", "Structure Design", "設計交易架構、投資條件、時程與關鍵文件需求。"],
+    ["03", "Market Alignment", "協調投資人、策略夥伴、顧問與跨境資源。"],
+    ["04", "Execution Support", "支援談判、溝通、節奏管理與後續資本市場準備。"],
+  ];
+
+  return (
+    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#1b1d21_0%,#111216_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
+              Engagement Model
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+              以階段式流程降低交易不確定性
+            </h2>
+            <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
+              墨石資本的工作重點不只在於提出方案，更在於將策略轉換為可執行的節奏、文件、溝通對象與資本市場準備。
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {steps.map(([index, title, body]) => (
+              <div key={title} className="rounded-[1.35rem] border border-stone-light/22 bg-white/[0.035] p-5">
+                <div className="text-[0.68rem] font-semibold text-accent-gold">{index}</div>
+                <h3 className="mt-3 text-base font-semibold text-stone-100">{title}</h3>
+                <p className="mt-2 text-sm leading-7 text-stone-300/88">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -750,6 +911,45 @@ export function TeamSection() {
   );
 }
 
+export function TeamOperatingSection() {
+  const capabilities = [
+    ["Capital Markets", "資本市場與上市規劃判斷"],
+    ["Technology", "AI 與新經濟產業理解"],
+    ["Health & Consumer", "健康科技、醫美與消費品牌洞察"],
+    ["Cross-Functional", "資源整合、品牌、內容與合作推進"],
+  ];
+
+  return (
+    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#17191d_0%,#101115_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div className="rounded-[1.8rem] border border-stone-light/25 bg-white/[0.035] p-5 sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
+              How We Work
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+              以多元專業形成共同決策框架
+            </h2>
+            <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
+              團隊分工以議題為核心，依專案需求組合資本市場、技術、產業與品牌資源，讓策略判斷與實際執行能保持一致。
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {capabilities.map(([title, body]) => (
+              <div key={title} className="rounded-[1.25rem] border border-stone-light/22 bg-black/24 p-4">
+                <div className="text-[0.64rem] uppercase tracking-[0.18em] text-accent-gold">
+                  {title}
+                </div>
+                <div className="mt-2 text-sm leading-7 text-stone-200">{body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function PortfolioSection() {
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#17191d_0%,#14161a_45%,#0f1013_100%)]">
@@ -802,6 +1002,43 @@ export function PortfolioSection() {
                 <div className="mt-4 text-xs text-accent-gold">{company.domain}</div>
               </div>
             </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function CompanyEcosystemSection() {
+  const themes = [
+    ["AI Infrastructure", "Yushan.AI", "地端模型、企業 AI、資料安全與產業應用。"],
+    ["Health Technology", "Docter Inc.", "非接觸式感測、智慧照護與健康管理場景。"],
+    ["Consumer Brand", "大頭叔叔", "在地食品品牌、創意包裝與消費市場拓展。"],
+  ];
+
+  return (
+    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#0f1013_0%,#15161a_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="mb-7 max-w-3xl">
+          <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
+            Ecosystem Map
+          </div>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+            以產業主題理解相關公司的策略位置
+          </h2>
+          <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
+            相關公司不是單純名單，而是墨石資本關注的產業方向：技術基礎、健康服務與消費品牌如何進入可擴張的商業化階段。
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {themes.map(([theme, company, body]) => (
+            <div key={theme} className="rounded-[1.5rem] border border-stone-light/24 bg-white/[0.035] p-5">
+              <div className="text-[0.64rem] uppercase tracking-[0.18em] text-accent-gold">
+                {theme}
+              </div>
+              <h3 className="mt-3 text-lg font-semibold text-stone-50">{company}</h3>
+              <p className="mt-3 text-sm leading-7 text-stone-300/90">{body}</p>
+            </div>
           ))}
         </div>
       </div>

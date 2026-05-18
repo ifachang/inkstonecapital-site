@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ContactSection, TeamSection } from "../../components/Sections";
+import {
+  ContactSection,
+  TeamOperatingSection,
+  TeamSection,
+} from "../../components/Sections";
 import { PageLead, SiteHeader } from "../../components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -54,6 +58,7 @@ export default function TeamPage() {
         }
       />
       <TeamSection />
+      <TeamOperatingSection />
       <ContactSection />
     </main>
   );

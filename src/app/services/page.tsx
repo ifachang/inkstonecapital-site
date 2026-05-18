@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { ContactSection, StrategySection } from "../../components/Sections";
+import {
+  ContactSection,
+  ServiceProcessSection,
+  StrategySection,
+} from "../../components/Sections";
 import { PageLead, SiteHeader } from "../../components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -109,6 +113,7 @@ export default function ServicesPage() {
         }
       />
       <StrategySection />
+      <ServiceProcessSection />
       <ContactSection />
     </main>
   );

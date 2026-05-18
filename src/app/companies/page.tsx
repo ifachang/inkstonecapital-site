@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { ContactSection, PortfolioSection } from "../../components/Sections";
+import {
+  CompanyEcosystemSection,
+  ContactSection,
+  PortfolioSection,
+} from "../../components/Sections";
 import { PageLead, SiteHeader } from "../../components/SiteHeader";
 
 export const metadata: Metadata = {
@@ -33,6 +37,7 @@ export default function CompaniesPage() {
         ]}
       />
       <PortfolioSection />
+      <CompanyEcosystemSection />
       <ContactSection />
     </main>
   );
