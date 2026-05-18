@@ -21,9 +21,8 @@ const operatingStats = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-stone-light/40 bg-[radial-gradient(circle_at_top_left,rgba(196,161,90,0.22),transparent_22%),radial-gradient(circle_at_80%_18%,rgba(255,255,255,0.08),transparent_18%),linear-gradient(180deg,#050506_0%,#0a0a0b_44%,#16171a_100%)]">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px] opacity-30" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent-gold/10 to-transparent" />
+    <section className="relative overflow-hidden border-b border-stone-light/30 bg-[linear-gradient(180deg,#050506_0%,#0b0b0d_48%,#15161a_100%)]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_18%_0%,rgba(196,161,90,0.16),transparent_34%)]" />
       <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-18 lg:py-24">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-start lg:gap-8">
           <div className="space-y-6 sm:space-y-8">
@@ -50,7 +49,7 @@ export function Hero() {
               {operatingStats.map((item, index) => (
                 <div
                   key={item.label}
-                  className={`rounded-[1.15rem] border border-stone-light/30 bg-black/30 p-3.5 shadow-[0_16px_35px_rgba(0,0,0,0.25)] sm:rounded-2xl sm:p-4 ${
+                  className={`rounded-xl border border-stone-light/25 bg-white/[0.035] p-3.5 sm:p-4 ${
                     index === operatingStats.length - 1 ? "col-span-2 sm:col-span-1" : ""
                   }`}
                 >
@@ -65,7 +64,7 @@ export function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Link
                 href="/#contact"
-                className="w-full rounded-full bg-accent-gold px-6 py-3 text-center text-sm font-semibold text-ink-dark shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5 hover:bg-[#d3af67] sm:w-auto"
+                className="w-full rounded-full bg-accent-gold px-6 py-3 text-center text-sm font-semibold text-ink-dark transition hover:-translate-y-0.5 hover:bg-[#d3af67] sm:w-auto"
               >
                 與我們交流
               </Link>
@@ -79,33 +78,17 @@ export function Hero() {
           </div>
 
           <div className="relative">
-            <div className="absolute -left-8 top-12 hidden h-40 w-40 rounded-full bg-accent-gold/12 blur-3xl lg:block" />
-            <div className="rounded-[1.45rem] border border-stone-light/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(0,0,0,0.16))] p-3 shadow-[0_28px_80px_rgba(0,0,0,0.45)] sm:rounded-[2rem] sm:p-5">
-              <div className="overflow-hidden rounded-[1.35rem] border border-stone-light/25 bg-black/35 sm:rounded-[1.6rem]">
-                <div className="relative aspect-[5/6] min-h-[320px] sm:aspect-[4/5] sm:min-h-[420px]">
-                  <Image
-                    src="/inkstone-home-lobby.jpeg"
-                    alt="Inkstone Capital office lobby wall with company logo"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(min-width: 1024px) 40vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
-                    <div className="inline-flex rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[0.68rem] uppercase tracking-[0.2em] text-stone-200 backdrop-blur-sm">
-                      Brand Presence
-                    </div>
-                    <div className="mt-3 max-w-md sm:mt-4">
-                      <div className="text-base font-semibold text-stone-50 sm:text-2xl">
-                        Inkstone Capital
-                      </div>
-                      <p className="mt-1.5 text-[0.9rem] leading-6 text-stone-200/88 sm:mt-2 sm:text-[0.95rem]">
-                        以實際空間與品牌識別，呈現墨石資本穩健、克制且具國際視野的顧問定位。
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            <div className="overflow-hidden rounded-[1.35rem] border border-stone-light/30 bg-black/25 sm:rounded-[1.75rem]">
+              <div className="relative aspect-[5/6] min-h-[320px] sm:aspect-[4/5] sm:min-h-[420px]">
+                <Image
+                  src="/inkstone-home-lobby.jpeg"
+                  alt="Inkstone Capital office lobby wall with company logo"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-transparent" />
               </div>
             </div>
           </div>

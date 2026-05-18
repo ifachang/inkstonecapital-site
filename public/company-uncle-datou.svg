@@ -1,0 +1,21 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#14100F"/>
+  <rect x="64" y="64" width="1072" height="592" rx="36" fill="url(#paint0_linear)"/>
+  <rect x="154" y="130" width="270" height="148" rx="28" fill="rgba(31,16,11,0.38)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="192" y="188" fill="#FFF1D9" font-family="Arial, sans-serif" font-size="48" font-weight="700">大頭叔叔</text>
+  <text x="192" y="230" fill="#E8BA77" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">CONSUMER BRAND</text>
+  <circle cx="902" cy="212" r="92" fill="rgba(255,255,255,0.08)"/>
+  <path d="M848 206C848 168 878 138 916 138C954 138 984 168 984 206C984 244 954 274 916 274H902C872 274 848 250 848 220V206Z" fill="#FFD48A"/>
+  <path d="M854 306C902 278 946 280 992 306" stroke="#FFB24B" stroke-width="18" stroke-linecap="round"/>
+  <path d="M186 520C274 454 352 420 442 420C559 420 624 530 742 530C844 530 934 472 1042 382" stroke="#FFB24B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M186 566C300 538 380 492 478 492C596 492 668 586 790 586C878 586 964 546 1042 486" stroke="rgba(255,255,255,0.28)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 14"/>
+  <rect x="760" y="458" width="244" height="102" rx="22" fill="rgba(31,16,11,0.38)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="796" y="500" fill="#FFD48A" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">TAIWAN SNACKS</text>
+  <text x="796" y="536" fill="#FFF1D9" font-family="Arial, sans-serif" font-size="28" font-weight="700">Creative Packaging</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="87" y1="95" x2="1117" y2="617" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38221A"/>
+      <stop offset="1" stop-color="#171110"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#0D1114"/>
+  <rect x="64" y="64" width="1072" height="592" rx="36" fill="url(#paint0_linear)"/>
+  <rect x="160" y="142" width="246" height="144" rx="28" fill="rgba(10,15,20,0.45)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="196" y="196" fill="#F2FAFF" font-family="Arial, sans-serif" font-size="50" font-weight="700">Docter</text>
+  <text x="196" y="236" fill="#A9BAC5" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">HEALTH TECHNOLOGY</text>
+  <circle cx="885" cy="210" r="96" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="885" cy="210" r="64" fill="rgba(255,255,255,0.08)"/>
+  <path d="M885 162V258" stroke="#E7F7FF" stroke-width="16" stroke-linecap="round"/>
+  <path d="M837 210H933" stroke="#E7F7FF" stroke-width="16" stroke-linecap="round"/>
+  <path d="M212 502C289 434 363 402 454 402C566 402 620 508 720 508C821 508 900 416 1050 332" stroke="#79E5FF" stroke-width="9" stroke-linecap="round"/>
+  <path d="M212 548C326 520 415 468 514 468C625 468 690 574 798 574C894 574 969 515 1050 446" stroke="rgba(255,255,255,0.3)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 14"/>
+  <rect x="760" y="462" width="252" height="96" rx="22" fill="rgba(10,15,20,0.42)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="796" y="504" fill="#79E5FF" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">AI CARE</text>
+  <text x="796" y="538" fill="#F2FAFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Smart Monitoring</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="87" y1="95" x2="1117" y2="617" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10252D"/>
+      <stop offset="1" stop-color="#0E1317"/>
+    </linearGradient>
+  </defs>
+</svg>

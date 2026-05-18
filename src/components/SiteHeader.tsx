@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 const navItems = [
   { href: "/", label: "首頁" },
@@ -106,6 +107,7 @@ export function PageLead({
     { label: "Focused", value: "重點內容清晰導覽" },
     { label: "Scalable", value: "支援後續內容擴充" },
   ],
+  visual,
 }: {
   eyebrow: string;
   title: string;
@@ -114,12 +116,13 @@ export function PageLead({
   summaryTitle?: string;
   summaryPoints?: string[];
   highlights?: Array<{ label: string; value: string }>;
+  visual?: ReactNode;
 }) {
   return (
-    <section className="border-b border-stone-light/40 bg-[radial-gradient(circle_at_top_left,rgba(196,161,90,0.18),transparent_24%),linear-gradient(180deg,#050506_0%,#0a0a0b_62%,#1e1f23_100%)]">
+    <section className="border-b border-stone-light/30 bg-[linear-gradient(180deg,#050506_0%,#101116_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-        <div className="grid gap-5 sm:gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] lg:items-end">
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(0,0,0,0.18))] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)] sm:rounded-[2.2rem] sm:p-7">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)] lg:items-end">
+          <div>
             <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-400 sm:text-[0.7rem] sm:tracking-[0.24em]">
               {eyebrow}
             </div>
@@ -133,7 +136,7 @@ export function PageLead({
               {highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-[1.15rem] border border-stone-light/20 bg-black/25 px-4 py-3.5 sm:rounded-2xl sm:py-4"
+                  className="rounded-xl border border-stone-light/20 bg-white/[0.035] px-4 py-3.5 sm:py-4"
                 >
                   <div className="text-[0.62rem] uppercase tracking-[0.16em] text-stone-500 sm:text-[0.64rem] sm:tracking-[0.18em]">
                     {item.label}
@@ -143,7 +146,7 @@ export function PageLead({
               ))}
             </div>
           </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.28)] sm:rounded-[2.2rem] sm:p-5">
+          <div className="rounded-[1.35rem] border border-stone-light/25 bg-white/[0.035] p-4 text-sm text-stone-300 sm:rounded-[1.75rem] sm:p-5">
             <div className="flex items-start justify-between gap-4 border-b border-stone-light/15 pb-4">
               <div>
                 <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500 sm:text-[0.68rem] sm:tracking-[0.22em]">Perspective</div>
@@ -153,14 +156,11 @@ export function PageLead({
                 {summaryLabel}
               </div>
             </div>
-            <p className="mt-4 text-[0.92rem] leading-7 sm:text-sm sm:leading-relaxed">
-              墨石資本以結構化思維整合企業發展、資本市場與跨境資源，協助客戶在關鍵階段掌握更清楚的決策節奏。
-            </p>
             <div className="mt-4 space-y-2.5 sm:space-y-3">
               {summaryPoints.map((item, index) => (
                 <div
                   key={item}
-                  className="rounded-[1.15rem] border border-stone-light/18 bg-white/[0.04] px-3.5 py-3 sm:rounded-2xl sm:px-4"
+                  className="rounded-xl border border-stone-light/15 bg-black/18 px-3.5 py-3 sm:px-4"
                 >
                   <div className="flex items-center gap-3">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full border border-accent-gold/35 bg-accent-gold/10 text-[0.64rem] font-semibold text-accent-gold">
@@ -171,6 +171,7 @@ export function PageLead({
                 </div>
               ))}
             </div>
+            {visual ? <div className="mt-4 sm:mt-5">{visual}</div> : null}
           </div>
         </div>
       </div>

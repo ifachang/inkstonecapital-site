@@ -1,0 +1,22 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="48" fill="#0C1118"/>
+  <rect x="64" y="64" width="1072" height="592" rx="36" fill="url(#paint0_linear)"/>
+  <path d="M158 502C280 402 373 283 514 283C673 283 703 463 844 463C940 463 1003 414 1071 350" stroke="#F3D07D" stroke-width="10" stroke-linecap="round"/>
+  <path d="M158 552C273 494 402 430 514 430C662 430 744 523 844 523C935 523 1007 485 1071 446" stroke="rgba(255,255,255,0.28)" stroke-width="6" stroke-linecap="round" stroke-dasharray="12 16"/>
+  <circle cx="514" cy="283" r="18" fill="#F3D07D"/>
+  <circle cx="844" cy="463" r="18" fill="#F3D07D"/>
+  <circle cx="1071" cy="350" r="18" fill="#F3D07D"/>
+  <rect x="158" y="138" width="198" height="120" rx="24" fill="rgba(7,12,17,0.46)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="192" y="188" fill="#EAF1FF" font-family="Arial, sans-serif" font-size="48" font-weight="700">Yushan.AI</text>
+  <text x="192" y="224" fill="#AAB6D1" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">AI INFRASTRUCTURE</text>
+  <rect x="824" y="138" width="212" height="126" rx="24" fill="rgba(7,12,17,0.42)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="856" y="186" fill="#F3D07D" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">ON-PREM LLM</text>
+  <text x="856" y="220" fill="#EAF1FF" font-family="Arial, sans-serif" font-size="30" font-weight="700">Private AI</text>
+  <text x="856" y="252" fill="#B4BECE" font-family="Arial, sans-serif" font-size="22">Enterprise deployment</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="84" y1="94" x2="1099" y2="633" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#142033"/>
+      <stop offset="1" stop-color="#0A0F16"/>
+    </linearGradient>
+  </defs>
+</svg>
