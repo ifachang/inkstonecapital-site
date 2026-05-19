@@ -4,6 +4,7 @@ import {
   AboutSection,
   ContactSection,
   HomeShowcaseSection,
+  InsightsSection,
 } from "../components/Sections";
 import { SiteHeader } from "../components/SiteHeader";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Hero />
       <AboutSection />
       <HomeShowcaseSection />
+      <InsightsSection />
       <div id="contact">
         <ContactSection />
       </div>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { insightItems } from "../data/insights";
 
 const siteUrl = "https://www.inkstonecapital.com";
 
@@ -38,5 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...insightItems.map((item) => ({
+      url: `${siteUrl}/insights/${item.slug}/`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.72,
+    })),
   ];
 }

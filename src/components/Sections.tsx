@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { insightItems } from "../data/insights";
 import newsItems from "../data/news.json";
 import { TrackedEmailLink } from "./TrackedEmailLink";
 
@@ -38,33 +39,6 @@ const affiliatedCompanies = [
     imageClassName: "object-cover",
   },
 ] as const;
-
-const insightThemes = [
-  {
-    label: "Capital View",
-    title: "跨境資本市場不只是募資窗口，更是企業治理與節奏重整的起點",
-    body:
-      "墨石資本關注的不僅是交易是否完成，更在於企業是否已準備好承接更高密度的資訊揭露、跨市場溝通與長期資本配置要求。",
-  },
-  {
-    label: "Industry Signal",
-    title: "AI、健康科技與消費品牌的下一輪競爭，將回到可驗證的商業化能力",
-    body:
-      "無論是模型、產品或品牌聲量，最終仍需回到市場接受度、營運效率與擴張路徑。這也是我們觀察相關公司與產業節點時的核心判準。",
-  },
-] as const;
-
-const featuredInsight = {
-  volume: "Vol. 2",
-  title: "Musk 訴 OpenAI 與 Microsoft 案受挫：真正的關鍵竟是提出告訴太晚",
-  subtitle: "2026 年 5 月 18 日，美國加州奧克蘭聯邦陪審團一致認定，Elon Musk 對 OpenAI、Sam Altman、Greg Brockman 與 Microsoft 的相關請求已逾越時效。這使案件在進入實體爭點前即遭遇重大挫敗。",
-  zh:
-    "這起案件的啟示，不在於 OpenAI 與 Microsoft 的商業模式是否已被法院實質認定，而在於大型科技公司與創辦人、投資人、合作夥伴之間的爭議，往往會先被程序問題篩選。若一方長期知悉公司架構、投資關係或商業轉向，卻未在法定期間內主張權利，即使其敘事在輿論上具有聲量，也可能因時效抗辯而無法進入核心爭點。對企業而言，治理文件、權利保留、董事會紀錄與關鍵決策時間線，並不是行政細節，而是未來資本市場與爭議處理中的防線。",
-  en:
-    "The lesson is procedural as much as strategic. A high-profile founder dispute can still fail before the court reaches the commercial merits if the claims are brought outside the applicable limitations period. For companies preparing for financing, restructuring, or public-market scrutiny, the timeline of knowledge, board records, rights reservations, and governance documents can become as important as the business narrative itself.",
-  imageSrc: "/advisory-boardroom.png",
-  imageAlt: "Modern boardroom with financial documents and capital markets materials",
-} as const;
 
 function SocialIcon({
   platform,
@@ -319,6 +293,7 @@ export function OverviewSection() {
 
 export function InsightsSection() {
   const latestUpdates = newsItems.slice(0, 3);
+  const [featuredInsight, ...archiveInsights] = insightItems;
 
   return (
     <section
@@ -356,24 +331,33 @@ export function InsightsSection() {
                   {featuredInsight.volume}
                 </div>
                 <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">
-                  Featured Insight
-                </div>
+                Featured Insight
               </div>
+            </div>
               <h3 className="mt-4 text-[1.65rem] font-semibold tracking-tight text-stone-50 sm:text-[2rem]">
                 {featuredInsight.title}
               </h3>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-stone-300/88 sm:text-base sm:leading-8">
                 {featuredInsight.subtitle}
               </p>
-              <div className="mt-5 grid gap-4 lg:grid-cols-2">
-                <div className="rounded-[1.35rem] border border-stone-light/20 bg-black/25 p-4 sm:rounded-[1.5rem]">
-                  <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">中文</div>
-                  <p className="mt-3 text-sm leading-7 text-stone-200/92">{featuredInsight.zh}</p>
-                </div>
-                <div className="rounded-[1.35rem] border border-stone-light/20 bg-black/25 p-4 sm:rounded-[1.5rem]">
-                  <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">English</div>
-                  <p className="mt-3 text-sm leading-7 text-stone-200/92">{featuredInsight.en}</p>
-                </div>
+              <p className="mt-5 text-sm leading-8 text-stone-200/92 sm:text-base">
+                {featuredInsight.zh}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href={`/insights/${featuredInsight.slug}/`}
+                  className="rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-ink-dark transition hover:bg-[#d3af67]"
+                >
+                  閱讀完整文章
+                </Link>
+                <a
+                  href={featuredInsight.sources[0]?.href ?? "/news/"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-stone-light/35 px-5 py-2.5 text-sm font-medium text-stone-200 transition hover:border-accent-gold/70 hover:text-stone-50"
+                >
+                  查看外部來源
+                </a>
               </div>
             </div>
             <div className="border-t border-stone-light/15 bg-[radial-gradient(circle_at_top,rgba(196,161,90,0.18),transparent_58%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.16))] p-5 lg:border-l lg:border-t-0 lg:p-7">
@@ -395,28 +379,29 @@ export function InsightsSection() {
         </article>
 
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1.04fr)_minmax(320px,0.96fr)]">
-          <div className="grid gap-4 sm:gap-5">
-            {insightThemes.map((item, index) => (
-              <article
-                key={item.title}
-                className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-6"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="text-[0.68rem] uppercase tracking-[0.18em] text-stone-500">
-                    {item.label}
+          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-6">
+            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
+              Insight Archive
+            </div>
+            <h3 className="mt-2 text-xl font-semibold text-stone-50">一期一期整理觀點</h3>
+            <div className="mt-5 space-y-3">
+              {archiveInsights.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/insights/${item.slug}/`}
+                  className="block rounded-2xl border border-stone-light/20 bg-black/25 p-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="text-[0.68rem] uppercase tracking-[0.18em] text-accent-gold">
+                      {item.volume}
+                    </div>
+                    <div className="text-xs text-stone-500">{item.date}</div>
                   </div>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border border-accent-gold/30 bg-accent-gold/10 text-[0.72rem] font-semibold text-accent-gold">
-                    0{index + 1}
-                  </div>
-                </div>
-                <h3 className="mt-4 text-lg font-semibold leading-8 text-stone-50 sm:text-[1.35rem]">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-stone-300/90 sm:text-[0.95rem] sm:leading-8">
-                  {item.body}
-                </p>
-              </article>
-            ))}
+                  <div className="mt-3 text-base font-semibold text-stone-50">{item.title}</div>
+                  <p className="mt-2 text-sm leading-7 text-stone-300/88">{item.excerpt}</p>
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="rounded-[1.7rem] border border-stone-light/30 bg-black/35 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-6">
@@ -461,6 +446,7 @@ export function InsightsSection() {
 
 export function HomeShowcaseSection() {
   const latestUpdates = newsItems.slice(0, 2);
+  const featuredInsight = insightItems[0];
   const advisoryTracks = [
     {
       label: "01",
@@ -558,13 +544,24 @@ export function HomeShowcaseSection() {
             <p className="mt-3 text-sm leading-8 text-stone-300/90">
               {featuredInsight.subtitle}
             </p>
+            <Link
+              href={`/insights/${featuredInsight.slug}/`}
+              className="mt-5 inline-flex rounded-full border border-accent-gold/45 bg-accent-gold/10 px-5 py-2.5 text-sm font-medium text-accent-gold transition hover:border-accent-gold hover:bg-accent-gold/15"
+            >
+              閱讀本期完整文章
+            </Link>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {insightThemes.map((item) => (
+              {insightItems.map((item) => (
                 <div key={item.title} className="rounded-2xl border border-stone-light/20 bg-black/20 p-4">
                   <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                    {item.label}
+                    {item.volume}
                   </div>
-                  <p className="mt-2 text-sm leading-7 text-stone-200/90">{item.title}</p>
+                  <Link
+                    href={`/insights/${item.slug}/`}
+                    className="mt-2 block text-sm leading-7 text-stone-200/90 transition hover:text-accent-gold"
+                  >
+                    {item.title}
+                  </Link>
                 </div>
               ))}
             </div>
