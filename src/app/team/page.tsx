@@ -43,10 +43,10 @@ export default function TeamPage() {
                 Team Collaboration
               </div>
               <Image
-                src="/team-meeting-illustration.svg"
-                alt="Illustration of a professional team meeting in a bright conference room"
-                width={1200}
-                height={800}
+                src="/team-boardroom-photo.png"
+                alt="Professional investment team meeting in a bright conference room"
+                width={1693}
+                height={929}
                 className="h-auto w-full"
                 sizes="(min-width: 1024px) 34vw, 100vw"
               />

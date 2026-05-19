@@ -505,6 +505,27 @@ export function HomeShowcaseSection() {
           </Link>
         </div>
 
+        <div className="mb-5 overflow-hidden rounded-[1.8rem] border border-stone-light/25 bg-black/25">
+          <div className="relative aspect-[16/7] min-h-[260px]">
+            <Image
+              src="/advisory-boardroom.png"
+              alt="Modern boardroom with financial documents and city skyline"
+              fill
+              sizes="(min-width: 1024px) 1100px, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/62 via-black/14 to-transparent" />
+            <div className="absolute bottom-0 left-0 max-w-xl p-5 sm:p-7">
+              <div className="text-[0.68rem] uppercase tracking-[0.2em] text-accent-gold">
+                Advisory Environment
+              </div>
+              <p className="mt-3 text-sm leading-7 text-stone-100/92 sm:text-base sm:leading-8">
+                以交易文件、資本市場資料與跨境城市意象，呈現墨石資本在策略規劃與執行協調中的專業工作情境。
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-4 md:grid-cols-3">
           {advisoryTracks.map((item) => (
             <Link
@@ -683,14 +704,28 @@ export function ServiceProcessSection() {
               墨石資本的工作重點不只在於提出方案，更在於將策略轉換為可執行的節奏、文件、溝通對象與資本市場準備。
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {steps.map(([index, title, body]) => (
-              <div key={title} className="rounded-[1.35rem] border border-stone-light/22 bg-white/[0.035] p-5">
-                <div className="text-[0.68rem] font-semibold text-accent-gold">{index}</div>
-                <h3 className="mt-3 text-base font-semibold text-stone-100">{title}</h3>
-                <p className="mt-2 text-sm leading-7 text-stone-300/88">{body}</p>
+          <div className="space-y-4">
+            <div className="overflow-hidden rounded-[1.6rem] border border-stone-light/24 bg-black/24">
+              <div className="relative aspect-[16/8] min-h-[220px]">
+                <Image
+                  src="/advisory-boardroom.png"
+                  alt="Capital advisory documents and tablet charts in a modern boardroom"
+                  fill
+                  sizes="(min-width: 1024px) 620px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
-            ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {steps.map(([index, title, body]) => (
+                <div key={title} className="rounded-[1.35rem] border border-stone-light/22 bg-white/[0.035] p-5">
+                  <div className="text-[0.68rem] font-semibold text-accent-gold">{index}</div>
+                  <h3 className="mt-3 text-base font-semibold text-stone-100">{title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-stone-300/88">{body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -923,14 +958,26 @@ export function TeamOperatingSection() {
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#17191d_0%,#101115_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div className="rounded-[1.8rem] border border-stone-light/25 bg-white/[0.035] p-5 sm:p-6">
-            <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
-              How We Work
+          <div className="overflow-hidden rounded-[1.8rem] border border-stone-light/25 bg-white/[0.035]">
+            <div className="relative aspect-[16/10] min-h-[260px]">
+              <Image
+                src="/team-boardroom-photo.png"
+                alt="Professional investment team discussing strategy in a bright conference room"
+                fill
+                sizes="(min-width: 1024px) 520px, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/62 via-black/8 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-5 sm:p-6">
+                <div className="text-[0.68rem] uppercase tracking-[0.22em] text-accent-gold">
+                  How We Work
+                </div>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+                  以多元專業形成共同決策框架
+                </h2>
+              </div>
             </div>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              以多元專業形成共同決策框架
-            </h2>
-            <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
+            <p className="p-5 text-sm leading-8 text-stone-300/90 sm:p-6 sm:text-base">
               團隊分工以議題為核心，依專案需求組合資本市場、技術、產業與品牌資源，讓策略判斷與實際執行能保持一致。
             </p>
           </div>
@@ -1030,6 +1077,27 @@ export function CompanyEcosystemSection() {
             相關公司不是單純名單，而是墨石資本關注的產業方向：技術基礎、健康服務與消費品牌如何進入可擴張的商業化階段。
           </p>
         </div>
+        <div className="mb-5 overflow-hidden rounded-[1.8rem] border border-stone-light/25 bg-black/24">
+          <div className="relative aspect-[16/7] min-h-[250px]">
+            <Image
+              src="/ecosystem-visual.png"
+              alt="AI infrastructure, health technology and consumer brand ecosystem visual"
+              fill
+              sizes="(min-width: 1024px) 1100px, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 max-w-xl p-5 sm:p-7">
+              <div className="text-[0.68rem] uppercase tracking-[0.2em] text-accent-gold">
+                Ecosystem Visual
+              </div>
+              <p className="mt-3 text-sm leading-7 text-stone-100/92 sm:text-base sm:leading-8">
+                以 AI 基礎建設、健康科技裝置與消費品牌包裝，呈現相關公司跨產業布局的視覺連結。
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid gap-4 md:grid-cols-3">
           {themes.map(([theme, company, body]) => (
             <div key={theme} className="rounded-[1.5rem] border border-stone-light/24 bg-white/[0.035] p-5">
