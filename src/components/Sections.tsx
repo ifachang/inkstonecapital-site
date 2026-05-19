@@ -55,15 +55,15 @@ const insightThemes = [
 ] as const;
 
 const featuredInsight = {
-  volume: "Vol. 1",
-  title: "Direct Listing vs IPO",
-  subtitle: "當企業準備走向公開市場，選擇的不只是上市方式，更是價格形成、股東結構與市場敘事的起點。",
+  volume: "Vol. 2",
+  title: "Musk 訴 OpenAI 與 Microsoft 案受挫：真正的關鍵竟是提出告訴太晚",
+  subtitle: "2026 年 5 月 18 日，美國加州奧克蘭聯邦陪審團一致認定，Elon Musk 對 OpenAI、Sam Altman、Greg Brockman 與 Microsoft 的相關請求已逾越時效。這使案件在進入實體爭點前即遭遇重大挫敗。",
   zh:
-    "Direct Listing 與傳統 IPO 的差異，不只在承銷流程，而在企業希望如何進入市場。IPO 的優勢在於承銷商可協助定價、配售與穩定初期交易，較適合需要募資、希望建立機構股東基礎，或仍需市場教育的新創與成長公司。Direct Listing 則更強調市場化定價與流動性釋放，既有股東可直接進場交易，成本結構通常更精簡，但也意味著公司必須具備更高品牌辨識度、成熟財務揭露能力，以及足以承受首日波動的投資人溝通準備。對管理層而言，真正的問題不是哪種形式較新，而是哪種方式更符合企業現階段的資本需求與敘事能力。",
+    "這起案件的啟示，不在於 OpenAI 與 Microsoft 的商業模式是否已被法院實質認定，而在於大型科技公司與創辦人、投資人、合作夥伴之間的爭議，往往會先被程序問題篩選。若一方長期知悉公司架構、投資關係或商業轉向，卻未在法定期間內主張權利，即使其敘事在輿論上具有聲量，也可能因時效抗辯而無法進入核心爭點。對企業而言，治理文件、權利保留、董事會紀錄與關鍵決策時間線，並不是行政細節，而是未來資本市場與爭議處理中的防線。",
   en:
-    "The real distinction between a Direct Listing and a traditional IPO is strategic, not procedural. An IPO is often better for companies that need primary capital, want underwriter support on price discovery, and benefit from building a stable base of institutional investors before public trading begins. A Direct Listing can be more efficient and market-driven, allowing existing shareholders to sell without the same underwriting structure, but it places greater pressure on the issuer’s brand visibility, disclosure discipline, and investor communication. For management teams, the better path is not the newer format or the cheaper headline. It is the route that best matches capital needs, shareholder objectives, and the company’s readiness to let the market set the narrative from day one.",
-  imageSrc: "/insight-d-boral.png",
-  imageAlt: "D. Boral Capital official logo",
+    "The lesson is procedural as much as strategic. A high-profile founder dispute can still fail before the court reaches the commercial merits if the claims are brought outside the applicable limitations period. For companies preparing for financing, restructuring, or public-market scrutiny, the timeline of knowledge, board records, rights reservations, and governance documents can become as important as the business narrative itself.",
+  imageSrc: "/advisory-boardroom.png",
+  imageAlt: "Modern boardroom with financial documents and capital markets materials",
 } as const;
 
 function SocialIcon({
@@ -388,7 +388,7 @@ export function InsightsSection() {
                 />
               </div>
               <div className="mt-4 text-xs leading-6 text-stone-400">
-                Visual reference sourced from D. Boral Capital’s official site and used here as an illustrative market-facing brand element for this topic.
+                Editorial visual used to frame the governance, litigation-timing and capital-market implications of this topic.
               </div>
             </div>
           </div>
