@@ -51,30 +51,10 @@ jobs:
         run: test -n "$FTP_SERVER_DIR"
 
       - name: Deploy to web server via FTP
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
-        run: |
-          set -euo pipefail
-
-          for required in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_SERVER_DIR; do
-            if [ -z "${!required}" ]; then
-              echo "::error::$required is not configured"
-              exit 1
-            fi
-          done
-
-          remote_dir="${FTP_SERVER_DIR#/}"
-          remote_dir="${remote_dir%/}"
-
-          find out -type f ! -name ".DS_Store" ! -name "Thumbs.db" -print0 |
-            while IFS= read -r -d '' file; do
-              rel="${file#out/}"
-              curl --globoff --connect-timeout 20 --max-time 120 \
-                --silent --show-error --fail --ftp-create-dirs \
-                --user "${FTP_USERNAME}:${FTP_PASSWORD}" \
-                -T "$file" \
-                "ftp://${FTP_SERVER}/${remote_dir}/${rel}"
-            done
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
