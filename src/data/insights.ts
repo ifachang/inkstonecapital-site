@@ -1,5 +1,59 @@
 export const insightItems = [
   {
+    volume: "Vol. 3",
+    slug: "vol-3-spacex-ipo-spcx",
+    date: "2026-05-20",
+    category: "Capital Markets",
+    title: "SpaceX 擬以 SPCX 登場：超大型 IPO 真正考驗的是定價紀律",
+    subtitle:
+      "市場報導指出，SpaceX 預計於 5 月 20 日公開提交掛牌申請，6 月 4 日啟動法人路演，6 月 11 日訂價，並最快於 6 月 12 日以「SPCX」在 Nasdaq 掛牌。對資本市場而言，這不只是明星公司上市，而是一次對估值、流動性與投資人教育能力的壓力測試。",
+    excerpt:
+      "SpaceX 若依報導時程推進 IPO，關鍵不只在掛牌日期，而在超大型募資如何完成價格發現、配售紀律與上市後敘事承接。",
+    zh:
+      "SpaceX 可能成為近年最受矚目的公開市場事件之一，但越是高聲量的 IPO，越需要回到基本問題：市場願意為哪一段成長付費、承銷團隊如何管理初期流動性、公司如何把火箭發射、Starlink 衛星網路、國防與政府合約、以及未來太空基礎建設的故事，轉化成公開投資人可以追蹤的財務指標。若 5 月 20 日公開說明書如期落地，真正值得看的不是首日漲幅，而是募資用途、收入結構、毛利與資本支出、客戶集中度、監管風險與治理安排。SPCX 的掛牌將測試市場是否能把太空經濟從願景交易，推進到可量化、可比較、可持續追蹤的資本市場敘事。",
+    en:
+      "If SpaceX proceeds on the reported IPO timetable, the key question is not merely when SPCX begins trading. The more important test is whether the company, underwriters, and institutional investors can translate a globally recognized space and satellite platform into public-market metrics: revenue mix, margin profile, capital intensity, government exposure, Starlink economics, launch cadence, governance, and the use of proceeds. A successful debut would require disciplined price discovery, not just demand driven by scarcity and brand power.",
+    body: [
+      {
+        heading: "從事件交易走向基本面定價",
+        paragraphs: [
+          "SpaceX 的市場關注度本身並不缺乏，真正稀缺的是公開市場可驗證的財務資訊。IPO 說明書一旦公開，投資人會從媒體敘事轉向檢視收入拆分、Starlink 訂戶與企業客戶、發射服務毛利、政府合約依賴、研發投入與資本支出節奏。",
+          "這也是超大型 IPO 最容易被忽略的地方：品牌能創造需求，但長期估值必須由可追蹤指標支撐。若定價只反映稀缺性與話題性，上市後交易很容易被短期動能主導；若定價能讓成長曲線與風險折價同時被看見，才有機會建立更穩定的機構股東基礎。",
+        ],
+      },
+      {
+        heading: "路演重點會是可預測性",
+        paragraphs: [
+          "依市場報導的時程，6 月 4 日啟動法人路演、6 月 11 日訂價、6 月 12 日掛牌，代表公司與承銷團隊必須在很短時間內完成投資人教育。對一般成長股而言，這已經不容易；對 SpaceX 這種同時涵蓋航太、通訊、國防、基礎設施與前沿科技的公司，挑戰更高。",
+          "路演的核心不會只是展示願景，而是讓法人理解哪些收入具有重複性，哪些業務仍高度專案化，哪些支出是成長投資，哪些成本會隨規模改善。公開市場不會只買一個太空故事，它需要能被季度追蹤的經營節奏。",
+        ],
+      },
+      {
+        heading: "SPCX 對市場的外溢效應",
+        paragraphs: [
+          "若 SPCX 順利掛牌，太空經濟、衛星通訊、發射服務、國防科技與 AI 基礎設施相關標的，都可能面臨重新定價。這種外溢效應短期可能帶來同業與概念股行情，但中期仍會回到一個問題：哪些公司真的有收入、合約、毛利與產能，而哪些只是被主題帶動。",
+          "對準備進入公開市場的成長公司而言，SpaceX 的案例也會成為重要參照。高估值並不是不能被市場接受，但前提是公司必須用清楚的資訊揭露、可信的治理結構與可驗證的財務路徑，讓市場知道自己正在為什麼買單。",
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: "Investing.com",
+        href: "https://www.investing.com/news/stock-market-news/spacex-reportedly-picks-nasdaq-for-ipo-plans-to-list-as-early-as-june-12th-432SI-4693515",
+      },
+      {
+        label: "Seoul Economic Daily",
+        href: "https://en.sedaily.com/international/2026/05/16/spacex-accelerates-nasdaq-ipo-targeting-june-12-listing",
+      },
+      {
+        label: "Nasdaq",
+        href: "https://www.nasdaq.com/press-release/tuttle-capitals-spac-and-new-issue-etf-change-ticker-spck-2026-04-07",
+      },
+    ],
+    imageSrc: "/ecosystem-visual.png",
+    imageAlt: "Capital markets ecosystem visual with advisory and growth-company themes",
+  },
+  {
     volume: "Vol. 2",
     slug: "vol-2-musk-openai-microsoft-timing",
     date: "2026-05-19",
