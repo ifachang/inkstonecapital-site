@@ -50,8 +50,8 @@ export const insightItems = [
         href: "https://www.nasdaq.com/press-release/tuttle-capitals-spac-and-new-issue-etf-change-ticker-spck-2026-04-07",
       },
     ],
-    imageSrc: "/ecosystem-visual.png",
-    imageAlt: "Capital markets ecosystem visual with advisory and growth-company themes",
+    imageSrc: "/insight-spacex-spcx.png",
+    imageAlt: "Reusable rocket launch above Earth with satellites and orbital paths",
   },
   {
     volume: "Vol. 2",
