@@ -79,10 +79,10 @@ export function Hero() {
 
           <div className="relative">
             <div className="overflow-hidden rounded-[1.35rem] border border-stone-light/30 bg-black/25 sm:rounded-[1.75rem]">
-              <div className="relative aspect-[5/6] min-h-[320px] sm:aspect-[4/5] sm:min-h-[420px]">
+              <div className="relative aspect-[4/3] min-h-[300px] sm:min-h-[380px]">
                 <Image
-                  src="/inkstone-home-lobby.jpeg"
-                  alt="Inkstone Capital office lobby wall with company logo"
+                  src="/inkstone-office-wall.jpg"
+                  alt="Inkstone Capital office brand wall with mountain artwork and company signage"
                   fill
                   className="object-cover"
                   priority
