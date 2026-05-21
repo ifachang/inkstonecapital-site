@@ -1,5 +1,63 @@
 export const insightItems = [
   {
+    volume: "Vol. 4",
+    slug: "vol-4-openai-mega-ipo-valuation",
+    date: "2026-05-21",
+    category: "AI Capital Markets",
+    title: "OpenAI 若以 6,000 億美元以上估值上市，將考驗市場對 AI 基礎建設的定價能力",
+    subtitle:
+      "多家外電與市場研究指出，OpenAI 正被放在約 5,000 億至 1 兆美元等級的估值框架下討論；若以 6,000 億美元以上估值、至少 600 億美元募資規模推進 IPO，此案有機會成為全球史上最大或前幾大的公開上市交易。",
+    excerpt:
+      "OpenAI IPO 的關鍵不只是估值高低，而是公開市場是否願意替 AI 模型、算力、資料中心與長期資本支出給出新的定價邏輯。",
+    zh:
+      "OpenAI 可能成為 AI 產業從私人資本走向公開市場的關鍵樣本。若其 IPO 真的落在 6,000 億美元以上估值、至少 600 億美元募資規模，市場需要回答的不是單純『值不值得』，而是 AI 基礎建設、推理成本、資料中心承諾與未來收入曲線，是否足以支撐一個接近主權級資本需求的企業估值。這將不只是科技股定價事件，也可能重新定義成長型企業進入公開市場時，如何把資本支出、平台潛力與治理結構說清楚。",
+    en:
+      "A potential OpenAI IPO would test whether public markets can underwrite AI infrastructure as a new capital-market category. At a valuation above $600 billion, with a reported target of raising at least $60 billion, investors would not only be buying software growth. They would be underwriting compute capacity, data-center commitments, inference economics, strategic partnerships, and the belief that AI platforms can convert extraordinary capital intensity into durable revenue and market power.",
+    body: [
+      {
+        heading: "從軟體公司估值，走向基礎建設定價",
+        paragraphs: [
+          "傳統軟體公司上市時，市場通常聚焦 ARR、毛利率、留存率與成長速度。但 OpenAI 若以超大型 IPO 進入公開市場，投資人需要評估的不只是訂閱收入與企業服務，而是龐大的算力取得、資料中心建設、能源與晶片供應安排。",
+          "這代表 OpenAI 可能被同時視為軟體平台、雲端基礎設施需求端、AI 研發公司與戰略科技資產。估值邏輯也會因此更接近『平台潛力加上基礎建設承諾』，而不是單純以當期財務指標衡量。",
+        ],
+      },
+      {
+        heading: "600 億美元募資的市場意義",
+        paragraphs: [
+          "若 OpenAI IPO 募資至少 600 億美元，將遠高於過往多數大型科技 IPO，也可能挑戰 Aramco、Alibaba、SoftBank 等歷史大型上市案的規模排序。這種交易不只考驗投資人需求，也考驗承銷團、監管揭露與市場流動性是否足以吸收超大型 AI 資產。",
+          "對公開市場而言，這會是一個壓力測試：當一家仍處於高投入、高成長、高不確定性的 AI 公司尋求巨額資本時，市場願意給的是網路平台倍數、雲端基礎設施倍數，還是全新的 AI 基礎設施倍數。",
+        ],
+      },
+      {
+        heading: "風險不在故事，而在可驗證路徑",
+        paragraphs: [
+          "OpenAI 的敘事足夠強，但公開市場最終會要求更具體的驗證：推理成本是否下降、企業端收入是否擴張、消費端付費是否穩定、與 Microsoft 等策略夥伴的權利義務是否清楚，以及未來資本支出是否能轉化為可持續現金流。",
+          "這也是成長型企業上市前最重要的提醒。市場可以接受高成長與高投入，但需要看見可追蹤的路徑、清楚的治理結構、可解釋的資金用途，以及足以承接長期波動的投資人溝通能力。",
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: "Axios",
+        href: "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
+      },
+      {
+        label: "Reuters via Investing.com",
+        href: "https://www.investing.com/news/stock-market-news/openai-seen-preparing-for-2027-ipo-at-1-trln-valuation-reuters-4317757",
+      },
+      {
+        label: "Reuters compute-spend report via Investing.com",
+        href: "https://www.investing.com/news/stock-market-news/openai-sees-compute-spend-of-around-600-billion-by-2030-cnbc-reports-4517341",
+      },
+      {
+        label: "El Pais / Reuters context",
+        href: "https://elpais.com/economia/2025-10-30/openai-prepara-la-mayor-salida-a-bolsa-de-la-historia-con-una-valoracion-de-hasta-un-billon-de-dolares.html",
+      },
+    ],
+    imageSrc: "/ecosystem-visual.png",
+    imageAlt: "AI infrastructure, health technology and consumer brand ecosystem visual",
+  },
+  {
     volume: "Vol. 3",
     slug: "vol-3-spacex-ipo-spcx",
     date: "2026-05-20",
