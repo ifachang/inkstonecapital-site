@@ -1,5 +1,63 @@
 export const insightItems = [
   {
+    volume: "Vol. 5",
+    slug: "vol-5-smr-haleu-centrus-supply-chain",
+    date: "2026-05-22",
+    category: "Energy Infrastructure",
+    title: "SMR 的瓶頸不只在反應爐，而在 HALEU 燃料與供應鏈",
+    subtitle:
+      "SMR 與先進核能被視為資料中心、AI 算力與工業用電的潛在基礎設施解方，但真正決定部署速度的，可能不是反應爐設計本身，而是 HALEU 燃料、濃縮產能、監管許可與長期採購承諾是否能同步到位。",
+    excerpt:
+      "SMR 不是單一科技題材，而是燃料、供應鏈、電力需求與資本支出共同構成的基礎建設命題。",
+    zh:
+      "SMR 的投資敘事正在從『小型反應爐』轉向『能源基礎建設供應鏈』。對 AI 資料中心與高耗能產業而言，穩定、低碳、可長期調度的電力來源具備戰略價值；但若 HALEU 燃料供應不足，反應爐設計再成熟，也可能面臨商業化節奏延後。Centrus、DOE 與美國本土濃縮能力的進展，因此不只是核能產業新聞，而是 AI 電力瓶頸、國家能源安全與資本市場估值邏輯的交會點。",
+    en:
+      "The SMR investment thesis is shifting from reactor design to energy-infrastructure supply chains. For AI data centers and power-intensive industries, stable and low-carbon baseload power has strategic value. Yet without reliable HALEU fuel supply, even promising reactor designs can face deployment delays. HALEU enrichment capacity, long-term offtake commitments, licensing, and domestic fuel-cycle resilience may become the real constraints that determine which advanced nuclear platforms can scale.",
+    body: [
+      {
+        heading: "HALEU 是先進反應爐的前置條件",
+        paragraphs: [
+          "HALEU 通常指鈾-235 濃縮度高於傳統輕水反應爐燃料、但低於武器級標準的核燃料。許多先進反應爐與 SMR 設計需要 HALEU 才能達到更高功率密度、更長換料週期或更小型化的工程目標。",
+          "這也意味著 SMR 的商業化不能只看反應爐公司本身。若燃料供應、濃縮產能與運輸監管無法同步擴張，專案即使取得客戶意向與融資支持，也可能卡在燃料可得性。",
+        ],
+      },
+      {
+        heading: "Centrus 的角色是供應鏈槓桿",
+        paragraphs: [
+          "Centrus 在美國 HALEU 生產鏈中扮演關鍵角色，其 Piketon 示範級濃縮能力被視為美國恢復本土先進核燃料供應的重要節點。這類公司不只是單純燃料供應商，也可能成為 SMR 部署節奏、能源安全與產業政策落地能力的槓桿。",
+          "對資本市場而言，這使投資人需要從單一公司估值，轉向整條燃料循環的產能、合約、政府支持、監管許可與擴產資本支出。真正有價值的不是概念，而是誰能把關鍵瓶頸轉化為可交付能力。",
+        ],
+      },
+      {
+        heading: "AI 電力需求讓核能重新被定價",
+        paragraphs: [
+          "AI 資料中心快速擴張，使電力可得性成為科技公司成長的核心限制。SMR 若能提供穩定、低碳且接近負載中心的電力，將有機會成為資料中心、製造業與國防基礎設施的長期選項。",
+          "但市場不能只買『核能回歸』的故事。投資判斷需要回到燃料供應、建廠時程、客戶採購承諾、監管風險與融資成本。SMR 的下一階段，不是誰的想像最大，而是誰能把能源、燃料與資本市場節奏串起來。",
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: "I-fa Chang commentary",
+        href: "https://ifachang.com/news/project-visit-2026-05-22-smr-haleu-centrus-commentary.html",
+      },
+      {
+        label: "U.S. Department of Energy",
+        href: "https://www.energy.gov/ne/articles/centrus-produces-nations-first-amounts-haleu",
+      },
+      {
+        label: "World Nuclear Association",
+        href: "https://world-nuclear.org/information-library/nuclear-fuel-cycle/conversion-enrichment-and-fabrication/high-assay-low-enriched-uranium-haleu",
+      },
+      {
+        label: "NucNet SMR Database",
+        href: "https://smr.nucnet.org/news/centrus-reaches-critical-milestone-with-900-kilogram-haleu-delivery-to-us-doe-6-1-2025",
+      },
+    ],
+    imageSrc: "/insight-smr-haleu.svg",
+    imageAlt: "SMR and HALEU supply chain visual",
+  },
+  {
     volume: "Vol. 4",
     slug: "vol-4-openai-mega-ipo-valuation",
     date: "2026-05-21",

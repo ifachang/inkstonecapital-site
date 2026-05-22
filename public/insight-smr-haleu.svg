@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
+  <title id="title">SMR and HALEU supply chain visual</title>
+  <desc id="desc">Abstract visual showing a small modular reactor, HALEU fuel cylinder, enrichment cascade, and capital flow lines.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071018"/>
+      <stop offset="0.52" stop-color="#10151b"/>
+      <stop offset="1" stop-color="#1d1711"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d28a"/>
+      <stop offset="1" stop-color="#b88735"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d8e4e8"/>
+      <stop offset="1" stop-color="#63737b"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1400" height="780" fill="url(#bg)"/>
+  <path d="M112 574C252 440 386 394 512 438c126 44 238 64 364-22s252-108 412 18" fill="none" stroke="#c4a15a" stroke-width="2" opacity=".22"/>
+  <path d="M120 612C300 486 448 486 564 524c150 48 244 20 362-72 112-86 224-104 354-52" fill="none" stroke="#f0d28a" stroke-width="3" opacity=".18"/>
+  <circle cx="702" cy="388" r="282" fill="none" stroke="#ffffff" stroke-opacity=".06"/>
+  <circle cx="702" cy="388" r="196" fill="none" stroke="#c4a15a" stroke-opacity=".12"/>
+  <g transform="translate(155 188)">
+    <rect x="0" y="0" width="300" height="360" rx="34" fill="#101820" stroke="#ffffff" stroke-opacity=".12"/>
+    <rect x="44" y="58" width="212" height="244" rx="22" fill="url(#steel)" opacity=".9"/>
+    <rect x="82" y="92" width="136" height="176" rx="68" fill="#0c1218" opacity=".86"/>
+    <circle cx="150" cy="180" r="74" fill="none" stroke="url(#gold)" stroke-width="6" filter="url(#glow)"/>
+    <circle cx="150" cy="180" r="25" fill="#c4a15a"/>
+    <text x="36" y="326" fill="#e8e2d0" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">SMR CORE</text>
+  </g>
+  <g transform="translate(545 145)">
+    <rect x="0" y="0" width="310" height="446" rx="34" fill="#121923" stroke="#ffffff" stroke-opacity=".12"/>
+    <text x="38" y="58" fill="#c4a15a" font-family="Arial, sans-serif" font-size="22" letter-spacing="6">HALEU</text>
+    <text x="38" y="92" fill="#e8e2d0" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">5% - 20% U-235</text>
+    <g transform="translate(64 136)">
+      <ellipse cx="92" cy="34" rx="92" ry="34" fill="url(#gold)"/>
+      <rect x="0" y="34" width="184" height="182" fill="#9b6d2e"/>
+      <ellipse cx="92" cy="216" rx="92" ry="34" fill="#6f4b20"/>
+      <path d="M18 58c48 34 100 34 148 0M18 110c48 34 100 34 148 0M18 162c48 34 100 34 148 0" fill="none" stroke="#f5d98c" stroke-width="3" opacity=".42"/>
+    </g>
+    <text x="38" y="392" fill="#e8e2d0" font-family="Arial, sans-serif" font-size="18">Fuel availability as deployment bottleneck</text>
+  </g>
+  <g transform="translate(956 176)">
+    <rect x="0" y="0" width="286" height="376" rx="34" fill="#101820" stroke="#ffffff" stroke-opacity=".12"/>
+    <text x="34" y="58" fill="#c4a15a" font-family="Arial, sans-serif" font-size="20" letter-spacing="5">ENRICHMENT</text>
+    <g transform="translate(48 96)">
+      <rect x="0" y="0" width="28" height="210" rx="14" fill="url(#steel)"/>
+      <rect x="54" y="0" width="28" height="210" rx="14" fill="url(#steel)"/>
+      <rect x="108" y="0" width="28" height="210" rx="14" fill="url(#steel)"/>
+      <rect x="162" y="0" width="28" height="210" rx="14" fill="url(#steel)"/>
+      <path d="M14 34C72 82 118 10 176 58M14 154c58-48 104 24 162-24" fill="none" stroke="url(#gold)" stroke-width="4" opacity=".72"/>
+    </g>
+    <text x="34" y="338" fill="#e8e2d0" font-family="Arial, sans-serif" font-size="18">Domestic supply chain capacity</text>
+  </g>
+  <g fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" filter="url(#glow)">
+    <path d="M455 368C500 342 526 342 545 354"/>
+    <path d="M855 354C896 334 928 334 956 360"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#e8e2d0">
+    <text x="92" y="92" font-size="18" letter-spacing="6" fill="#c4a15a">ADVANCED NUCLEAR CAPITAL STACK</text>
+    <text x="92" y="126" font-size="42" font-weight="700">SMR deployment depends on fuel, supply chain and financing rhythm</text>
+    <text x="94" y="680" font-size="18" fill="#aeb8bc">Inkstone Capital · Energy Infrastructure · Strategic Capital Advisory</text>
+  </g>
+</svg>
