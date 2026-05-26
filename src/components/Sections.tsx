@@ -937,6 +937,33 @@ export function TeamSection() {
               目前掛職安泰商業銀行股份有限公司副董事長特別助理，並擔任象藝創意有限公司業務總監。
             </p>
           </div>
+          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-sm font-semibold text-stone-100">
+                  吳松宇 Jason Wu
+                </div>
+                <div className="text-xs text-stone-400">
+                  財務顧問部
+                </div>
+                <div className="mt-1 text-[0.7rem] text-stone-400">
+                  E-mail：
+                  <TrackedEmailLink
+                    email="jason.wu@partner.inkstonecapital.com"
+                    context="team_jason_wu"
+                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
+                  />
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-stone-300/90">
+              畢業於嶺東科技大學國際貿易系，具銀行金融與企業財務管理實務背景。曾任職台新銀行、日盛銀行與荷蘭銀行，
+              累積金融服務、企業往來與財務規劃相關經驗。
+            </p>
+            <p className="mt-3 text-sm leading-7 text-stone-400">
+              後續曾擔任韻達（東莞、塘廈）電子財務主管及青提影業 CFO，熟悉企業財務管理、營運資金規劃與跨產業財務協調。
+            </p>
+          </div>
         </div>
       </div>
     </section>
