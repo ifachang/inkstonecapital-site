@@ -711,7 +711,7 @@ export function NewsSection() {
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0b0c0f_0%,#101114_42%,#17191d_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-end">
+        <div className="mb-6 sm:mb-8">
           <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.16))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
             <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
               Media & Updates
@@ -719,17 +719,6 @@ export function NewsSection() {
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
               最新消息與媒體報導
             </h2>
-            <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
-              以下整理墨石資本項目動態、公開媒體報導與專欄內容，涵蓋公司近況、創辦人觀點與團隊成員的產業分享。
-            </p>
-          </div>
-          <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
-            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
-              Notice
-            </div>
-            <p className="mt-3 leading-relaxed">
-              站內項目動態提供完整閱讀頁；外部報導連結將開啟原發布網站，相關內容與觀點由各發布單位與作者提供。
-            </p>
           </div>
         </div>
         <div className="space-y-3 sm:space-y-4">
