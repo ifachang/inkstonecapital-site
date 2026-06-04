@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { insightItems } from "../data/insights";
 import newsItems from "../data/news.json";
 import {
@@ -14,6 +15,30 @@ import {
 } from "../data/site";
 import { SocialIcon, type SocialPlatform } from "./SocialIcon";
 import { TrackedEmailLink } from "./TrackedEmailLink";
+
+function NewsItemLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className: string;
+  children: ReactNode;
+}) {
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      {children}
+    </a>
+  );
+}
 
 export function AboutSection() {
   return (
@@ -121,137 +146,6 @@ export function AboutSection() {
   );
 }
 
-export function IshigakiBeefVisitSection() {
-  const visitPhotos = [
-    {
-      src: "/ishigaki-beef-visit-01.jpg",
-      alt: "Ishigaki cattle at a local inspection site in Okinawa",
-      label: "Source Visit",
-    },
-    {
-      src: "/ishigaki-beef-visit-02.jpg",
-      alt: "Nico Kung visiting Okinawa during the Ishigaki beef project study",
-      label: "On-Site Review",
-    },
-    {
-      src: "/ishigaki-beef-visit-03.jpg",
-      alt: "Ishigaki cattle facility reviewed during the project study",
-      label: "Facility Context",
-    },
-  ];
-
-  const checkpoints = [
-    {
-      title: "源頭設施核備",
-      titleEn: "Approved Origin Facility",
-      body: "確認屠宰、分切、包裝流程是否能銜接台灣核准輸入設施與日本官方出口文件要求。",
-      bodyEn:
-        "Review whether slaughtering, cutting and packing workflows can align with Taiwan-approved facilities and Japan-issued export documentation.",
-    },
-    {
-      title: "檢疫與衛生雙文件",
-      titleEn: "Quarantine & Health Documents",
-      body: "聚焦動物檢疫證明、衛生證明與邊境食品輸入查驗流程，降低正式商用進口的不確定性。",
-      bodyEn:
-        "Map the animal quarantine certificate, health certificate and border inspection process to reduce uncertainty for commercial import.",
-    },
-    {
-      title: "冷鏈與最短航線",
-      titleEn: "Cold Chain & Shortest Route",
-      body: "評估石垣島至台灣的船運、空運與冷藏冷凍條件，讓高端肉品在成本與鮮度之間取得平衡。",
-      bodyEn:
-        "Assess sea, air and refrigerated logistics from Ishigaki to Taiwan, balancing premium freshness with transport efficiency.",
-    },
-  ];
-
-  return (
-    <section className="border-b border-stone-light/35 bg-[radial-gradient(circle_at_18%_18%,rgba(196,161,90,0.18),transparent_28%),linear-gradient(180deg,#15161a_0%,#101115_54%,#15161a_100%)]">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-        <div className="grid gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
-          <div>
-            <div className="text-[0.68rem] uppercase tracking-[0.22em] text-accent-gold">
-              Project Field Study
-            </div>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              Nico Kung 親赴沖繩考察石垣牛直送台灣項目
-            </h2>
-            <p className="mt-4 text-sm leading-8 text-stone-300/92 sm:text-base">
-              本次項目考察由墨石資本顧問 Nico Kung 親自前往沖繩，針對石垣牛從產地、認證、檢疫到冷鏈運輸的可行性進行現地訪查。
-              石垣島與台灣距離極近，若源頭設施、官方證明與物流節點能順利銜接，將有機會為高端和牛建立更短、更有效率的正式商用進口路徑。
-            </p>
-            <p className="mt-4 text-sm leading-8 text-stone-400 sm:text-[0.95rem]">
-              Nico Kung visited Okinawa for an on-site study of a potential Ishigaki beef direct-to-Taiwan project. The review focuses on origin facility readiness,
-              export documentation, Taiwan border requirements and temperature-controlled logistics, with the goal of evaluating a shorter and more efficient commercial import route.
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {[
-                ["Origin", "產地訪查"],
-                ["Compliance", "輸入規範"],
-                ["Cold Chain", "冷鏈路徑"],
-              ].map(([label, value]) => (
-                <div key={label} className="border border-stone-light/24 bg-black/24 p-4">
-                  <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">{label}</div>
-                  <div className="mt-2 text-sm font-semibold text-stone-100">{value}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-[1.12fr_0.88fr]">
-            <div
-              className="relative min-h-[300px] overflow-hidden border border-stone-light/25 bg-black/35 bg-cover bg-center sm:min-h-[430px]"
-              role="img"
-              aria-label={visitPhotos[0].alt}
-              style={{ backgroundImage: `url(${visitPhotos[0].src})` }}
-            >
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-4">
-                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-accent-gold">
-                  {visitPhotos[0].label}
-                </div>
-              </div>
-            </div>
-            <div className="grid gap-3">
-              {visitPhotos.slice(1).map((photo) => (
-                <div
-                  key={photo.src}
-                  className="relative min-h-[205px] overflow-hidden border border-stone-light/25 bg-black/35 bg-cover bg-center"
-                  role="img"
-                  aria-label={photo.alt}
-                  style={{ backgroundImage: `url(${photo.src})` }}
-                >
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
-                    <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-100">
-                      {photo.label}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-7 grid gap-4 lg:grid-cols-3">
-          {checkpoints.map((item) => (
-            <div key={item.title} className="border border-stone-light/24 bg-white/[0.035] p-5 sm:p-6">
-              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-accent-gold">
-                {item.titleEn}
-              </div>
-              <h3 className="mt-3 text-base font-semibold text-stone-50">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-stone-300/90">{item.body}</p>
-              <p className="mt-3 text-xs leading-6 text-stone-500">{item.bodyEn}</p>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-5 text-xs leading-6 text-stone-500">
-          實際進口仍須以台灣主管機關最新核准輸入設施名單、邊境查驗規定、日本官方證明文件與海關申報結果為準。
-          Final import execution remains subject to the latest Taiwan-approved facility list, border inspection rules, Japan-issued certificates and customs clearance.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 export function OverviewSection() {
   const previewNews = newsItems.slice(0, 3);
 
@@ -336,19 +230,17 @@ export function OverviewSection() {
             </div>
             <div className="mt-5 space-y-3">
               {previewNews.map((item) => (
-                <a
+                <NewsItemLink
                   key={item.href}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block rounded-2xl border border-stone-light/25 bg-black/25 px-4 py-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
                 >
                   <div className="mb-2 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                    Media Coverage
+                    {item.href.startsWith("/") ? "Inkstone Update" : "Media Coverage"}
                   </div>
                   <div className="text-sm font-medium text-stone-100">{item.title}</div>
                   <div className="mt-1 text-xs text-stone-400">{item.source}</div>
-                </a>
+                </NewsItemLink>
               ))}
             </div>
           </div>
@@ -487,11 +379,9 @@ export function InsightsSection() {
             </div>
             <div className="mt-5 space-y-3">
               {latestUpdates.map((item) => (
-                <a
+                <NewsItemLink
                   key={item.href}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block rounded-2xl border border-stone-light/20 bg-white/[0.03] px-4 py-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
                 >
                   <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
@@ -501,7 +391,7 @@ export function InsightsSection() {
                     {item.title}
                   </div>
                   <div className="mt-2 text-xs text-stone-400">{item.source}</div>
-                </a>
+                </NewsItemLink>
               ))}
             </div>
           </div>
@@ -628,16 +518,14 @@ export function HomeShowcaseSection() {
             </div>
             <div className="mt-5 space-y-3">
               {latestUpdates.map((item) => (
-                <a
+                <NewsItemLink
                   key={item.href}
                   href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block rounded-2xl border border-stone-light/18 bg-white/[0.035] px-4 py-4 transition hover:border-accent-gold/70 hover:bg-white/[0.055]"
                 >
                   <div className="text-sm font-medium leading-7 text-stone-100">{item.title}</div>
                   <div className="mt-1 text-xs text-stone-400">{item.source}</div>
-                </a>
+                </NewsItemLink>
               ))}
             </div>
           </div>
@@ -783,7 +671,7 @@ export function NewsSection() {
               最新消息與媒體報導
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
-              以下連結節錄自公開媒體與專欄，涵蓋墨石資本相關資訊、創辦人觀點以及團隊成員在人工智慧與產業應用上的分享。
+              以下整理墨石資本項目動態、公開媒體報導與專欄內容，涵蓋公司近況、創辦人觀點與團隊成員的產業分享。
             </p>
           </div>
           <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
@@ -791,30 +679,45 @@ export function NewsSection() {
               Notice
             </div>
             <p className="mt-3 leading-relaxed">
-              連結將開啟外部網站，相關內容與觀點由各原發布單位與作者提供，本站僅就公開資訊進行整理與索引。
+              站內項目動態提供完整閱讀頁；外部報導連結將開啟原發布網站，相關內容與觀點由各發布單位與作者提供。
             </p>
           </div>
         </div>
         <div className="space-y-3 sm:space-y-4">
-          {newsItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-[1.35rem] border border-stone-light/30 bg-black/35 px-4 py-4 text-sm text-stone-200 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition hover:border-accent-gold/80 hover:bg-white/[0.04] sm:rounded-[1.6rem] sm:px-5 sm:py-5"
-            >
-              <div className="mb-3 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                External Coverage
-              </div>
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-                <div className="max-w-3xl text-[0.95rem] font-medium text-stone-50 sm:text-base">{item.title}</div>
-                <div className="text-xs text-stone-400 sm:text-right">
-                  {item.source}
+          {newsItems.map((item) => {
+            const isInternal = item.href.startsWith("/");
+            const className =
+              "block rounded-[1.35rem] border border-stone-light/30 bg-black/35 px-4 py-4 text-sm text-stone-200 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition hover:border-accent-gold/80 hover:bg-white/[0.04] sm:rounded-[1.6rem] sm:px-5 sm:py-5";
+            const content = (
+              <>
+                <div className="mb-3 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                  {isInternal ? "Inkstone Update" : "External Coverage"}
                 </div>
-              </div>
-            </a>
-          ))}
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                  <div className="max-w-3xl text-[0.95rem] font-medium text-stone-50 sm:text-base">{item.title}</div>
+                  <div className="text-xs text-stone-400 sm:text-right">
+                    {item.source}
+                  </div>
+                </div>
+              </>
+            );
+
+            return isInternal ? (
+              <Link key={item.href} href={item.href} className={className}>
+                {content}
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                {content}
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
