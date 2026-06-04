@@ -2,82 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { insightItems } from "../data/insights";
 import newsItems from "../data/news.json";
+import {
+  advisoryTracks,
+  affiliatedCompanies,
+  contactFollowUpSteps,
+  ecosystemThemes,
+  serviceProcessSteps,
+  socialLinks,
+  teamCapabilities,
+  teamMembers,
+} from "../data/site";
+import { SocialIcon, type SocialPlatform } from "./SocialIcon";
 import { TrackedEmailLink } from "./TrackedEmailLink";
-
-const affiliatedCompanies = [
-  {
-    href: "https://www.yushan.ai/",
-    category: "AI Infrastructure",
-    name: "Yushan.AI",
-    description:
-      "聚焦地端大型語言模型與企業級 AI 應用，強調隱私保護、離線運作與產業落地能力。",
-    domain: "www.yushan.ai",
-    imageSrc: "/company-yushan-ai.png",
-    imageAlt: "Yushan.AI official logo",
-    imageClassName: "object-contain p-8 sm:p-10",
-  },
-  {
-    href: "https://www.docter.one/",
-    category: "Health Technology",
-    name: "Docter Inc.",
-    description:
-      "以 AI 智慧照護、健康管理與非接觸式感測技術為核心，提供醫療與居家照護解決方案。",
-    domain: "www.docter.one",
-    imageSrc: "/company-docter.jpg",
-    imageAlt: "Docter official company image",
-    imageClassName: "object-cover",
-  },
-  {
-    href: "https://uncle-datou.com/",
-    category: "Consumer Brand",
-    name: "大頭叔叔",
-    description:
-      "以創意包裝與台灣在地零食為特色的消費品牌，涵蓋爆米花、果乾與聯名商品等產品線。",
-    domain: "uncle-datou.com",
-    imageSrc: "/company-uncle-datou.webp",
-    imageAlt: "大頭叔叔 official product image",
-    imageClassName: "object-cover",
-  },
-] as const;
-
-function SocialIcon({
-  platform,
-  className = "h-4 w-4",
-}: {
-  platform: "facebook" | "x" | "threads" | "linkedin";
-  className?: string;
-}) {
-  if (platform === "facebook") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
-        <path d="M13.5 21v-7.2H16l.4-2.8h-2.9V9.2c0-.8.3-1.4 1.5-1.4h1.6V5.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4v1.8H8v2.8h2.5V21h3Z" />
-      </svg>
-    );
-  }
-
-  if (platform === "x") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
-        <path d="M18.9 3H22l-6.8 7.8L23 21h-6.1l-4.8-6.2L6.7 21H3.6l7.3-8.3L3.4 3h6.2l4.3 5.7L18.9 3Zm-1.1 16h1.7L8.7 4.9H6.9L17.8 19Z" />
-      </svg>
-    );
-  }
-
-  if (platform === "threads") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16.7 10.7c-.3-2.3-1.8-4-4.7-4-3.4 0-5.4 2.2-5.4 5.6 0 3.4 2 5.6 5.5 5.6 2.8 0 4.7-1.4 5.2-3.7.4-1.8-.2-3.3-1.8-4.2-1.5-.9-3.5-1.3-5.8-1.2" />
-        <path d="M17.2 13.4c0 2.8-2.1 4.9-5 4.9-2.7 0-4.6-1.5-4.6-3.7 0-2.1 1.6-3.4 4.3-3.4 2.4 0 4.4.5 5.3 2.2Z" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
-      <path d="M6.9 8.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM5.5 9.8h2.8V18H5.5V9.8Zm4.6 0h2.7V11h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 2 3.5 4.5V18h-2.8v-3.5c0-.8 0-1.9-1.2-1.9s-1.4.9-1.4 1.8V18h-2.8V9.8Z" />
-    </svg>
-  );
-}
 
 export function AboutSection() {
   return (
@@ -180,6 +116,137 @@ export function AboutSection() {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function IshigakiBeefVisitSection() {
+  const visitPhotos = [
+    {
+      src: "/ishigaki-beef-visit-01.jpg",
+      alt: "Ishigaki cattle at a local inspection site in Okinawa",
+      label: "Source Visit",
+    },
+    {
+      src: "/ishigaki-beef-visit-02.jpg",
+      alt: "Nico Kung visiting Okinawa during the Ishigaki beef project study",
+      label: "On-Site Review",
+    },
+    {
+      src: "/ishigaki-beef-visit-03.jpg",
+      alt: "Ishigaki cattle facility reviewed during the project study",
+      label: "Facility Context",
+    },
+  ];
+
+  const checkpoints = [
+    {
+      title: "源頭設施核備",
+      titleEn: "Approved Origin Facility",
+      body: "確認屠宰、分切、包裝流程是否能銜接台灣核准輸入設施與日本官方出口文件要求。",
+      bodyEn:
+        "Review whether slaughtering, cutting and packing workflows can align with Taiwan-approved facilities and Japan-issued export documentation.",
+    },
+    {
+      title: "檢疫與衛生雙文件",
+      titleEn: "Quarantine & Health Documents",
+      body: "聚焦動物檢疫證明、衛生證明與邊境食品輸入查驗流程，降低正式商用進口的不確定性。",
+      bodyEn:
+        "Map the animal quarantine certificate, health certificate and border inspection process to reduce uncertainty for commercial import.",
+    },
+    {
+      title: "冷鏈與最短航線",
+      titleEn: "Cold Chain & Shortest Route",
+      body: "評估石垣島至台灣的船運、空運與冷藏冷凍條件，讓高端肉品在成本與鮮度之間取得平衡。",
+      bodyEn:
+        "Assess sea, air and refrigerated logistics from Ishigaki to Taiwan, balancing premium freshness with transport efficiency.",
+    },
+  ];
+
+  return (
+    <section className="border-b border-stone-light/35 bg-[radial-gradient(circle_at_18%_18%,rgba(196,161,90,0.18),transparent_28%),linear-gradient(180deg,#15161a_0%,#101115_54%,#15161a_100%)]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+        <div className="grid gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
+          <div>
+            <div className="text-[0.68rem] uppercase tracking-[0.22em] text-accent-gold">
+              Project Field Study
+            </div>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
+              Nico Kung 親赴沖繩考察石垣牛直送台灣項目
+            </h2>
+            <p className="mt-4 text-sm leading-8 text-stone-300/92 sm:text-base">
+              本次項目考察由墨石資本顧問 Nico Kung 親自前往沖繩，針對石垣牛從產地、認證、檢疫到冷鏈運輸的可行性進行現地訪查。
+              石垣島與台灣距離極近，若源頭設施、官方證明與物流節點能順利銜接，將有機會為高端和牛建立更短、更有效率的正式商用進口路徑。
+            </p>
+            <p className="mt-4 text-sm leading-8 text-stone-400 sm:text-[0.95rem]">
+              Nico Kung visited Okinawa for an on-site study of a potential Ishigaki beef direct-to-Taiwan project. The review focuses on origin facility readiness,
+              export documentation, Taiwan border requirements and temperature-controlled logistics, with the goal of evaluating a shorter and more efficient commercial import route.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {[
+                ["Origin", "產地訪查"],
+                ["Compliance", "輸入規範"],
+                ["Cold Chain", "冷鏈路徑"],
+              ].map(([label, value]) => (
+                <div key={label} className="border border-stone-light/24 bg-black/24 p-4">
+                  <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">{label}</div>
+                  <div className="mt-2 text-sm font-semibold text-stone-100">{value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-[1.12fr_0.88fr]">
+            <div
+              className="relative min-h-[300px] overflow-hidden border border-stone-light/25 bg-black/35 bg-cover bg-center sm:min-h-[430px]"
+              role="img"
+              aria-label={visitPhotos[0].alt}
+              style={{ backgroundImage: `url(${visitPhotos[0].src})` }}
+            >
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-4">
+                <div className="text-[0.68rem] uppercase tracking-[0.18em] text-accent-gold">
+                  {visitPhotos[0].label}
+                </div>
+              </div>
+            </div>
+            <div className="grid gap-3">
+              {visitPhotos.slice(1).map((photo) => (
+                <div
+                  key={photo.src}
+                  className="relative min-h-[205px] overflow-hidden border border-stone-light/25 bg-black/35 bg-cover bg-center"
+                  role="img"
+                  aria-label={photo.alt}
+                  style={{ backgroundImage: `url(${photo.src})` }}
+                >
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                    <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-100">
+                      {photo.label}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-7 grid gap-4 lg:grid-cols-3">
+          {checkpoints.map((item) => (
+            <div key={item.title} className="border border-stone-light/24 bg-white/[0.035] p-5 sm:p-6">
+              <div className="text-[0.68rem] uppercase tracking-[0.18em] text-accent-gold">
+                {item.titleEn}
+              </div>
+              <h3 className="mt-3 text-base font-semibold text-stone-50">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-stone-300/90">{item.body}</p>
+              <p className="mt-3 text-xs leading-6 text-stone-500">{item.bodyEn}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-5 text-xs leading-6 text-stone-500">
+          實際進口仍須以台灣主管機關最新核准輸入設施名單、邊境查驗規定、日本官方證明文件與海關申報結果為準。
+          Final import execution remains subject to the latest Taiwan-approved facility list, border inspection rules, Japan-issued certificates and customs clearance.
+        </p>
       </div>
     </section>
   );
@@ -447,26 +514,6 @@ export function InsightsSection() {
 export function HomeShowcaseSection() {
   const latestUpdates = newsItems.slice(0, 2);
   const featuredInsight = insightItems[0];
-  const advisoryTracks = [
-    {
-      label: "01",
-      title: "交易與重組",
-      body: "協助企業釐清併購、整合、股權調整與跨境交易的可行架構。",
-      href: "/services/",
-    },
-    {
-      label: "02",
-      title: "融資與資本規劃",
-      body: "依企業階段配置私募、過橋融資、策略投資人與長期資本市場路徑。",
-      href: "/services/",
-    },
-    {
-      label: "03",
-      title: "產業與生態連結",
-      body: "聚焦 AI、健康科技與消費品牌等主題，串接企業成長所需資源。",
-      href: "/companies/",
-    },
-  ];
 
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#15161a_0%,#101115_52%,#0d0e11_100%)]">
@@ -679,13 +726,6 @@ export function StrategySection() {
 }
 
 export function ServiceProcessSection() {
-  const steps = [
-    ["01", "Initial Review", "釐清公司階段、股權結構、資金需求與策略目標。"],
-    ["02", "Structure Design", "設計交易架構、投資條件、時程與關鍵文件需求。"],
-    ["03", "Market Alignment", "協調投資人、策略夥伴、顧問與跨境資源。"],
-    ["04", "Execution Support", "支援談判、溝通、節奏管理與後續資本市場準備。"],
-  ];
-
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#1b1d21_0%,#111216_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -715,7 +755,7 @@ export function ServiceProcessSection() {
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {steps.map(([index, title, body]) => (
+              {serviceProcessSteps.map(([index, title, body]) => (
                 <div key={title} className="rounded-[1.35rem] border border-stone-light/22 bg-white/[0.035] p-5">
                   <div className="text-[0.68rem] font-semibold text-accent-gold">{index}</div>
                   <h3 className="mt-3 text-base font-semibold text-stone-100">{title}</h3>
@@ -791,8 +831,8 @@ export function TeamSection() {
               Team Overview
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-            投資團隊
-          </h2>
+              投資團隊
+            </h2>
             <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
               團隊成員具多年投資銀行、資本市場與企業經營實務經驗，熟悉跨境規範與產業動態，
               能在不同總體環境下為企業與投資人設計合宜的解決方案。
@@ -808,162 +848,49 @@ export function TeamSection() {
           </div>
         </div>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm font-semibold text-stone-100">
-                  張義發 I-fa Chang
+          {teamMembers.map((member) => (
+            <div
+              key={member.name}
+              className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-sm font-semibold text-stone-100">{member.name}</div>
+                  <div className="text-xs text-stone-400">{member.role}</div>
+                  {member.email && member.emailContext ? (
+                    <div className="mt-1 text-[0.7rem] text-stone-400">
+                      E-mail：
+                      <TrackedEmailLink
+                        email={member.email}
+                        context={member.emailContext}
+                        className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
+                      />
+                    </div>
+                  ) : null}
                 </div>
-                <div className="text-xs text-stone-400">
-                  創辦人兼負責人
-                </div>
-                <div className="mt-1 text-[0.7rem] text-stone-400">
-                  E-mail：
-                  <TrackedEmailLink
-                    email="ivan@inkstonecapital.com"
-                    context="team_ivan"
-                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
-                  />
-                </div>
+                {member.cvHref ? (
+                  <a
+                    href={member.cvHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-stone-light/40 px-3 py-1 text-[0.7rem] text-stone-300 transition hover:border-accent-gold/70 hover:text-stone-100"
+                  >
+                    查看 CV
+                  </a>
+                ) : null}
               </div>
+              {member.paragraphs.map((paragraph, index) => (
+                <p
+                  key={paragraph}
+                  className={`text-sm leading-7 ${
+                    index === 0 ? "mt-4 text-stone-300/90" : "mt-3 text-stone-400"
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
-            <p className="mt-4 text-sm leading-7 text-stone-300/90">
-              墨石資本創辦人，長期專注於中小企業跨境資本運作與國際市場佈局，具備豐富實務案例與產業人脈。
-              近年亦參與多項新經濟與科技相關投資與企業發展規劃。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm font-semibold text-stone-100">
-                  田江森 Jiangsen Tian
-                </div>
-                <div className="text-xs text-stone-400">
-                  首席科技投資長
-                </div>
-                <div className="mt-1 text-[0.7rem] text-stone-400">
-                  E-mail：
-                  <TrackedEmailLink
-                    email="tian@partner.inkstonecapital.com"
-                    context="team_jiangsen_tian"
-                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
-                  />
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-stone-300/90">
-              美國紐約市立大學電腦科學博士，曾任貝爾實驗室研究員與創業公司技術主管，後加入微軟亞洲研究院，
-              歷任技術轉化工程總監與副院長等職務，累積超過二十年人工智慧與雲端服務研發經驗。
-              目前亦擔任 Yushan.AI 首席人工智慧科學家，專注於AI技術在實體經濟與產業升級中的應用。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm font-semibold text-stone-100">
-                  Kevin Vassily
-                </div>
-                <div className="text-xs text-stone-400">
-                  Senior Advisor
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-stone-300/90">
-              Kevin Vassily 具跨資本市場、金融科技與上市公司治理經驗，曾於 2021 年出任 iPower Inc.（Nasdaq: IPW）
-              的 Chief Financial Officer，並於同年加入董事會，後於 2025 年離任。加入 iPower 前，他曾擔任 Facteus 的市場發展副總裁，
-              亦曾於 Go Capture、Woodseer 與 Prometheus Fund 等機構參與策略、產品與業務發展工作，長期涉獵資本市場、
-              數據服務與跨境投資相關領域。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm font-semibold text-stone-100">
-                  孔靖媛 Nico Kung
-                </div>
-                <div className="text-xs text-stone-400">
-                  醫美與抗衰老產業顧問
-                </div>
-                <div className="mt-1 text-[0.7rem] text-stone-400">
-                  E-mail：
-                  <TrackedEmailLink
-                    email="nico.kung@partner.inkstonecapital.com"
-                    context="team_nico_kung"
-                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
-                  />
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-stone-300/90">
-              孔靖媛女士為資深醫學美容與抗衰老領域專業人士，於醫美健康產業深耕逾二十年，
-              長期專注於醫學美容技術應用、抗衰老管理及美容健康產業發展，累積豐富的專業實務經驗與產業洞察能力。
-              其職業生涯曾於中國及韓國醫學美容相關機構從事專業工作與產業交流，熟悉亞洲醫學美容產業技術發展與市場趨勢，
-              具備跨國產業經驗與國際視野。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <div className="text-sm font-semibold text-stone-100">
-                  陳柏銘 Chen Po-Ming
-                </div>
-                <div className="text-xs text-stone-400">
-                  資源整合與跨界策展顧問
-                </div>
-                <div className="mt-1 text-[0.7rem] text-stone-400">
-                  E-mail：
-                  <TrackedEmailLink
-                    email="popoming.chen@partner.inkstonecapital.com"
-                    context="team_chen_po_ming"
-                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
-                  />
-                </div>
-              </div>
-              <a
-                href="/cv-chen-po-ming.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-stone-light/40 px-3 py-1 text-[0.7rem] text-stone-300 transition hover:border-accent-gold/70 hover:text-stone-100"
-              >
-                查看 CV
-              </a>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-stone-300/90">
-              畢業於世新大學公共傳播學系，專長資源整合、PR 規劃與跨界策展，產業經歷橫跨電影、公關、視覺科技、
-              文旅與園區開發。曾任 BD ART 弼達多媒體藝術行銷有限公司總經理、The Pan Bay 大鵬灣國際開發有限公司總管理處總監、
-              杭州晴光科技有限公司創辦人暨執行長等職務，並參與新北市電影藝術節、宜蘭國際綠色影展、文旅景區規劃與 BOT 開發案等專案。
-            </p>
-            <p className="mt-3 text-sm leading-7 text-stone-400">
-              目前掛職安泰商業銀行股份有限公司副董事長特別助理，並擔任象藝創意有限公司業務總監。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm font-semibold text-stone-100">
-                  吳松宇 Jason Wu
-                </div>
-                <div className="text-xs text-stone-400">
-                  財務顧問部
-                </div>
-                <div className="mt-1 text-[0.7rem] text-stone-400">
-                  E-mail：
-                  <TrackedEmailLink
-                    email="jason.wu@partner.inkstonecapital.com"
-                    context="team_jason_wu"
-                    className="ml-1 font-mono text-stone-200 hover:text-accent-gold"
-                  />
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-7 text-stone-300/90">
-              畢業於嶺東科技大學國際貿易系，具銀行金融與企業財務管理實務背景。曾任職台新銀行、日盛銀行與荷蘭銀行，
-              累積金融服務、企業往來與財務規劃相關經驗。
-            </p>
-            <p className="mt-3 text-sm leading-7 text-stone-400">
-              後續曾擔任韻達（東莞、塘廈）電子財務主管及青提影業 CFO，熟悉企業財務管理、營運資金規劃與跨產業財務協調。
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -971,13 +898,6 @@ export function TeamSection() {
 }
 
 export function TeamOperatingSection() {
-  const capabilities = [
-    ["Capital Markets", "資本市場與上市規劃判斷"],
-    ["Technology", "AI 與新經濟產業理解"],
-    ["Health & Consumer", "健康科技、醫美與消費品牌洞察"],
-    ["Cross-Functional", "資源整合、品牌、內容與合作推進"],
-  ];
-
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#17191d_0%,#101115_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -1006,7 +926,7 @@ export function TeamOperatingSection() {
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {capabilities.map(([title, body]) => (
+            {teamCapabilities.map(([title, body]) => (
               <div key={title} className="rounded-[1.25rem] border border-stone-light/22 bg-black/24 p-4">
                 <div className="text-[0.64rem] uppercase tracking-[0.18em] text-accent-gold">
                   {title}
@@ -1081,12 +1001,6 @@ export function PortfolioSection() {
 }
 
 export function CompanyEcosystemSection() {
-  const themes = [
-    ["AI Infrastructure", "Yushan.AI", "地端模型、企業 AI、資料安全與產業應用。"],
-    ["Health Technology", "Docter Inc.", "非接觸式感測、智慧照護與健康管理場景。"],
-    ["Consumer Brand", "大頭叔叔", "在地食品品牌、創意包裝與消費市場拓展。"],
-  ];
-
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#0f1013_0%,#15161a_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -1123,7 +1037,7 @@ export function CompanyEcosystemSection() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {themes.map(([theme, company, body]) => (
+          {ecosystemThemes.map(([theme, company, body]) => (
             <div key={theme} className="rounded-[1.5rem] border border-stone-light/24 bg-white/[0.035] p-5">
               <div className="text-[0.64rem] uppercase tracking-[0.18em] text-accent-gold">
                 {theme}
@@ -1201,12 +1115,7 @@ export function ContactSection() {
                 Social Media
               </div>
               <div className="mt-3 flex flex-wrap gap-2.5">
-                {[
-                  ["Facebook", "https://www.facebook.com/Ifachang/", "facebook"],
-                  ["X", "https://x.com/ifachang_us", "x"],
-                  ["Threads", "https://www.threads.com/@ifachang", "threads"],
-                  ["LinkedIn", "https://www.linkedin.com/in/ifachang/", "linkedin"],
-                ].map(([label, href, platform]) => (
+                {socialLinks.map(([label, href, platform]) => (
                   <a
                     key={label}
                     href={href}
@@ -1216,7 +1125,7 @@ export function ContactSection() {
                     title={label}
                     className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-light/25 bg-white/[0.04] text-stone-200 transition hover:border-accent-gold/70 hover:bg-accent-gold/10 hover:text-stone-50"
                   >
-                    <SocialIcon platform={platform as "facebook" | "x" | "threads" | "linkedin"} />
+                    <SocialIcon platform={platform as SocialPlatform} />
                   </a>
                 ))}
               </div>
@@ -1231,11 +1140,7 @@ export function ContactSection() {
                 以需求導向安排後續接洽
               </div>
               <div className="mt-4 space-y-2.5 sm:space-y-3">
-                {[
-                  "初步了解服務方向與合作需求。",
-                  "釐清可公開資訊與後續討論範圍。",
-                  "由團隊評估適合的聯繫窗口與回覆節奏。",
-                ].map((item, index) => (
+                {contactFollowUpSteps.map((item, index) => (
                   <div
                     key={item}
                     className="rounded-[1.15rem] border border-stone-light/18 bg-white/[0.04] px-3.5 py-3 sm:rounded-2xl sm:px-4"
