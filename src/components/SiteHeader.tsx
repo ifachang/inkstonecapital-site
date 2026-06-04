@@ -111,7 +111,7 @@ export function PageLead({
 }: {
   eyebrow: string;
   title: string;
-  description: string;
+  description?: string;
   summaryLabel?: string;
   summaryTitle?: string;
   summaryPoints?: string[];
@@ -129,22 +129,26 @@ export function PageLead({
             <h1 className="mt-3 text-[1.95rem] font-semibold tracking-tight text-stone-50 sm:text-4xl">
               {title}
             </h1>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-300/90 sm:text-base sm:leading-8">
-              {description}
-            </p>
-            <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-3">
-              {highlights.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-xl border border-stone-light/20 bg-white/[0.035] px-4 py-3.5 sm:py-4"
-                >
-                  <div className="text-[0.62rem] uppercase tracking-[0.16em] text-stone-500 sm:text-[0.64rem] sm:tracking-[0.18em]">
-                    {item.label}
+            {description ? (
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-300/90 sm:text-base sm:leading-8">
+                {description}
+              </p>
+            ) : null}
+            {highlights.length > 0 ? (
+              <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-3">
+                {highlights.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-xl border border-stone-light/20 bg-white/[0.035] px-4 py-3.5 sm:py-4"
+                  >
+                    <div className="text-[0.62rem] uppercase tracking-[0.16em] text-stone-500 sm:text-[0.64rem] sm:tracking-[0.18em]">
+                      {item.label}
+                    </div>
+                    <div className="mt-2 text-sm font-medium text-stone-100">{item.value}</div>
                   </div>
-                  <div className="mt-2 text-sm font-medium text-stone-100">{item.value}</div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : null}
           </div>
           <div className="rounded-[1.35rem] border border-stone-light/25 bg-white/[0.035] p-4 text-sm text-stone-300 sm:rounded-[1.75rem] sm:p-5">
             <div className="flex items-start justify-between gap-4 border-b border-stone-light/15 pb-4">

@@ -23,7 +23,6 @@ export default function TeamPage() {
       <PageLead
         eyebrow="Team"
         title="投資團隊"
-        description="本頁集中呈現墨石資本核心團隊與顧問成員之專業背景，便於完整說明各成員在資本市場、產業發展與跨境合作領域的專業經驗與角色定位。"
         summaryLabel="People"
         summaryTitle="以多元背景支撐決策與執行"
         summaryPoints={[
@@ -31,11 +30,7 @@ export default function TeamPage() {
           "結合產業理解與實務判斷，支援不同階段之企業需求。",
           "透過顧問與合作網絡延伸團隊的專業視角與資源連結。",
         ]}
-        highlights={[
-          { label: "Core Team", value: "投資與顧問成員整合" },
-          { label: "Industry Range", value: "科技、健康、消費品牌" },
-          { label: "Experience", value: "跨境與產業協作視野" },
-        ]}
+        highlights={[]}
         visual={
           <div className="overflow-hidden rounded-[1.2rem] border border-stone-light/18 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.24))] p-3 sm:rounded-[1.5rem] sm:p-4">
             <div className="relative overflow-hidden rounded-[1rem] border border-stone-light/14 bg-white/5 sm:rounded-[1.2rem]">
