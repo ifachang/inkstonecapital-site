@@ -703,16 +703,6 @@ export function NewsSection() {
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0b0c0f_0%,#101114_42%,#17191d_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-        <div className="mb-6 sm:mb-8">
-          <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.16))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
-            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
-              Media & Updates
-            </div>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              最新消息與媒體報導
-            </h2>
-          </div>
-        </div>
         <div className="space-y-3 sm:space-y-4">
           {newsItems.map((item) => {
             const isInternal = item.href.startsWith("/");
