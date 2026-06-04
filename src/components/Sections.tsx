@@ -40,6 +40,34 @@ function NewsItemLink({
   );
 }
 
+function NewsThumbnail({
+  src,
+  title,
+  className,
+}: {
+  src?: string;
+  title: string;
+  className: string;
+}) {
+  return (
+    <div className={`relative shrink-0 overflow-hidden border border-stone-light/20 bg-black/35 ${className}`}>
+      {src ? (
+        <Image
+          src={src}
+          alt={`${title} thumbnail`}
+          fill
+          sizes="(max-width: 640px) 100vw, 180px"
+          className="object-cover"
+        />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,rgba(196,161,90,0.26),rgba(255,255,255,0.04))] text-[0.62rem] uppercase tracking-[0.18em] text-accent-gold">
+          Inkstone
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function AboutSection() {
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0f1013_0%,#111216_54%,#15161a_100%)]">
@@ -233,13 +261,20 @@ export function OverviewSection() {
                 <NewsItemLink
                   key={item.href}
                   href={item.href}
-                  className="block rounded-2xl border border-stone-light/25 bg-black/25 px-4 py-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
+                  className="flex gap-3 rounded-2xl border border-stone-light/25 bg-black/25 p-3 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
                 >
-                  <div className="mb-2 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                    {item.href.startsWith("/") ? "Inkstone Update" : "Media Coverage"}
+                  <NewsThumbnail
+                    src={item.thumbnail}
+                    title={item.title}
+                    className="h-20 w-[5.75rem] rounded-xl"
+                  />
+                  <div className="min-w-0 py-1">
+                    <div className="mb-2 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                      {item.href.startsWith("/") ? "Inkstone Update" : "Media Coverage"}
+                    </div>
+                    <div className="text-sm font-medium leading-6 text-stone-100">{item.title}</div>
+                    <div className="mt-1 text-xs text-stone-400">{item.source}</div>
                   </div>
-                  <div className="text-sm font-medium text-stone-100">{item.title}</div>
-                  <div className="mt-1 text-xs text-stone-400">{item.source}</div>
                 </NewsItemLink>
               ))}
             </div>
@@ -382,15 +417,22 @@ export function InsightsSection() {
                 <NewsItemLink
                   key={item.href}
                   href={item.href}
-                  className="block rounded-2xl border border-stone-light/20 bg-white/[0.03] px-4 py-4 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
+                  className="flex gap-3 rounded-2xl border border-stone-light/20 bg-white/[0.03] p-3 transition hover:border-accent-gold/80 hover:bg-white/[0.05]"
                 >
-                  <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                    Update
+                  <NewsThumbnail
+                    src={item.thumbnail}
+                    title={item.title}
+                    className="h-16 w-20 rounded-xl"
+                  />
+                  <div className="min-w-0 py-1">
+                    <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                      Update
+                    </div>
+                    <div className="mt-1 text-sm font-medium leading-6 text-stone-100">
+                      {item.title}
+                    </div>
+                    <div className="mt-1 text-xs text-stone-400">{item.source}</div>
                   </div>
-                  <div className="mt-2 text-sm font-medium leading-7 text-stone-100">
-                    {item.title}
-                  </div>
-                  <div className="mt-2 text-xs text-stone-400">{item.source}</div>
                 </NewsItemLink>
               ))}
             </div>
@@ -521,10 +563,17 @@ export function HomeShowcaseSection() {
                 <NewsItemLink
                   key={item.href}
                   href={item.href}
-                  className="block rounded-2xl border border-stone-light/18 bg-white/[0.035] px-4 py-4 transition hover:border-accent-gold/70 hover:bg-white/[0.055]"
+                  className="flex gap-3 rounded-2xl border border-stone-light/18 bg-white/[0.035] p-3 transition hover:border-accent-gold/70 hover:bg-white/[0.055]"
                 >
-                  <div className="text-sm font-medium leading-7 text-stone-100">{item.title}</div>
-                  <div className="mt-1 text-xs text-stone-400">{item.source}</div>
+                  <NewsThumbnail
+                    src={item.thumbnail}
+                    title={item.title}
+                    className="h-16 w-20 rounded-xl"
+                  />
+                  <div className="min-w-0 py-1">
+                    <div className="text-sm font-medium leading-6 text-stone-100">{item.title}</div>
+                    <div className="mt-1 text-xs text-stone-400">{item.source}</div>
+                  </div>
                 </NewsItemLink>
               ))}
             </div>
@@ -687,16 +736,23 @@ export function NewsSection() {
           {newsItems.map((item) => {
             const isInternal = item.href.startsWith("/");
             const className =
-              "block rounded-[1.35rem] border border-stone-light/30 bg-black/35 px-4 py-4 text-sm text-stone-200 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition hover:border-accent-gold/80 hover:bg-white/[0.04] sm:rounded-[1.6rem] sm:px-5 sm:py-5";
+              "flex flex-col gap-4 rounded-[1.35rem] border border-stone-light/30 bg-black/35 p-3 text-sm text-stone-200 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition hover:border-accent-gold/80 hover:bg-white/[0.04] sm:flex-row sm:items-center sm:rounded-[1.6rem] sm:p-4";
             const content = (
               <>
-                <div className="mb-3 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                  {isInternal ? "Inkstone Update" : "External Coverage"}
-                </div>
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-                  <div className="max-w-3xl text-[0.95rem] font-medium text-stone-50 sm:text-base">{item.title}</div>
-                  <div className="text-xs text-stone-400 sm:text-right">
-                    {item.source}
+                <NewsThumbnail
+                  src={item.thumbnail}
+                  title={item.title}
+                  className="h-44 w-full rounded-[1rem] sm:h-28 sm:w-44"
+                />
+                <div className="min-w-0 flex-1 px-1 pb-1 sm:px-0 sm:pb-0">
+                  <div className="mb-3 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
+                    {isInternal ? "Inkstone Update" : "External Coverage"}
+                  </div>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                    <div className="max-w-3xl text-[0.95rem] font-medium leading-7 text-stone-50 sm:text-base">{item.title}</div>
+                    <div className="shrink-0 text-xs text-stone-400 sm:text-right">
+                      {item.source}
+                    </div>
                   </div>
                 </div>
               </>

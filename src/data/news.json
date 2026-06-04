@@ -2,46 +2,55 @@
   {
     "title": "Nico Kung 親赴沖繩考察石垣牛直送台灣項目",
     "href": "/news/ishigaki-beef-direct-taiwan-visit/",
-    "source": "Inkstone Capital"
+    "source": "Inkstone Capital",
+    "thumbnail": "/ishigaki-beef-visit-01.png"
   },
   {
     "title": "SMR、HALEU 與 Centrus：先進核能真正瓶頸可能是燃料供應鏈",
     "href": "https://ifachang.com/news/project-visit-2026-05-22-smr-haleu-centrus-commentary.html",
-    "source": "I-fa Chang"
+    "source": "I-fa Chang",
+    "thumbnail": "/insight-smr-haleu.svg"
   },
   {
     "title": "OpenAI prepares confidential IPO filing",
     "href": "https://www.axios.com/2026/05/20/openai-ipo-spacex-musk",
-    "source": "Axios"
+    "source": "Axios",
+    "thumbnail": "/ecosystem-visual.png"
   },
   {
     "title": "Musk 訴 OpenAI 與 Microsoft 案受挫：陪審團認定相關請求提出過晚",
     "href": "https://apnews.com/article/0b9b0bfaffe96f2c930341f52dfe4f8c",
-    "source": "AP News"
+    "source": "AP News",
+    "thumbnail": "/advisory-boardroom.png"
   },
   {
     "title": "Inkstone Capital 公司概況與服務介紹",
     "href": "https://inkstonecapital.com/",
-    "source": "Inkstone Capital"
+    "source": "Inkstone Capital",
+    "thumbnail": "/inkstone-office-wall.jpg"
   },
   {
     "title": "總統揮棒祝福！「大頭叔叔」爆米花球棒挺中華隊征戰2026經典賽",
     "href": "https://news.cnyes.com/news/id/6342902",
-    "source": "鉅亨網 Cnyes"
+    "source": "鉅亨網 Cnyes",
+    "thumbnail": "/company-uncle-datou.webp"
   },
   {
     "title": "田江森博士於北科大分享微軟 22 年經驗與 AI 趨勢，並與數位治理協會探討產業聯盟合作",
     "href": "https://news.cnyes.com/news/id/5911888",
-    "source": "鉅亨網 Cnyes"
+    "source": "鉅亨網 Cnyes",
+    "thumbnail": "/team-boardroom-photo.png"
   },
   {
     "title": "微軟亞洲研究院前副院長田江森博士：有一個工作不會被 AI 取代",
     "href": "https://news.cnyes.com/news/id/5916856",
-    "source": "鉅亨網 Cnyes"
+    "source": "鉅亨網 Cnyes",
+    "thumbnail": "/company-yushan-ai.png"
   },
   {
     "title": "前微軟亞洲研究院高管田江森博士訪 ReBlood 集團 共話 AI 健康管理",
     "href": "https://news.cnyes.com/news/id/5908763",
-    "source": "鉅亨網 Cnyes"
+    "source": "鉅亨網 Cnyes",
+    "thumbnail": "/company-docter.jpg"
   }
 ]
