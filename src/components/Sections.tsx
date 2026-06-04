@@ -295,7 +295,7 @@ export function InsightsSection() {
       className="border-b border-stone-light/40 bg-[radial-gradient(circle_at_top_right,rgba(196,161,90,0.16),transparent_24%),linear-gradient(180deg,#0f1013_0%,#131519_44%,#191b20_100%)]"
     >
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-        <div className="mb-6 grid gap-5 sm:mb-8 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)] lg:items-end">
+        <div className="mb-6 sm:mb-8">
           <div className="rounded-[1.7rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6">
             <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
               Insights & Updates
@@ -305,14 +305,6 @@ export function InsightsSection() {
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
               用較精煉的方式整理墨石資本對產業與資本市場的觀察，同時收錄近期公開動態，讓訪客更快掌握我們正在關注的議題與節奏。
-            </p>
-          </div>
-          <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
-            <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
-              Editorial Use
-            </div>
-            <p className="mt-3 leading-relaxed">
-              這個區塊適合後續持續新增產業短評、交易觀察、媒體露出與墨石最新進展，作為品牌內容更新的固定入口。
             </p>
           </div>
         </div>
