@@ -97,11 +97,7 @@ export function PageLead({
   description,
   summaryLabel = "Insight",
   summaryTitle = "以結構化方式展開資訊",
-  summaryPoints = [
-    "將品牌、服務與團隊資訊分別整理，降低閱讀干擾。",
-    "以摘要導流搭配獨立內容頁，兼顧深度與瀏覽效率。",
-    "保留後續增修空間，讓網站能隨業務與團隊成長延展。",
-  ],
+  summaryPoints,
   highlights = [
     { label: "Structured", value: "分頁資訊架構" },
     { label: "Focused", value: "重點內容清晰導覽" },
@@ -118,10 +114,18 @@ export function PageLead({
   highlights?: Array<{ label: string; value: string }>;
   visual?: ReactNode;
 }) {
+  const showSummary = Boolean(summaryPoints?.length || visual);
+
   return (
     <section className="border-b border-stone-light/30 bg-[linear-gradient(180deg,#050506_0%,#101116_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)] lg:items-end">
+        <div
+          className={
+            showSummary
+              ? "grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)] lg:items-end"
+              : "max-w-3xl"
+          }
+        >
           <div>
             <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-400 sm:text-[0.7rem] sm:tracking-[0.24em]">
               {eyebrow}
@@ -150,33 +154,39 @@ export function PageLead({
               </div>
             ) : null}
           </div>
-          <div className="rounded-[1.35rem] border border-stone-light/25 bg-white/[0.035] p-4 text-sm text-stone-300 sm:rounded-[1.75rem] sm:p-5">
-            <div className="flex items-start justify-between gap-4 border-b border-stone-light/15 pb-4">
-              <div>
-                <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500 sm:text-[0.68rem] sm:tracking-[0.22em]">Perspective</div>
-                <div className="mt-2 text-base font-semibold text-stone-100 sm:text-lg">{summaryTitle}</div>
-              </div>
-              <div className="rounded-full border border-accent-gold/35 bg-accent-gold/10 px-2.5 py-1 text-[0.6rem] uppercase tracking-[0.15em] text-accent-gold sm:px-3 sm:text-[0.65rem] sm:tracking-[0.18em]">
-                {summaryLabel}
-              </div>
-            </div>
-            <div className="mt-4 space-y-2.5 sm:space-y-3">
-              {summaryPoints.map((item, index) => (
-                <div
-                  key={item}
-                  className="rounded-xl border border-stone-light/15 bg-black/18 px-3.5 py-3 sm:px-4"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full border border-accent-gold/35 bg-accent-gold/10 text-[0.64rem] font-semibold text-accent-gold">
-                      0{index + 1}
-                    </span>
-                    <p className="text-[0.8rem] leading-relaxed text-stone-300/90 sm:text-[0.82rem]">{item}</p>
+          {showSummary ? (
+            <div className="rounded-[1.35rem] border border-stone-light/25 bg-white/[0.035] p-4 text-sm text-stone-300 sm:rounded-[1.75rem] sm:p-5">
+              {summaryPoints?.length ? (
+                <>
+                  <div className="flex items-start justify-between gap-4 border-b border-stone-light/15 pb-4">
+                    <div>
+                      <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500 sm:text-[0.68rem] sm:tracking-[0.22em]">Perspective</div>
+                      <div className="mt-2 text-base font-semibold text-stone-100 sm:text-lg">{summaryTitle}</div>
+                    </div>
+                    <div className="rounded-full border border-accent-gold/35 bg-accent-gold/10 px-2.5 py-1 text-[0.6rem] uppercase tracking-[0.15em] text-accent-gold sm:px-3 sm:text-[0.65rem] sm:tracking-[0.18em]">
+                      {summaryLabel}
+                    </div>
                   </div>
-                </div>
-              ))}
+                  <div className="mt-4 space-y-2.5 sm:space-y-3">
+                    {summaryPoints.map((item, index) => (
+                      <div
+                        key={item}
+                        className="rounded-xl border border-stone-light/15 bg-black/18 px-3.5 py-3 sm:px-4"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-accent-gold/35 bg-accent-gold/10 text-[0.64rem] font-semibold text-accent-gold">
+                            0{index + 1}
+                          </span>
+                          <p className="text-[0.8rem] leading-relaxed text-stone-300/90 sm:text-[0.82rem]">{item}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : null}
+              {visual ? <div className={summaryPoints?.length ? "mt-4 sm:mt-5" : ""}>{visual}</div> : null}
             </div>
-            {visual ? <div className="mt-4 sm:mt-5">{visual}</div> : null}
-          </div>
+          ) : null}
         </div>
       </div>
     </section>
