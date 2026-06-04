@@ -22,7 +22,6 @@ export default function ServicesPage() {
       <PageLead
         eyebrow="Services"
         title="服務與策略"
-        description="本頁集中整理墨石資本核心服務與策略方向，涵蓋交易架構、資本規劃與企業成長所需之整體顧問支持。"
         summaryLabel="Advisory"
         summaryTitle="以交易架構與資本規劃為核心"
         summaryPoints={[
@@ -30,11 +29,7 @@ export default function ServicesPage() {
           "兼顧交易結構、融資安排與市場定位之整體協調。",
           "協助企業建立更具延展性的資本市場路徑。",
         ]}
-        highlights={[
-          { label: "3 Focus Areas", value: "併購、融資、資本市場" },
-          { label: "Execution", value: "策略與落地同步推進" },
-          { label: "Cross-Border", value: "跨境結構整合能力" },
-        ]}
+        highlights={[]}
         visual={
           <div className="overflow-hidden rounded-[1.2rem] border border-stone-light/18 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.24))] p-4 sm:rounded-[1.5rem] sm:p-5">
             <div className="mb-4 flex items-center justify-between">
