@@ -118,6 +118,15 @@ export const teamMembers: readonly TeamMember[] = [
       "後續曾擔任韻達（東莞、塘廈）電子財務主管及青提影業 CFO，熟悉企業財務管理、營運資金規劃與跨產業財務協調。",
     ],
   },
+  {
+    name: "邱宥凱 Kevin Chiu",
+    role: "特別助理",
+    email: "kevin.chiu@partner.inkstonecapital.com",
+    emailContext: "team_kevin_chiu",
+    paragraphs: [
+      "中山大學材料所碩士，曾任台積電資深工程師 15 年，具材料工程、半導體製程與大型科技製造體系實務經驗。",
+    ],
+  },
 ] as const;
 
 export const teamCapabilities = [
