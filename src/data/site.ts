@@ -22,15 +22,15 @@ export const affiliatedCompanies = [
     imageClassName: "object-cover",
   },
   {
-    href: "https://uncle-datou.com/",
-    category: "Consumer Brand",
-    name: "大頭叔叔",
+    href: "https://datouamerica.com/",
+    category: "U.S. Market Platform",
+    name: "大投美國股份有限公司 Datou America Inc.",
     description:
-      "以創意包裝與台灣在地零食為特色的消費品牌，涵蓋爆米花、果乾與聯名商品等產品線。",
-    domain: "uncle-datou.com",
-    imageSrc: "/company-uncle-datou.webp",
-    imageAlt: "大頭叔叔 official product image",
-    imageClassName: "object-cover",
+      "協助亞洲食品與零食品牌進入美國市場，支援零售通路、Amazon、FDA 文件準備與美國倉儲協調。",
+    domain: "datouamerica.com",
+    imageSrc: "/company-datou-america.jpg",
+    imageAlt: "Datou America Inc. official logo",
+    imageClassName: "object-contain p-8 sm:p-10",
   },
 ] as const;
 
@@ -139,7 +139,7 @@ export const teamCapabilities = [
 export const ecosystemThemes = [
   ["AI Infrastructure", "Yushan.AI", "地端模型、企業 AI、資料安全與產業應用。"],
   ["Health Technology", "Docter Inc.", "非接觸式感測、智慧照護與健康管理場景。"],
-  ["Consumer Brand", "大頭叔叔", "在地食品品牌、創意包裝與消費市場拓展。"],
+  ["U.S. Market Entry", "大投美國股份有限公司", "亞洲食品品牌進入美國零售、電商、合規與倉儲市場。"],
 ] as const;
 
 export const socialLinks = [

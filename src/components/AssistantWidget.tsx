@@ -72,10 +72,11 @@ function getAssistantReply(input: string) {
     normalized.includes("公司") ||
     normalized.includes("yushan") ||
     normalized.includes("docter") ||
-    normalized.includes("大頭叔叔") ||
+    normalized.includes("大投美國") ||
+    normalized.includes("datou") ||
     normalized.includes("brands")
   ) {
-    return "目前網站公開列出的相關公司包括 Yushan.AI、Docter Inc. 與大頭叔叔。你可以前往「相關公司」頁面查看簡介與官方連結。";
+    return "目前網站公開列出的相關公司包括 Yushan.AI、Docter Inc. 與大投美國股份有限公司。你可以前往「相關公司」頁面查看簡介與官方連結。";
   }
 
   if (
