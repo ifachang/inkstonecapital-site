@@ -4,15 +4,15 @@ import {
   ContactSection,
   TeamOperatingSection,
   TeamSection,
-} from "../../components/Sections";
-import { PageLead, SiteHeader } from "../../components/SiteHeader";
+} from "../../../components/Sections";
+import { PageLead, SiteHeader } from "../../../components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "投資團隊",
+  title: "Investment Team",
   description:
-    "查看墨石資本核心團隊與顧問成員介紹，了解跨境資本市場、科技投資與醫美健康產業背景。",
+    "Meet Inkstone Capital's team and advisors across cross-border capital markets, technology investment, health technology and consumer sectors.",
   alternates: {
-    canonical: "/team/",
+    canonical: "/en/team/",
     languages: {
       "zh-Hant": "/team/",
       en: "/en/team/",
@@ -20,19 +20,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TeamPage() {
+export default function EnglishTeamPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
-      <SiteHeader currentPath="/team/" />
+      <SiteHeader currentPath="/en/team/" locale="en" />
       <PageLead
         eyebrow="Team"
-        title="投資團隊"
+        title="Investment Team"
         summaryLabel="People"
-        summaryTitle="以多元背景支撐決策與執行"
+        summaryTitle="Diverse backgrounds supporting decision-making and execution"
         summaryPoints={[
-          "涵蓋資本市場、科技投資、醫美健康與跨界整合經驗。",
-          "結合產業理解與實務判斷，支援不同階段之企業需求。",
-          "透過顧問與合作網絡延伸團隊的專業視角與資源連結。",
+          "Coverage across capital markets, technology investment, health and consumer industries.",
+          "Industry understanding and practical judgment for companies at different stages.",
+          "Advisor and partner networks extending the team's professional perspective and resource access.",
         ]}
         highlights={[]}
         visual={
@@ -50,15 +50,15 @@ export default function TeamPage() {
                 sizes="(min-width: 1024px) 34vw, 100vw"
               />
               <div className="border-t border-stone-light/12 bg-white/70 px-4 py-3 text-[0.78rem] leading-relaxed text-slate-700 backdrop-blur-sm sm:px-5 sm:text-[0.82rem]">
-                以專業會議場景呈現團隊在策略研議、產業判斷與跨域協作中的工作情境。
+                A professional setting for strategy discussion, industry judgment and cross-disciplinary collaboration.
               </div>
             </div>
           </div>
         }
       />
-      <TeamSection />
-      <TeamOperatingSection />
-      <ContactSection />
+      <TeamSection locale="en" />
+      <TeamOperatingSection locale="en" />
+      <ContactSection locale="en" />
     </main>
   );
 }

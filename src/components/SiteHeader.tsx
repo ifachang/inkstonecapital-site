@@ -1,18 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { alternatePath, localizedPath, type Locale } from "../lib/i18n";
 
-const navItems = [
-  { href: "/", label: "首頁" },
-  { href: "/services/", label: "服務" },
-  { href: "/team/", label: "團隊" },
-  { href: "/companies/", label: "相關公司" },
-  { href: "/#insights", label: "觀點與動態" },
-  { href: "/news/", label: "最新消息" },
-  { href: "/#contact", label: "聯絡" },
-];
+const navItems = {
+  zh: [
+    { href: "/", label: "首頁" },
+    { href: "/services/", label: "服務" },
+    { href: "/team/", label: "團隊" },
+    { href: "/companies/", label: "相關公司" },
+    { href: "/#insights", label: "觀點與動態" },
+    { href: "/news/", label: "最新消息" },
+    { href: "/#contact", label: "聯絡" },
+  ],
+  en: [
+    { href: "/", label: "Home" },
+    { href: "/services/", label: "Services" },
+    { href: "/team/", label: "Team" },
+    { href: "/companies/", label: "Companies" },
+    { href: "/#insights", label: "Insights" },
+    { href: "/news/", label: "News" },
+    { href: "/#contact", label: "Contact" },
+  ],
+} satisfies Record<Locale, Array<{ href: string; label: string }>>;
 
-export function SiteHeader({ currentPath = "/" }: { currentPath?: string }) {
+export function SiteHeader({
+  currentPath = "/",
+  locale = "zh",
+}: {
+  currentPath?: string;
+  locale?: Locale;
+}) {
+  const items = navItems[locale];
+  const languageBasePath = currentPath.startsWith("/en")
+    ? currentPath
+    : localizedPath(locale, currentPath);
+
   return (
     <header className="sticky top-0 z-40 border-b border-stone-light/40 bg-[rgba(5,5,6,0.82)] backdrop-blur-xl">
       <div className="border-b border-stone-light/20">
@@ -28,7 +51,7 @@ export function SiteHeader({ currentPath = "/" }: { currentPath?: string }) {
         </div>
       </div>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <Link href="/" className="group flex items-center gap-3 sm:gap-5">
+        <Link href={localizedPath(locale, "/")} className="group flex items-center gap-3 sm:gap-5">
           <div className="relative h-16 w-16 rounded-[1.35rem] border border-stone-light/30 bg-black/35 p-2.5 transition group-hover:border-accent-gold/60 sm:h-24 sm:w-24 sm:rounded-[1.75rem] sm:p-3">
             <Image
               src="/inkstone-logo.jpg"
@@ -49,12 +72,14 @@ export function SiteHeader({ currentPath = "/" }: { currentPath?: string }) {
           </div>
         </Link>
         <nav className="hidden items-center gap-2 md:flex">
-          {navItems.map((item) => {
-            const active = item.href === currentPath;
+          {items.map((item) => {
+            const href = localizedPath(locale, item.href);
+            const active =
+              !item.href.includes("#") && href.split("#")[0] === languageBasePath.split("#")[0];
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={href}
                 className={
                   active
                     ? "rounded-full border border-accent-gold/50 bg-accent-gold/12 px-4 py-2 text-xs font-medium text-accent-gold"
@@ -65,16 +90,24 @@ export function SiteHeader({ currentPath = "/" }: { currentPath?: string }) {
               </Link>
             );
           })}
+          <Link
+            href={alternatePath(locale, languageBasePath)}
+            className="rounded-full border border-stone-light/35 bg-white/[0.03] px-3 py-2 text-xs font-medium text-stone-300 transition hover:border-accent-gold/70 hover:text-stone-100"
+          >
+            {locale === "zh" ? "English" : "繁體中文"}
+          </Link>
         </nav>
       </div>
       <div className="border-t border-stone-light/10 md:hidden">
         <nav className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-3 text-sm [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {navItems.map((item) => {
-            const active = item.href === currentPath;
+          {items.map((item) => {
+            const href = localizedPath(locale, item.href);
+            const active =
+              !item.href.includes("#") && href.split("#")[0] === languageBasePath.split("#")[0];
             return (
               <Link
                 key={`${item.href}-mobile`}
-                href={item.href}
+                href={href}
                 className={
                   active
                     ? "whitespace-nowrap rounded-full border border-accent-gold/50 bg-accent-gold/12 px-3.5 py-2 text-xs font-medium text-accent-gold"
@@ -85,6 +118,12 @@ export function SiteHeader({ currentPath = "/" }: { currentPath?: string }) {
               </Link>
             );
           })}
+          <Link
+            href={alternatePath(locale, languageBasePath)}
+            className="whitespace-nowrap rounded-full border border-stone-light/20 bg-white/[0.03] px-3.5 py-2 text-xs font-medium text-stone-300 transition hover:border-accent-gold/70 hover:text-stone-100"
+          >
+            {locale === "zh" ? "English" : "繁體中文"}
+          </Link>
         </nav>
       </div>
     </header>

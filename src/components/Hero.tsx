@@ -1,25 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
+import { localizedPath, type Locale } from "../lib/i18n";
 
-const operatingStats = [
-  {
-    label: "Founded",
-    value: "2012",
-    detail: "Established in Mercer Island",
+const heroContent = {
+  zh: {
+    badge: "Strategic Capital Advisory",
+    titlePrefix: "以跨境視野整合",
+    titleHighlight: "資本、市場與企業成長節奏",
+    description:
+      "墨石資本長期聚焦中小企業資本結構優化、跨境融資安排與上市前策略規劃，以兼顧交易結構、產業理解與執行節奏的方式，協助企業在關鍵轉型期建立更穩健的成長路徑。",
+    primaryCta: "與我們交流",
+    secondaryCta: "查看核心服務",
+    stats: [
+      { label: "Founded", value: "2012", detail: "Established in Mercer Island" },
+      { label: "Coverage", value: "3 Regions", detail: "United States · Taiwan · Greater China" },
+      { label: "Core Work", value: "Capital Structuring", detail: "M&A, private placement, listing strategy" },
+    ],
   },
-  {
-    label: "Coverage",
-    value: "3 Regions",
-    detail: "United States · Taiwan · Greater China",
+  en: {
+    badge: "Strategic Capital Advisory",
+    titlePrefix: "Connecting capital, markets",
+    titleHighlight: "and company growth across borders",
+    description:
+      "Inkstone Capital focuses on capital-structure optimization, cross-border financing and pre-listing strategy for growth companies. We help clients align transaction design, industry context and execution rhythm at critical stages of transformation.",
+    primaryCta: "Contact us",
+    secondaryCta: "View services",
+    stats: [
+      { label: "Founded", value: "2012", detail: "Established in Mercer Island" },
+      { label: "Coverage", value: "3 Regions", detail: "United States · Taiwan · Greater China" },
+      { label: "Core Work", value: "Capital Structuring", detail: "M&A, private placement, listing strategy" },
+    ],
   },
-  {
-    label: "Core Work",
-    value: "Capital Structuring",
-    detail: "M&A, private placement, listing strategy",
-  },
-];
+} satisfies Record<Locale, {
+  badge: string;
+  titlePrefix: string;
+  titleHighlight: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+  stats: Array<{ label: string; value: string; detail: string }>;
+}>;
 
-export function Hero() {
+export function Hero({ locale = "zh" }: { locale?: Locale }) {
+  const content = heroContent[locale];
+
   return (
     <section className="relative overflow-hidden border-b border-stone-light/30 bg-[linear-gradient(180deg,#050506_0%,#0b0b0d_48%,#15161a_100%)]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_18%_0%,rgba(196,161,90,0.16),transparent_34%)]" />
@@ -31,26 +55,25 @@ export function Hero() {
                 Inkstone Capital
               </span>
               <span className="h-1 w-1 rounded-full bg-accent-gold" />
-              <span>Strategic Capital Advisory</span>
+              <span>{content.badge}</span>
             </div>
             <div className="space-y-4 sm:space-y-5">
               <h1 className="max-w-4xl text-[2rem] font-semibold tracking-tight text-stone-50 sm:text-5xl xl:text-6xl">
-                以跨境視野整合
+                {content.titlePrefix}
                 <span className="mt-2 block bg-gradient-to-r from-accent-gold via-stone-100 to-stone-300 bg-clip-text text-transparent">
-                  資本、市場與企業成長節奏
+                  {content.titleHighlight}
                 </span>
               </h1>
               <p className="max-w-2xl text-[0.95rem] leading-7 text-stone-300/88 sm:text-base sm:leading-8">
-                墨石資本長期聚焦中小企業資本結構優化、跨境融資安排與上市前策略規劃，
-                以兼顧交易結構、產業理解與執行節奏的方式，協助企業在關鍵轉型期建立更穩健的成長路徑。
+                {content.description}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {operatingStats.map((item, index) => (
+              {content.stats.map((item, index) => (
                 <div
                   key={item.label}
                   className={`rounded-xl border border-stone-light/25 bg-white/[0.035] p-3.5 sm:p-4 ${
-                    index === operatingStats.length - 1 ? "col-span-2 sm:col-span-1" : ""
+                    index === content.stats.length - 1 ? "col-span-2 sm:col-span-1" : ""
                   }`}
                 >
                   <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
@@ -63,16 +86,16 @@ export function Hero() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <Link
-                href="/#contact"
+                href={localizedPath(locale, "/#contact")}
                 className="w-full rounded-full bg-accent-gold px-6 py-3 text-center text-sm font-semibold text-ink-dark transition hover:-translate-y-0.5 hover:bg-[#d3af67] sm:w-auto"
               >
-                與我們交流
+                {content.primaryCta}
               </Link>
               <Link
-                href="/services/"
+                href={localizedPath(locale, "/services/")}
                 className="w-full rounded-full border border-stone-light/50 bg-white/5 px-6 py-3 text-center text-sm font-medium text-stone-100 transition hover:border-accent-gold/70 hover:bg-white/8 sm:w-auto"
               >
-                查看核心服務
+                {content.secondaryCta}
               </Link>
             </div>
           </div>

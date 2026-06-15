@@ -4,6 +4,15 @@ import type { ReactNode } from "react";
 import { insightItems } from "../data/insights";
 import newsItems from "../data/news.json";
 import {
+  advisoryTracksEn,
+  affiliatedCompaniesEn,
+  contactFollowUpStepsEn,
+  ecosystemThemesEn,
+  serviceProcessStepsEn,
+  teamCapabilitiesEn,
+  teamMembersEn,
+} from "../data/site-en";
+import {
   advisoryTracks,
   affiliatedCompanies,
   contactFollowUpSteps,
@@ -13,8 +22,22 @@ import {
   teamCapabilities,
   teamMembers,
 } from "../data/site";
+import { localizedPath, type Locale } from "../lib/i18n";
 import { SocialIcon, type SocialPlatform } from "./SocialIcon";
 import { TrackedEmailLink } from "./TrackedEmailLink";
+
+function hrefFor(locale: Locale, href: string) {
+  return href.startsWith("/") ? localizedPath(locale, href) : href;
+}
+
+type TeamMemberView = {
+  name: string;
+  role: string;
+  email?: string;
+  emailContext?: string;
+  cvHref?: string;
+  paragraphs: readonly string[];
+};
 
 function NewsItemLink({
   href,
@@ -68,7 +91,168 @@ function NewsThumbnail({
   );
 }
 
-export function AboutSection() {
+const sectionCopy = {
+  zh: {
+    aboutTitle: "以資本市場經驗為基礎，為企業建立跨境成長框架",
+    aboutBody1:
+      "墨石資本（Inkstone Capital）成立於 2012 年，由張義發先生於美國華盛頓州 Mercer Island 創立，目前營運據點位於高雄市，並在美國與中國大陸擁有長期合作夥伴。團隊深耕跨境資本市場與企業財務顧問服務，協助客戶在不同法域之間銜接資本與策略資源。",
+    aboutBody2:
+      "我們專注服務成長中的中小企業（Small Cap），涵蓋傳統產業升級、新經濟與科技應用等領域，透過併購重組、私募融資、上市規劃與過橋融資等工具，協助企業完成從在地成長到登陸美國 Nasdaq / NYSE 資本市場的關鍵里程碑，同時兼顧公司治理與長期價值。",
+    aboutCards: [
+      ["Mandate", "成長企業資本規劃", "聚焦中小企業在募資、交易與市場布局的關鍵決策。"],
+      ["Execution", "結構與執行並重", "從架構設計到交易節奏協調，兼顧落地可行性。"],
+      ["Network", "跨境資源銜接", "結合資本市場、產業夥伴與區域合作網絡。"],
+    ],
+    principlesTitle: "紀律 · 獨立 · 穩健",
+    principles: [
+      ["跨境結構設計經驗", "熟悉多地監管與資本市場規則，為企業量身訂製兼顧成長與風險控管的交易架構。"],
+      ["長期實務與落地能力", "結合理論與實務操作，從洽談、估值、盡職調查到交割與整合，提供一站式顧問服務。"],
+      ["與企業家並肩同行", "以前瞻策略與務實執行為核心，陪伴企業從在地走向區域乃至國際資本市場。"],
+    ],
+    showcaseTitle: "從資本結構到產業落地，形成可延展的成長路徑",
+    showcaseBody:
+      "首頁以更精簡的方式呈現墨石資本的核心工作面向，讓訪客能快速理解服務、團隊、相關公司與最新動態之間的關聯。",
+    servicesCta: "查看完整服務",
+    advisoryVisual: "以交易文件、資本市場資料與跨境城市意象，呈現墨石資本在策略規劃與執行協調中的專業工作情境。",
+    readInsight: "閱讀本期完整文章",
+    recentUpdates: "最新動態摘要",
+    allNews: "全部消息",
+    insightsTitle: "觀點與動態",
+    insightsBody:
+      "用較精煉的方式整理墨石資本對產業與資本市場的觀察，同時收錄近期公開動態，讓訪客更快掌握我們正在關注的議題與節奏。",
+    readFullArticle: "閱讀完整文章",
+    viewSource: "查看外部來源",
+    archiveTitle: "一期一期整理觀點",
+    recentInkstone: "墨石近期動態",
+    viewAll: "查看全部",
+    strategyTitle: "服務與策略",
+    strategyBody:
+      "我們結合投資銀行與產業顧問的視角，為企業設計兼顧股權、債權與結構性工具的整體方案，協助企業於關鍵節點取得所需資金與夥伴。",
+    strategyPillars: [
+      ["Structuring", "交易架構與資本安排"],
+      ["Execution", "跨團隊協調與節奏管理"],
+      ["Positioning", "市場定位與成長規劃"],
+    ],
+    approach:
+      "墨石資本以結構設計、交易可行性與執行節奏為核心，協助企業在不同發展階段建立合宜的資本市場方案。",
+    serviceCards: [
+      ["M&A / Restructuring", "併購與重組顧問", "協助企業評估標的、設計交易架構並進行談判與整合，包含跨境併購與產業整合專案。"],
+      ["Private Placement", "私募融資與過橋融資", "為成長期企業媒合策略投資人與金融機構，設計股權、可轉換工具與過橋融資解決方案。"],
+      ["Capital Markets", "上市與資本市場規劃", "依產業屬性與公司階段，協助評估適合的資本市場（含美股與亞洲市場），並規劃上市前準備與持續性資訊揭露。"],
+    ],
+    processTitle: "以階段式流程降低交易不確定性",
+    processBody:
+      "墨石資本的工作重點不只在於提出方案，更在於將策略轉換為可執行的節奏、文件、溝通對象與資本市場準備。",
+    teamTitle: "投資團隊",
+    teamBody:
+      "團隊成員具多年投資銀行、資本市場與企業經營實務經驗，熟悉跨境規範與產業動態，能在不同總體環境下為企業與投資人設計合宜的解決方案。",
+    teamPerspective:
+      "團隊背景橫跨資本市場、科技、醫美健康與跨界整合，能就企業不同發展階段提供更貼近實務的策略支援。",
+    cv: "查看 CV",
+    workTitle: "以多元專業形成共同決策框架",
+    workBody:
+      "團隊分工以議題為核心，依專案需求組合資本市場、技術、產業與品牌資源，讓策略判斷與實際執行能保持一致。",
+    portfolioTitle: "相關公司",
+    portfolioBody:
+      "墨石資本長期關注人工智慧、健康科技與消費品牌等領域，以下為目前網站所介紹的相關公司與品牌。",
+    portfolioNav:
+      "點擊各卡片即可前往品牌或公司官方網站，以了解其產品定位、技術方向與市場發展。",
+    ecosystemTitle: "以產業主題理解相關公司的策略位置",
+    ecosystemBody:
+      "相關公司不是單純名單，而是墨石資本關注的產業方向：技術基礎、健康服務與消費品牌如何進入可擴張的商業化階段。",
+    ecosystemVisual:
+      "以 AI 基礎建設、健康科技裝置與消費品牌包裝，呈現相關公司跨產業布局的視覺連結。",
+    contactTitle: "聯絡我們",
+    contactBody:
+      "如欲進一步了解墨石資本，或分享合作與投資機會，歡迎透過電話或電子郵件與我們聯繫。我們將依需求安排後續溝通，提供更適切的交流與協作方式。",
+    office: "高雄市輔仁路 155 號 4 樓",
+    communicationTitle: "以需求導向安排後續接洽",
+    notice:
+      "本網站內容僅供一般資訊之用，不構成任何形式之證券招攬、要約或投資建議。投資涉及風險，過去績效不代表未來表現。",
+  },
+  en: {
+    aboutTitle: "A cross-border growth framework grounded in capital-market experience",
+    aboutBody1:
+      "Inkstone Capital was founded in 2012 by I-fa Chang in Mercer Island, Washington. The firm is currently based in Kaohsiung, Taiwan, with long-term partners in the United States and Greater China. The team focuses on cross-border capital markets and corporate financial advisory work, helping clients connect capital and strategic resources across jurisdictions.",
+    aboutBody2:
+      "We serve growth-stage small-cap companies across traditional industry upgrades, new-economy sectors and technology applications. Through M&A, restructuring, private placement, listing planning and bridge financing, we help companies move from local growth to international capital-market readiness while keeping governance and long-term value in view.",
+    aboutCards: [
+      ["Mandate", "Capital planning for growth companies", "Focused on key funding, transaction and market-entry decisions for small and mid-sized companies."],
+      ["Execution", "Structure and execution discipline", "From transaction architecture to deal rhythm, we keep practical execution in view."],
+      ["Network", "Cross-border resource access", "Connecting capital markets, industry partners and regional collaboration networks."],
+    ],
+    principlesTitle: "Disciplined · Independent · Durable",
+    principles: [
+      ["Cross-border structuring experience", "Familiarity with multi-market regulations and capital-market rules supports tailored transaction structures."],
+      ["Practical execution capability", "We combine advisory judgment with hands-on work across negotiation, valuation, diligence, closing and integration."],
+      ["Working alongside entrepreneurs", "We pair forward-looking strategy with pragmatic execution as companies move from local markets to regional and international capital markets."],
+    ],
+    showcaseTitle: "From capital structure to industry deployment, building scalable growth paths",
+    showcaseBody:
+      "The homepage presents Inkstone Capital's core work in a concise way, helping visitors understand how services, team capabilities, affiliated companies and public updates connect.",
+    servicesCta: "View full services",
+    advisoryVisual: "Transaction documents, capital-market data and cross-border city imagery frame the firm's strategic planning and execution work.",
+    readInsight: "Read the full insight",
+    recentUpdates: "Recent updates",
+    allNews: "All news",
+    insightsTitle: "Insights & Updates",
+    insightsBody:
+      "Selected observations on industries and capital markets, together with recent public updates, help visitors understand the themes and timing Inkstone Capital is watching.",
+    readFullArticle: "Read full article",
+    viewSource: "View source",
+    archiveTitle: "Insight archive",
+    recentInkstone: "Recent Inkstone updates",
+    viewAll: "View all",
+    strategyTitle: "Services & Strategy",
+    strategyBody:
+      "We combine investment-banking and industry-advisory perspectives to design solutions across equity, debt and structured instruments, helping companies secure capital and partners at critical stages.",
+    strategyPillars: [
+      ["Structuring", "Transaction structure and capital arrangement"],
+      ["Execution", "Cross-team coordination and deal rhythm"],
+      ["Positioning", "Market positioning and growth planning"],
+    ],
+    approach:
+      "Inkstone Capital centers its work on structure design, transaction feasibility and execution rhythm, helping companies develop appropriate capital-market plans across stages.",
+    serviceCards: [
+      ["M&A / Restructuring", "M&A and restructuring advisory", "Support target assessment, transaction-structure design, negotiation and integration, including cross-border M&A and industry consolidation projects."],
+      ["Private Placement", "Private placement and bridge financing", "Match growth companies with strategic investors and financial institutions, including equity, convertible instruments and bridge-financing solutions."],
+      ["Capital Markets", "Listing and capital-market planning", "Evaluate suitable capital markets, including U.S. and Asian markets, and plan pre-listing preparation and ongoing disclosure readiness."],
+    ],
+    processTitle: "A staged process to reduce transaction uncertainty",
+    processBody:
+      "Our work is not only to propose a plan, but to translate strategy into executable rhythm, documents, counterparties and capital-market preparation.",
+    teamTitle: "Investment Team",
+    teamBody:
+      "Team members bring experience across investment banking, capital markets and company operations, with familiarity in cross-border rules and industry dynamics.",
+    teamPerspective:
+      "The team's background spans capital markets, technology, health and medical aesthetics, consumer sectors and cross-disciplinary integration.",
+    cv: "View CV",
+    workTitle: "A shared decision framework built from diverse expertise",
+    workBody:
+      "Project teams are organized around the issue at hand, combining capital-market, technology, industry and brand resources so strategy and execution remain aligned.",
+    portfolioTitle: "Affiliated Companies",
+    portfolioBody:
+      "Inkstone Capital follows themes across artificial intelligence, health technology and consumer brands. The following companies and brands are currently introduced on this website.",
+    portfolioNav:
+      "Click each card to visit the official website and learn more about product positioning, technology direction and market development.",
+    ecosystemTitle: "Understanding affiliated companies through industry themes",
+    ecosystemBody:
+      "These companies are not merely a list; they reflect industry themes Inkstone Capital follows: technical foundations, health services and consumer brands moving toward scalable commercialization.",
+    ecosystemVisual:
+      "AI infrastructure, health-technology devices and consumer-brand packaging visualize cross-industry ecosystem links.",
+    contactTitle: "Contact Us",
+    contactBody:
+      "To learn more about Inkstone Capital or discuss cooperation and investment opportunities, please contact us by phone or email. We will arrange the appropriate follow-up based on your needs.",
+    office: "4F, No. 155, Furen Road, Kaohsiung, Taiwan",
+    communicationTitle: "Needs-based follow-up",
+    notice:
+      "This website is for general information only and does not constitute securities solicitation, an offer, or investment advice. Investments involve risk, and past performance does not indicate future results.",
+  },
+} satisfies Record<Locale, Record<string, unknown>>;
+
+export function AboutSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0f1013_0%,#111216_54%,#15161a_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -79,47 +263,23 @@ export function AboutSection() {
                 About Inkstone Capital
               </div>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-                以資本市場經驗為基礎，為企業建立跨境成長框架
+                {copy.aboutTitle as string}
               </h2>
             </div>
             <p className="text-sm leading-8 text-stone-300/90 sm:text-base">
-              墨石資本（Inkstone Capital）成立於 2012 年，由張義發先生於美國華盛頓州 Mercer Island 創立，
-              目前營運據點位於高雄市，並在美國與中國大陸擁有長期合作夥伴。團隊深耕跨境資本市場與企業財務顧問服務，
-              協助客戶在不同法域之間銜接資本與策略資源。
+              {copy.aboutBody1 as string}
             </p>
             <p className="text-sm leading-8 text-stone-300/82 sm:text-base">
-              我們專注服務成長中的中小企業（Small Cap），涵蓋傳統產業升級、新經濟與科技應用等領域，透過併購重組、
-              私募融資、上市規劃與過橋融資等工具，協助企業完成從在地成長到登陸美國 Nasdaq / NYSE 資本市場的關鍵里程碑，
-              同時兼顧公司治理與長期價值。
+              {copy.aboutBody2 as string}
             </p>
             <div className="grid gap-3 sm:gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
-                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
-                  Mandate
+              {(copy.aboutCards as string[][]).map(([label, title, body]) => (
+                <div key={label} className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
+                  <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">{label}</div>
+                  <div className="mt-2 text-sm font-semibold text-stone-100">{title}</div>
+                  <p className="mt-2 text-xs leading-relaxed text-stone-400">{body}</p>
                 </div>
-                <div className="mt-2 text-sm font-semibold text-stone-100">成長企業資本規劃</div>
-                <p className="mt-2 text-xs leading-relaxed text-stone-400">
-                  聚焦中小企業在募資、交易與市場布局的關鍵決策。
-                </p>
-              </div>
-              <div className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
-                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
-                  Execution
-                </div>
-                <div className="mt-2 text-sm font-semibold text-stone-100">結構與執行並重</div>
-                <p className="mt-2 text-xs leading-relaxed text-stone-400">
-                  從架構設計到交易節奏協調，兼顧落地可行性。
-                </p>
-              </div>
-              <div className="rounded-2xl border border-stone-light/25 bg-black/25 p-4">
-                <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
-                  Network
-                </div>
-                <div className="mt-2 text-sm font-semibold text-stone-100">跨境資源銜接</div>
-                <p className="mt-2 text-xs leading-relaxed text-stone-400">
-                  結合資本市場、產業夥伴與區域合作網絡。
-                </p>
-              </div>
+              ))}
             </div>
           </div>
           <div className="rounded-[1.7rem] border border-stone-light/35 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(0,0,0,0.25))] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:rounded-[2rem] sm:p-5">
@@ -130,7 +290,7 @@ export function AboutSection() {
                     Core principles
                   </div>
                   <div className="mt-2 text-lg font-semibold text-stone-100">
-                    紀律 · 獨立 · 穩健
+                    {copy.principlesTitle as string}
                   </div>
                 </div>
                 <div className="rounded-full border border-accent-gold/35 bg-accent-gold/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-accent-gold">
@@ -138,31 +298,18 @@ export function AboutSection() {
                 </div>
               </div>
               <div className="mt-5 space-y-4">
-                {[
-                  {
-                    title: "跨境結構設計經驗",
-                    body: "熟悉多地監管與資本市場規則，為企業量身訂製兼顧成長與風險控管的交易架構。",
-                  },
-                  {
-                    title: "長期實務與落地能力",
-                    body: "結合理論與實務操作，從洽談、估值、盡職調查到交割與整合，提供一站式顧問服務。",
-                  },
-                  {
-                    title: "與企業家並肩同行",
-                    body: "以前瞻策略與務實執行為核心，陪伴企業從在地走向區域乃至國際資本市場。",
-                  },
-                ].map((item, index) => (
+                {(copy.principles as string[][]).map(([title, body], index) => (
                   <div
-                    key={item.title}
+                    key={title}
                     className="rounded-2xl border border-stone-light/20 bg-white/5 p-4"
                   >
                     <div className="mb-2 flex items-center gap-3">
                       <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent-gold/35 bg-accent-gold/10 text-[0.68rem] font-semibold text-accent-gold">
                         0{index + 1}
                       </span>
-                      <div className="font-medium text-stone-100">{item.title}</div>
+                      <div className="font-medium text-stone-100">{title}</div>
                     </div>
-                    <p className="text-[0.8rem] leading-relaxed text-stone-300/90">{item.body}</p>
+                    <p className="text-[0.8rem] leading-relaxed text-stone-300/90">{body}</p>
                   </div>
                 ))}
               </div>
@@ -285,9 +432,10 @@ export function OverviewSection() {
   );
 }
 
-export function InsightsSection() {
+export function InsightsSection({ locale = "zh" }: { locale?: Locale }) {
   const latestUpdates = newsItems.slice(0, 3);
   const [featuredInsight, ...archiveInsights] = insightItems;
+  const copy = sectionCopy[locale];
 
   return (
     <section
@@ -301,10 +449,10 @@ export function InsightsSection() {
               Insights & Updates
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              觀點與動態
+              {copy.insightsTitle as string}
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
-              用較精煉的方式整理墨石資本對產業與資本市場的觀察，同時收錄近期公開動態，讓訪客更快掌握我們正在關注的議題與節奏。
+              {copy.insightsBody as string}
             </p>
           </div>
         </div>
@@ -334,7 +482,7 @@ export function InsightsSection() {
                   href={`/insights/${featuredInsight.slug}/`}
                   className="rounded-full bg-accent-gold px-5 py-2.5 text-sm font-semibold text-ink-dark transition hover:bg-[#d3af67]"
                 >
-                  閱讀完整文章
+                  {copy.readFullArticle as string}
                 </Link>
                 <a
                   href={featuredInsight.sources[0]?.href ?? "/news/"}
@@ -342,7 +490,7 @@ export function InsightsSection() {
                   rel="noopener noreferrer"
                   className="rounded-full border border-stone-light/35 px-5 py-2.5 text-sm font-medium text-stone-200 transition hover:border-accent-gold/70 hover:text-stone-50"
                 >
-                  查看外部來源
+                  {copy.viewSource as string}
                 </a>
               </div>
             </div>
@@ -369,7 +517,7 @@ export function InsightsSection() {
             <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
               Insight Archive
             </div>
-            <h3 className="mt-2 text-xl font-semibold text-stone-50">一期一期整理觀點</h3>
+            <h3 className="mt-2 text-xl font-semibold text-stone-50">{copy.archiveTitle as string}</h3>
             <div className="mt-5 space-y-3">
               {archiveInsights.map((item) => (
                 <Link
@@ -397,11 +545,11 @@ export function InsightsSection() {
                   Recent Updates
                 </div>
                 <div className="mt-2 text-xl font-semibold text-stone-50">
-                  墨石近期動態
+                  {copy.recentInkstone as string}
                 </div>
               </div>
-              <Link href="/news/" className="text-xs text-accent-gold">
-                查看全部
+              <Link href={localizedPath(locale, "/news/")} className="text-xs text-accent-gold">
+                {copy.viewAll as string}
               </Link>
             </div>
             <div className="mt-5 space-y-3">
@@ -435,9 +583,11 @@ export function InsightsSection() {
   );
 }
 
-export function HomeShowcaseSection() {
+export function HomeShowcaseSection({ locale = "zh" }: { locale?: Locale }) {
   const latestUpdates = newsItems.slice(0, 2);
   const featuredInsight = insightItems[0];
+  const copy = sectionCopy[locale];
+  const tracks = locale === "en" ? advisoryTracksEn : advisoryTracks;
 
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#15161a_0%,#101115_52%,#0d0e11_100%)]">
@@ -448,17 +598,17 @@ export function HomeShowcaseSection() {
               What We Build Around
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              從資本結構到產業落地，形成可延展的成長路徑
+              {copy.showcaseTitle as string}
             </h2>
             <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
-              首頁以更精簡的方式呈現墨石資本的核心工作面向，讓訪客能快速理解服務、團隊、相關公司與最新動態之間的關聯。
+              {copy.showcaseBody as string}
             </p>
           </div>
           <Link
-            href="/services/"
+            href={localizedPath(locale, "/services/")}
             className="inline-flex w-fit rounded-full border border-accent-gold/45 bg-accent-gold/10 px-5 py-2.5 text-sm font-medium text-accent-gold transition hover:border-accent-gold hover:bg-accent-gold/15"
           >
-            查看完整服務
+            {copy.servicesCta as string}
           </Link>
         </div>
 
@@ -477,17 +627,17 @@ export function HomeShowcaseSection() {
                 Advisory Environment
               </div>
               <p className="mt-3 text-sm leading-7 text-stone-100/92 sm:text-base sm:leading-8">
-                以交易文件、資本市場資料與跨境城市意象，呈現墨石資本在策略規劃與執行協調中的專業工作情境。
+                {copy.advisoryVisual as string}
               </p>
             </div>
           </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {advisoryTracks.map((item) => (
+          {tracks.map((item) => (
             <Link
               key={item.title}
-              href={item.href}
+              href={localizedPath(locale, item.href)}
               className="group rounded-[1.6rem] border border-stone-light/25 bg-white/[0.035] p-5 transition hover:border-accent-gold/70 hover:bg-white/[0.055] sm:p-6"
             >
               <div className="flex items-center justify-between">
@@ -519,7 +669,7 @@ export function HomeShowcaseSection() {
               href={`/insights/${featuredInsight.slug}/`}
               className="mt-5 inline-flex rounded-full border border-accent-gold/45 bg-accent-gold/10 px-5 py-2.5 text-sm font-medium text-accent-gold transition hover:border-accent-gold hover:bg-accent-gold/15"
             >
-              閱讀本期完整文章
+              {copy.readInsight as string}
             </Link>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {insightItems.map((item) => (
@@ -544,10 +694,10 @@ export function HomeShowcaseSection() {
                 <div className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-500">
                   Recent Updates
                 </div>
-                <h3 className="mt-2 text-xl font-semibold text-stone-50">最新動態摘要</h3>
+                <h3 className="mt-2 text-xl font-semibold text-stone-50">{copy.recentUpdates as string}</h3>
               </div>
-              <Link href="/news/" className="text-xs text-accent-gold">
-                全部消息
+              <Link href={localizedPath(locale, "/news/")} className="text-xs text-accent-gold">
+                {copy.allNews as string}
               </Link>
             </div>
             <div className="mt-5 space-y-3">
@@ -576,7 +726,9 @@ export function HomeShowcaseSection() {
   );
 }
 
-export function StrategySection() {
+export function StrategySection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#111216_0%,#14161a_48%,#1b1d21_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -586,18 +738,13 @@ export function StrategySection() {
               Advisory Scope
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              服務與策略
+              {copy.strategyTitle as string}
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
-              我們結合投資銀行與產業顧問的視角，為企業設計兼顧股權、債權與結構性工具的整體方案，
-              協助企業於關鍵節點取得所需資金與夥伴。
+              {copy.strategyBody as string}
             </p>
             <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-3">
-              {[
-                ["Structuring", "交易架構與資本安排"],
-                ["Execution", "跨團隊協調與節奏管理"],
-                ["Positioning", "市場定位與成長規劃"],
-              ].map(([label, text]) => (
+              {(copy.strategyPillars as string[][]).map(([label, text]) => (
                 <div key={label} className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
                   <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">{label}</div>
                   <div className="mt-2 text-sm font-medium text-stone-100">{text}</div>
@@ -610,51 +757,34 @@ export function StrategySection() {
               Approach
             </div>
             <p className="mt-3 leading-relaxed">
-              墨石資本以結構設計、交易可行性與執行節奏為核心，協助企業在不同發展階段建立合宜的資本市場方案。
+              {copy.approach as string}
             </p>
           </div>
         </div>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-              M&A / Restructuring
+          {(copy.serviceCards as string[][]).map(([label, title, body]) => (
+            <div key={label} className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
+              <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
+                {label}
+              </div>
+              <div className="mt-3 text-base font-semibold text-stone-100">
+                {title}
+              </div>
+              <p className="mt-3 text-sm leading-7 text-stone-300/90">
+                {body}
+              </p>
             </div>
-            <div className="mt-3 text-base font-semibold text-stone-100">
-              併購與重組顧問
-            </div>
-            <p className="mt-3 text-sm leading-7 text-stone-300/90">
-              協助企業評估標的、設計交易架構並進行談判與整合，包含跨境併購與產業整合專案。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-              Private Placement
-            </div>
-            <div className="mt-3 text-base font-semibold text-stone-100">
-              私募融資與過橋融資
-            </div>
-            <p className="mt-3 text-sm leading-7 text-stone-300/90">
-              為成長期企業媒合策略投資人與金融機構，設計股權、可轉換工具與過橋融資解決方案。
-            </p>
-          </div>
-          <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)] transition hover:border-accent-gold/70">
-            <div className="text-[0.7rem] uppercase tracking-[0.18em] text-stone-400">
-              Capital Markets
-            </div>
-            <div className="mt-3 text-base font-semibold text-stone-100">
-              上市與資本市場規劃
-            </div>
-            <p className="mt-3 text-sm leading-7 text-stone-300/90">
-              依產業屬性與公司階段，協助評估適合的資本市場（含美股與亞洲市場），並規劃上市前準備與持續性資訊揭露。
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-export function ServiceProcessSection() {
+export function ServiceProcessSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+  const steps = locale === "en" ? serviceProcessStepsEn : serviceProcessSteps;
+
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#1b1d21_0%,#111216_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -664,10 +794,10 @@ export function ServiceProcessSection() {
               Engagement Model
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              以階段式流程降低交易不確定性
+              {copy.processTitle as string}
             </h2>
             <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
-              墨石資本的工作重點不只在於提出方案，更在於將策略轉換為可執行的節奏、文件、溝通對象與資本市場準備。
+              {copy.processBody as string}
             </p>
           </div>
           <div className="space-y-4">
@@ -684,7 +814,7 @@ export function ServiceProcessSection() {
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {serviceProcessSteps.map(([index, title, body]) => (
+              {steps.map(([index, title, body]) => (
                 <div key={title} className="rounded-[1.35rem] border border-stone-light/22 bg-white/[0.035] p-5">
                   <div className="text-[0.68rem] font-semibold text-accent-gold">{index}</div>
                   <h3 className="mt-3 text-base font-semibold text-stone-100">{title}</h3>
@@ -699,7 +829,7 @@ export function ServiceProcessSection() {
   );
 }
 
-export function NewsSection() {
+export function NewsSection({ locale = "zh" }: { locale?: Locale }) {
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0b0c0f_0%,#101114_42%,#17191d_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -717,7 +847,9 @@ export function NewsSection() {
                 />
                 <div className="min-w-0 flex-1 px-1 pb-1 sm:px-0 sm:pb-0">
                   <div className="mb-3 text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                    {isInternal ? "Inkstone Update" : "External Coverage"}
+                    {isInternal
+                      ? locale === "en" ? "Inkstone Update" : "墨石動態"
+                      : locale === "en" ? "External Coverage" : "外部報導"}
                   </div>
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
                     <div className="max-w-3xl text-[0.95rem] font-medium leading-7 text-stone-50 sm:text-base">{item.title}</div>
@@ -751,7 +883,10 @@ export function NewsSection() {
   );
 }
 
-export function TeamSection() {
+export function TeamSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+  const members: readonly TeamMemberView[] = locale === "en" ? teamMembersEn : teamMembers;
+
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0f1013_0%,#111216_44%,#17191d_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -761,11 +896,10 @@ export function TeamSection() {
               Team Overview
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              投資團隊
+              {copy.teamTitle as string}
             </h2>
             <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
-              團隊成員具多年投資銀行、資本市場與企業經營實務經驗，熟悉跨境規範與產業動態，
-              能在不同總體環境下為企業與投資人設計合宜的解決方案。
+              {copy.teamBody as string}
             </p>
           </div>
           <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
@@ -773,12 +907,12 @@ export function TeamSection() {
               Perspective
             </div>
             <p className="mt-3 leading-relaxed">
-              團隊背景橫跨資本市場、科技、醫美健康與跨界整合，能就企業不同發展階段提供更貼近實務的策略支援。
+              {copy.teamPerspective as string}
             </p>
           </div>
         </div>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
-          {teamMembers.map((member) => (
+          {members.map((member) => (
             <div
               key={member.name}
               className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.2))] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.24)]"
@@ -805,7 +939,7 @@ export function TeamSection() {
                     rel="noopener noreferrer"
                     className="rounded-full border border-stone-light/40 px-3 py-1 text-[0.7rem] text-stone-300 transition hover:border-accent-gold/70 hover:text-stone-100"
                   >
-                    查看 CV
+                    {copy.cv as string}
                   </a>
                 ) : null}
               </div>
@@ -827,7 +961,10 @@ export function TeamSection() {
   );
 }
 
-export function TeamOperatingSection() {
+export function TeamOperatingSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+  const capabilities = locale === "en" ? teamCapabilitiesEn : teamCapabilities;
+
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#17191d_0%,#101115_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -847,16 +984,16 @@ export function TeamOperatingSection() {
                   How We Work
                 </div>
                 <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-                  以多元專業形成共同決策框架
+                  {copy.workTitle as string}
                 </h2>
               </div>
             </div>
             <p className="p-5 text-sm leading-8 text-stone-300/90 sm:p-6 sm:text-base">
-              團隊分工以議題為核心，依專案需求組合資本市場、技術、產業與品牌資源，讓策略判斷與實際執行能保持一致。
+              {copy.workBody as string}
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {teamCapabilities.map(([title, body]) => (
+            {capabilities.map(([title, body]) => (
               <div key={title} className="rounded-[1.25rem] border border-stone-light/22 bg-black/24 p-4">
                 <div className="text-[0.64rem] uppercase tracking-[0.18em] text-accent-gold">
                   {title}
@@ -871,7 +1008,10 @@ export function TeamOperatingSection() {
   );
 }
 
-export function PortfolioSection() {
+export function PortfolioSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+  const companies = locale === "en" ? affiliatedCompaniesEn : affiliatedCompanies;
+
   return (
     <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#17191d_0%,#14161a_45%,#0f1013_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -881,10 +1021,10 @@ export function PortfolioSection() {
               Affiliated Companies
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-              相關公司
+              {copy.portfolioTitle as string}
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-8 text-stone-300/90 sm:text-base">
-              墨石資本長期關注人工智慧、健康科技與消費品牌等領域，以下為目前網站所介紹的相關公司與品牌。
+              {copy.portfolioBody as string}
             </p>
           </div>
           <div className="rounded-[1.7rem] border border-stone-light/25 bg-black/30 p-4 text-sm text-stone-300 shadow-[0_18px_40px_rgba(0,0,0,0.24)] sm:rounded-[2rem] sm:p-5">
@@ -892,12 +1032,12 @@ export function PortfolioSection() {
               Navigation
             </div>
             <p className="mt-3 leading-relaxed">
-              點擊各卡片即可前往品牌或公司官方網站，以了解其產品定位、技術方向與市場發展。
+              {copy.portfolioNav as string}
             </p>
           </div>
         </div>
         <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
-          {affiliatedCompanies.map((company) => (
+          {companies.map((company) => (
             <a
               key={company.name}
               href={company.href}
@@ -930,7 +1070,10 @@ export function PortfolioSection() {
   );
 }
 
-export function CompanyEcosystemSection() {
+export function CompanyEcosystemSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+  const themes = locale === "en" ? ecosystemThemesEn : ecosystemThemes;
+
   return (
     <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#0f1013_0%,#15161a_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
@@ -939,10 +1082,10 @@ export function CompanyEcosystemSection() {
             Ecosystem Map
           </div>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-            以產業主題理解相關公司的策略位置
+            {copy.ecosystemTitle as string}
           </h2>
           <p className="mt-4 text-sm leading-8 text-stone-300/90 sm:text-base">
-            相關公司不是單純名單，而是墨石資本關注的產業方向：技術基礎、健康服務與消費品牌如何進入可擴張的商業化階段。
+            {copy.ecosystemBody as string}
           </p>
         </div>
         <div className="mb-5 overflow-hidden rounded-[1.8rem] border border-stone-light/25 bg-black/24">
@@ -960,14 +1103,14 @@ export function CompanyEcosystemSection() {
                 Ecosystem Visual
               </div>
               <p className="mt-3 text-sm leading-7 text-stone-100/92 sm:text-base sm:leading-8">
-                以 AI 基礎建設、健康科技裝置與消費品牌包裝，呈現相關公司跨產業布局的視覺連結。
+                {copy.ecosystemVisual as string}
               </p>
             </div>
           </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {ecosystemThemes.map(([theme, company, body]) => (
+          {themes.map(([theme, company, body]) => (
             <div key={theme} className="rounded-[1.5rem] border border-stone-light/24 bg-white/[0.035] p-5">
               <div className="text-[0.64rem] uppercase tracking-[0.18em] text-accent-gold">
                 {theme}
@@ -982,7 +1125,10 @@ export function CompanyEcosystemSection() {
   );
 }
 
-export function ContactSection() {
+export function ContactSection({ locale = "zh" }: { locale?: Locale }) {
+  const copy = sectionCopy[locale];
+  const steps = locale === "en" ? contactFollowUpStepsEn : contactFollowUpSteps;
+
   return (
     <section className="border-t border-stone-light/20 bg-[linear-gradient(180deg,#0d0e11_0%,#09090b_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:py-18">
@@ -994,7 +1140,7 @@ export function ContactSection() {
                   Contact
                 </div>
                 <h2 className="mt-3 text-2xl font-semibold tracking-tight text-stone-50 sm:text-3xl">
-                  聯絡我們
+                  {copy.contactTitle as string}
                 </h2>
               </div>
               <div className="hidden rounded-full border border-accent-gold/35 bg-accent-gold/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-accent-gold sm:block">
@@ -1002,7 +1148,7 @@ export function ContactSection() {
               </div>
             </div>
             <p className="mt-5 max-w-3xl text-sm leading-7 text-stone-300/90 sm:text-base sm:leading-8">
-              如欲進一步了解墨石資本，或分享合作與投資機會，歡迎透過電話或電子郵件與我們聯繫。我們將依需求安排後續溝通，提供更適切的交流與協作方式。
+              {copy.contactBody as string}
             </p>
             <div className="mt-5 grid gap-3 sm:mt-6 sm:gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
@@ -1028,7 +1174,7 @@ export function ContactSection() {
                   Taiwan Office
                 </div>
                 <div className="mt-2 font-mono text-sm leading-relaxed text-stone-100">
-                  高雄市輔仁路 155 號 4 樓
+                  {copy.office as string}
                 </div>
               </div>
               <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
@@ -1067,10 +1213,10 @@ export function ContactSection() {
                 Communication
               </div>
               <div className="mt-3 text-base font-semibold text-stone-100 sm:text-lg">
-                以需求導向安排後續接洽
+                {copy.communicationTitle as string}
               </div>
               <div className="mt-4 space-y-2.5 sm:space-y-3">
-                {contactFollowUpSteps.map((item, index) => (
+                {steps.map((item, index) => (
                   <div
                     key={item}
                     className="rounded-[1.15rem] border border-stone-light/18 bg-white/[0.04] px-3.5 py-3 sm:rounded-2xl sm:px-4"
@@ -1090,7 +1236,7 @@ export function ContactSection() {
                 Notice
               </div>
               <p className="mt-3 leading-relaxed">
-                本網站內容僅供一般資訊之用，不構成任何形式之證券招攬、要約或投資建議。投資涉及風險，過去績效不代表未來表現。
+                {copy.notice as string}
               </p>
             </div>
           </div>

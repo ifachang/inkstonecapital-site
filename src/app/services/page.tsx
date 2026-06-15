@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     "了解墨石資本的核心服務，包括併購與重組顧問、私募融資與過橋融資，以及上市與資本市場規劃。",
   alternates: {
     canonical: "/services/",
+    languages: {
+      "zh-Hant": "/services/",
+      en: "/en/services/",
+    },
   },
 };
 

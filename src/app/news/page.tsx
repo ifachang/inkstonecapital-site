@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     "瀏覽墨石資本最新消息與媒體報導，掌握公司相關公開新聞、品牌動態與產業觀點。",
   alternates: {
     canonical: "/news/",
+    languages: {
+      "zh-Hant": "/news/",
+      en: "/en/news/",
+    },
   },
 };
 

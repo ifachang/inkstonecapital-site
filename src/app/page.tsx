@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     "墨石資本專注於跨境資本市場、併購重組、私募融資與上市規劃，協助成長型企業連結資本與實體經濟。",
   alternates: {
     canonical: "/",
+    languages: {
+      "zh-Hant": "/",
+      en: "/en/",
+    },
   },
 };
 
