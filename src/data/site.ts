@@ -98,6 +98,16 @@ export const teamMembers: readonly TeamMember[] = [
     ],
   },
   {
+    name: "陳登偉 Steven Chen",
+    role: "醫療事業群 總顧問",
+    email: "steven.chen@partner.inkstonecapital.com",
+    emailContext: "team_steven_chen",
+    paragraphs: [
+      "中國醫藥大學牙醫學系，完成成大醫學中心口腔顎面外科與口腔病理專科訓練，曾任衛生福利部臺南醫院牙科主治醫師，並任成大醫學中心口腔顎面外科兼任主治醫師。",
+      "現任 DocterSmile 醫療體系執行長、衛生福利部部定口腔顎面外科專科醫師、台灣顱顏學會專科會員，聚焦醫療事業與口腔顎面外科相關專業顧問工作。",
+    ],
+  },
+  {
     name: "陳柏銘 Chen Po-Ming",
     role: "資源整合與跨界策展顧問",
     email: "popoming.chen@partner.inkstonecapital.com",
