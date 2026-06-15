@@ -89,15 +89,6 @@ export const teamMembers: readonly TeamMember[] = [
     ],
   },
   {
-    name: "孔靖媛 Nico Kung",
-    role: "醫美與抗衰老產業顧問",
-    email: "nico.kung@partner.inkstonecapital.com",
-    emailContext: "team_nico_kung",
-    paragraphs: [
-      "孔靖媛女士為資深醫學美容與抗衰老領域專業人士，於醫美健康產業深耕逾二十年，長期專注於醫學美容技術應用、抗衰老管理及美容健康產業發展，累積豐富的專業實務經驗與產業洞察能力。其職業生涯曾於中國及韓國醫學美容相關機構從事專業工作與產業交流，熟悉亞洲醫學美容產業技術發展與市場趨勢，具備跨國產業經驗與國際視野。",
-    ],
-  },
-  {
     name: "陳登偉 Steven Chen",
     role: "醫療事業群 總顧問",
     email: "steven.chen@partner.inkstonecapital.com",
@@ -105,6 +96,15 @@ export const teamMembers: readonly TeamMember[] = [
     paragraphs: [
       "中國醫藥大學牙醫學系，完成成大醫學中心口腔顎面外科與口腔病理專科訓練，曾任衛生福利部臺南醫院牙科主治醫師，並任成大醫學中心口腔顎面外科兼任主治醫師。",
       "現任 DocterSmile 醫療體系執行長、衛生福利部部定口腔顎面外科專科醫師、台灣顱顏學會專科會員，聚焦醫療事業與口腔顎面外科相關專業顧問工作。",
+    ],
+  },
+  {
+    name: "孔靖媛 Nico Kung",
+    role: "醫美與抗衰老產業顧問",
+    email: "nico.kung@partner.inkstonecapital.com",
+    emailContext: "team_nico_kung",
+    paragraphs: [
+      "孔靖媛女士為資深醫學美容與抗衰老領域專業人士，於醫美健康產業深耕逾二十年，長期專注於醫學美容技術應用、抗衰老管理及美容健康產業發展，累積豐富的專業實務經驗與產業洞察能力。其職業生涯曾於中國及韓國醫學美容相關機構從事專業工作與產業交流，熟悉亞洲醫學美容產業技術發展與市場趨勢，具備跨國產業經驗與國際視野。",
     ],
   },
   {
