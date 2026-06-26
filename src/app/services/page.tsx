@@ -5,23 +5,22 @@ import {
   StrategySection,
 } from "../../components/Sections";
 import { PageLead, SiteHeader } from "../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "服務與策略",
   description:
     "了解墨石資本的核心服務，包括併購與重組顧問、私募融資與過橋融資，以及上市與資本市場規劃。",
-  alternates: {
-    canonical: "/services/",
-    languages: {
-      "zh-Hant": "/services/",
-      en: "/en/services/",
-    },
-  },
-};
+  path: "/services/",
+  locale: "zh",
+  zhPath: "/services/",
+  enPath: "/en/services/",
+});
 
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("zh")} />
       <SiteHeader currentPath="/services/" />
       <PageLead
         eyebrow="Services"

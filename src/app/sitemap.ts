@@ -5,69 +5,61 @@ const siteUrl = "https://www.inkstonecapital.com";
 
 export const dynamic = "force-static";
 
+function pageEntry({
+  path,
+  zhPath,
+  enPath,
+  changeFrequency,
+  priority,
+  lastModified,
+}: {
+  path: string;
+  zhPath: string;
+  enPath: string;
+  changeFrequency: "weekly" | "monthly";
+  priority: number;
+  lastModified: Date;
+}): MetadataRoute.Sitemap[number] {
+  return {
+    url: `${siteUrl}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+    alternates: {
+      languages: {
+        "zh-Hant": `${siteUrl}${zhPath}`,
+        en: `${siteUrl}${enPath}`,
+        "x-default": `${siteUrl}${zhPath}`,
+      },
+    },
+  };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   return [
+    pageEntry({ path: "/", zhPath: "/", enPath: "/en/", lastModified: now, changeFrequency: "weekly", priority: 1 }),
+    pageEntry({ path: "/en/", zhPath: "/", enPath: "/en/", lastModified: now, changeFrequency: "weekly", priority: 0.9 }),
+    pageEntry({ path: "/services/", zhPath: "/services/", enPath: "/en/services/", lastModified: now, changeFrequency: "monthly", priority: 0.9 }),
+    pageEntry({ path: "/en/services/", zhPath: "/services/", enPath: "/en/services/", lastModified: now, changeFrequency: "monthly", priority: 0.82 }),
+    pageEntry({ path: "/team/", zhPath: "/team/", enPath: "/en/team/", lastModified: now, changeFrequency: "monthly", priority: 0.8 }),
+    pageEntry({ path: "/en/team/", zhPath: "/team/", enPath: "/en/team/", lastModified: now, changeFrequency: "monthly", priority: 0.72 }),
+    pageEntry({ path: "/companies/", zhPath: "/companies/", enPath: "/en/companies/", lastModified: now, changeFrequency: "monthly", priority: 0.8 }),
+    pageEntry({ path: "/en/companies/", zhPath: "/companies/", enPath: "/en/companies/", lastModified: now, changeFrequency: "monthly", priority: 0.72 }),
+    pageEntry({ path: "/news/", zhPath: "/news/", enPath: "/en/news/", lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
+    pageEntry({ path: "/en/news/", zhPath: "/news/", enPath: "/en/news/", lastModified: now, changeFrequency: "weekly", priority: 0.72 }),
     {
-      url: `${siteUrl}/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/services/`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}/en/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}/en/services/`,
+      url: `${siteUrl}/news/sec-aimfinity-docter-independent-director-nominees/`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.82,
+      priority: 0.7,
     },
     {
-      url: `${siteUrl}/en/team/`,
+      url: `${siteUrl}/news/ishigaki-beef-direct-taiwan-visit/`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.72,
-    },
-    {
-      url: `${siteUrl}/en/companies/`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.72,
-    },
-    {
-      url: `${siteUrl}/en/news/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.72,
-    },
-    {
-      url: `${siteUrl}/team/`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/companies/`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/news/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.7,
     },
     ...insightItems.map((item) => ({
       url: `${siteUrl}/insights/${item.slug}/`,

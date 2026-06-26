@@ -7,23 +7,22 @@ import {
   InsightsSection,
 } from "../../components/Sections";
 import { SiteHeader } from "../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Home",
   description:
     "Inkstone Capital focuses on cross-border capital markets, M&A and restructuring, private financing and listing strategy for growth companies.",
-  alternates: {
-    canonical: "/en/",
-    languages: {
-      "zh-Hant": "/",
-      en: "/en/",
-    },
-  },
-};
+  path: "/en/",
+  locale: "en",
+  zhPath: "/",
+  enPath: "/en/",
+});
 
 export default function EnglishHomePage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("en")} />
       <SiteHeader currentPath="/en/" locale="en" />
       <Hero locale="en" />
       <AboutSection locale="en" />

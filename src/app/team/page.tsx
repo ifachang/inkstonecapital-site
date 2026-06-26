@@ -6,23 +6,22 @@ import {
   TeamSection,
 } from "../../components/Sections";
 import { PageLead, SiteHeader } from "../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "投資團隊",
   description:
     "查看墨石資本核心團隊與顧問成員介紹，了解跨境資本市場、科技投資與醫美健康產業背景。",
-  alternates: {
-    canonical: "/team/",
-    languages: {
-      "zh-Hant": "/team/",
-      en: "/en/team/",
-    },
-  },
-};
+  path: "/team/",
+  locale: "zh",
+  zhPath: "/team/",
+  enPath: "/en/team/",
+});
 
 export default function TeamPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("zh")} />
       <SiteHeader currentPath="/team/" />
       <PageLead
         eyebrow="Team"

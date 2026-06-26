@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactSection } from "../../../components/Sections";
 import { SiteHeader } from "../../../components/SiteHeader";
+import { JsonLd, organizationJsonLd, siteName, siteUrl } from "../../../lib/seo";
 
 const photos = [
   {
@@ -49,11 +50,37 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/news/ishigaki-beef-direct-taiwan-visit/",
   },
+  openGraph: {
+    type: "article",
+    url: `${siteUrl}/news/ishigaki-beef-direct-taiwan-visit/`,
+    siteName,
+    title: `Nico Kung 親赴沖繩考察石垣牛直送台灣項目 | ${siteName}`,
+    description:
+      "墨石資本顧問 Nico Kung 親赴沖繩考察石垣牛直送台灣項目，聚焦源頭設施、輸入文件、邊境查驗與冷鏈物流可行性。",
+    locale: "zh_TW",
+    images: [
+      {
+        url: "/ishigaki-beef-visit-01.png",
+        alt: "Ishigaki beef project source visit in Okinawa",
+      },
+    ],
+    publishedTime: "2026-06-04",
+    authors: ["Inkstone Capital"],
+    section: "Project Visit",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Nico Kung 親赴沖繩考察石垣牛直送台灣項目 | ${siteName}`,
+    description:
+      "墨石資本顧問 Nico Kung 親赴沖繩考察石垣牛直送台灣項目，聚焦源頭設施、輸入文件、邊境查驗與冷鏈物流可行性。",
+    images: ["/ishigaki-beef-visit-01.png"],
+  },
 };
 
 export default function IshigakiBeefDirectTaiwanVisitPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("zh")} />
       <SiteHeader currentPath="/news/" />
       <article className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#050506_0%,#101116_52%,#15161a_100%)]">
         <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">

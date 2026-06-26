@@ -6,23 +6,22 @@ import {
   TeamSection,
 } from "../../../components/Sections";
 import { PageLead, SiteHeader } from "../../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Investment Team",
   description:
     "Meet Inkstone Capital's team and advisors across cross-border capital markets, technology investment, health technology and consumer sectors.",
-  alternates: {
-    canonical: "/en/team/",
-    languages: {
-      "zh-Hant": "/team/",
-      en: "/en/team/",
-    },
-  },
-};
+  path: "/en/team/",
+  locale: "en",
+  zhPath: "/team/",
+  enPath: "/en/team/",
+});
 
 export default function EnglishTeamPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("en")} />
       <SiteHeader currentPath="/en/team/" locale="en" />
       <PageLead
         eyebrow="Team"

@@ -5,23 +5,22 @@ import {
   PortfolioSection,
 } from "../../components/Sections";
 import { PageLead, SiteHeader } from "../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "相關公司",
   description:
     "了解墨石資本網站介紹的相關公司與品牌，包括 Yushan.AI、Docter Inc. 與大投美國股份有限公司。",
-  alternates: {
-    canonical: "/companies/",
-    languages: {
-      "zh-Hant": "/companies/",
-      en: "/en/companies/",
-    },
-  },
-};
+  path: "/companies/",
+  locale: "zh",
+  zhPath: "/companies/",
+  enPath: "/en/companies/",
+});
 
 export default function CompaniesPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("zh")} />
       <SiteHeader currentPath="/companies/" />
       <PageLead
         eyebrow="Companies"

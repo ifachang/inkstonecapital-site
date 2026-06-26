@@ -5,23 +5,22 @@ import {
   StrategySection,
 } from "../../../components/Sections";
 import { PageLead, SiteHeader } from "../../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Services & Strategy",
   description:
     "Learn about Inkstone Capital's core services, including M&A and restructuring advisory, private placement, bridge financing and capital-market planning.",
-  alternates: {
-    canonical: "/en/services/",
-    languages: {
-      "zh-Hant": "/services/",
-      en: "/en/services/",
-    },
-  },
-};
+  path: "/en/services/",
+  locale: "en",
+  zhPath: "/services/",
+  enPath: "/en/services/",
+});
 
 export default function EnglishServicesPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("en")} />
       <SiteHeader currentPath="/en/services/" locale="en" />
       <PageLead
         eyebrow="Services"

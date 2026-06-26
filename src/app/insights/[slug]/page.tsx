@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ContactSection } from "../../../components/Sections";
 import { SiteHeader } from "../../../components/SiteHeader";
 import { insightItems } from "../../../data/insights";
+import { JsonLd, organizationJsonLd, siteName, siteUrl } from "../../../lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -28,6 +29,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/insights/${insight.slug}/`,
     },
+    openGraph: {
+      type: "article",
+      url: `${siteUrl}/insights/${insight.slug}/`,
+      siteName,
+      title: `${insight.volume}｜${insight.title} | ${siteName}`,
+      description: insight.excerpt,
+      locale: "zh_TW",
+      images: [
+        {
+          url: insight.imageSrc,
+          alt: insight.imageAlt,
+        },
+      ],
+      publishedTime: insight.date,
+      authors: ["Inkstone Capital"],
+      section: insight.category,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${insight.volume}｜${insight.title} | ${siteName}`,
+      description: insight.excerpt,
+      images: [insight.imageSrc],
+    },
   };
 }
 
@@ -41,6 +65,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("zh")} />
       <SiteHeader currentPath="/news/" />
       <article className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#050506_0%,#101116_100%)]">
         <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">

@@ -5,23 +5,22 @@ import {
   PortfolioSection,
 } from "../../../components/Sections";
 import { PageLead, SiteHeader } from "../../../components/SiteHeader";
+import { createPageMetadata, JsonLd, organizationJsonLd } from "../../../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Affiliated Companies",
   description:
     "Learn about companies and brands introduced by Inkstone Capital, including Yushan.AI, Docter Inc. and Datou America Inc.",
-  alternates: {
-    canonical: "/en/companies/",
-    languages: {
-      "zh-Hant": "/companies/",
-      en: "/en/companies/",
-    },
-  },
-};
+  path: "/en/companies/",
+  locale: "en",
+  zhPath: "/companies/",
+  enPath: "/en/companies/",
+});
 
 export default function EnglishCompaniesPage() {
   return (
     <main className="min-h-screen bg-ink text-stone-100">
+      <JsonLd data={organizationJsonLd("en")} />
       <SiteHeader currentPath="/en/companies/" locale="en" />
       <PageLead
         eyebrow="Companies"
