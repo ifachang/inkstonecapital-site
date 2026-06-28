@@ -108,6 +108,17 @@ export const teamMembersEn = [
     ],
   },
   {
+    name: "Peko Sun",
+    role: "New Energy Materials Investment Advisor",
+    email: "peko.sun@partner.inkstonecapital.com",
+    emailContext: "team_peko_sun",
+    paragraphs: [
+      "Peko Sun has more than ten years of experience in new energy and advanced materials, with long-term coverage of three core sectors: photovoltaic silicon materials, lithium batteries and nuclear fusion. She combines industry-side and capital-side perspectives and focuses on identifying high-quality targets that can withstand technology transitions and supply-demand cycles.",
+      "On the industry side, she has participated across materials R&D, production organization, supply-chain management and overseas market development. She is familiar with the key constraints companies face at different stages, including capacity planning, cost structure, customer mix and international compliance, providing frontline industry insight for project due diligence and post-investment management.",
+      "On the capital side, she has long focused on equity investment and project incubation in new energy and advanced materials. Her methodology spans industry research, project screening, transaction-structure design and post-investment resource integration, helping build a three-dimensional loop across technology, market and capital around the needs of fundraisers and portfolio companies.",
+    ],
+  },
+  {
     name: "Chen Po-Ming",
     role: "Resource Integration and Cross-Disciplinary Curation Advisor",
     email: "popoming.chen@partner.inkstonecapital.com",

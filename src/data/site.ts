@@ -108,6 +108,17 @@ export const teamMembers: readonly TeamMember[] = [
     ],
   },
   {
+    name: "孫喬葳 Peko Sun",
+    role: "新能源材料投資顧問",
+    email: "peko.sun@partner.inkstonecapital.com",
+    emailContext: "team_peko_sun",
+    paragraphs: [
+      "深耕新能源及新材料領域十餘年，長期覆蓋光伏硅料、鋰電池、核聚變三大核心賽道，兼具產業端與資本端的復合視角，擅長在技術演進與供需週期中識別具備穿越週期能力的優質標的。",
+      "在產業方面，曾參與材料研發、生產組織、供應鏈管理及海外市場拓展的全流程，熟悉不同階段企業在產能規劃、成本結構、客戶結構和國際合規上的關鍵矛盾，為項目盡調與投後管理提供一線產業認知支撐。",
+      "在資本方面，長期聚焦新能源及新材料方向股權投資與項目孵化，形成了從產業研究、項目篩選、交易結構設計到投後資源整合的完整方法論，能夠圍繞募資人和被投企業需求搭建「技術、市場、資本」三維閉環。",
+    ],
+  },
+  {
     name: "陳柏銘 Chen Po-Ming",
     role: "資源整合與跨界策展顧問",
     email: "popoming.chen@partner.inkstonecapital.com",
