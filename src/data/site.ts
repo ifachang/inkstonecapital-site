@@ -140,6 +140,17 @@ export const teamMembers: readonly TeamMember[] = [
     ],
   },
   {
+    name: "楊旨印 Vico Yeung",
+    role: "中港澳資本市場合夥人",
+    email: "vico.yeung@partner.inkstonecapital.com",
+    emailContext: "team_vico_yeung",
+    paragraphs: [
+      "香港大學會計與金融工商管理學士，並曾於美國普渡大學管理學院交換研修，具備美國資本市場、企業併購、審計框架與公司策略相關訓練。已通過 CFA Level 1，熟悉 US GAAP、US GAAS / HKSA、跨境交易與上市前企業財務準備。",
+      "曾任 IPP International Wealth Management Limited 香港顧問部 Associate Vice President，管理高淨值客戶與年輕專業人士的綜合財務規劃、基金組合與槓桿儲蓄方案，資產顧問規模約港幣 20 億元。",
+      "過往於 BDO 香港 Specialist Advisory Services 參與跨境併購估值、財務盡職調查、企業重組、破產清算與法證會計專案，並曾於金融機構與金融科技公司累積財務模型、行業研究、信用分析與上市公司年報分析經驗，支援中港澳企業的公司金融、估值與 NASDAQ 上市規劃。",
+    ],
+  },
+  {
     name: "邱宥凱 Kevin Chiu",
     role: "特別助理",
     email: "kevin.chiu@partner.inkstonecapital.com",

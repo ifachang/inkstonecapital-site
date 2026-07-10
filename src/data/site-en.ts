@@ -140,6 +140,17 @@ export const teamMembersEn = [
     ],
   },
   {
+    name: "Vico Yeung",
+    role: "Capital Markets Partner, Greater China",
+    email: "vico.yeung@partner.inkstonecapital.com",
+    emailContext: "team_vico_yeung",
+    paragraphs: [
+      "Vico Yeung holds a BBA in Accounting and Finance from the University of Hong Kong and completed exchange studies at Purdue University's School of Management, with academic training in U.S. capital markets, M&A, audit frameworks and corporate strategy. He has passed CFA Level 1 and is familiar with US GAAP, US GAAS / HKSA, cross-border transactions and pre-IPO finance preparation.",
+      "He serves as Associate Vice President in the Hong Kong Advisory Division of IPP International Wealth Management Limited, managing comprehensive financial planning, fund portfolios and leveraged saving plans for high-net-worth clients and young professionals, with assets under advisory of approximately HKD 2 billion.",
+      "Previously, he worked with BDO Hong Kong's Specialist Advisory Services team on cross-border M&A valuation, financial due diligence, corporate restructuring, bankruptcy and insolvency, and forensic accounting projects. His broader experience across financial institutions and fintech includes financial modeling, industry research, credit analysis and listed-company annual report review, supporting corporate finance, valuation and NASDAQ-bound IPO projects for clients across Hong Kong, Macau and Mainland China.",
+    ],
+  },
+  {
     name: "Kevin Chiu",
     role: "Special Assistant",
     email: "kevin.chiu@partner.inkstonecapital.com",
