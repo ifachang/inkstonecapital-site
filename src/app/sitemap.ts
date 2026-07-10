@@ -56,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${siteUrl}/news/notice-unauthorized-representation/`,
+      lastModified: new Date("2026-06-15"),
+      changeFrequency: "monthly",
+      priority: 0.52,
+    },
+    {
       url: `${siteUrl}/news/ishigaki-beef-direct-taiwan-visit/`,
       lastModified: now,
       changeFrequency: "monthly",
