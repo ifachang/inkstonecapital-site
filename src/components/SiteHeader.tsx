@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { alternatePath, localizedPath, type Locale } from "../lib/i18n";
 
+const partnerOsUrl = "https://partner.inkstonecapital.com/";
+
 const navItems = {
   zh: [
     { href: "/", label: "首頁" },
@@ -96,6 +98,14 @@ export function SiteHeader({
           >
             {locale === "zh" ? "English" : "繁體中文"}
           </Link>
+          <a
+            href={partnerOsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-accent-gold/45 bg-accent-gold/10 px-3 py-2 text-xs font-semibold text-accent-gold transition hover:border-accent-gold hover:bg-accent-gold/15"
+          >
+            Partner OS
+          </a>
         </nav>
       </div>
       <div className="border-t border-stone-light/10 md:hidden">
@@ -124,6 +134,14 @@ export function SiteHeader({
           >
             {locale === "zh" ? "English" : "繁體中文"}
           </Link>
+          <a
+            href={partnerOsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whitespace-nowrap rounded-full border border-accent-gold/45 bg-accent-gold/10 px-3.5 py-2 text-xs font-semibold text-accent-gold transition hover:border-accent-gold hover:bg-accent-gold/15"
+          >
+            Partner OS
+          </a>
         </nav>
       </div>
     </header>
