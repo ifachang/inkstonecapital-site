@@ -43,6 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pageEntry({ path: "/en/", zhPath: "/", enPath: "/en/", lastModified: now, changeFrequency: "weekly", priority: 0.9 }),
     pageEntry({ path: "/services/", zhPath: "/services/", enPath: "/en/services/", lastModified: now, changeFrequency: "monthly", priority: 0.9 }),
     pageEntry({ path: "/en/services/", zhPath: "/services/", enPath: "/en/services/", lastModified: now, changeFrequency: "monthly", priority: 0.82 }),
+    pageEntry({ path: "/partner-referral-program/", zhPath: "/partner-referral-program/", enPath: "/en/partner-referral-program/", lastModified: now, changeFrequency: "monthly", priority: 0.78 }),
+    pageEntry({ path: "/en/partner-referral-program/", zhPath: "/partner-referral-program/", enPath: "/en/partner-referral-program/", lastModified: now, changeFrequency: "monthly", priority: 0.7 }),
     pageEntry({ path: "/team/", zhPath: "/team/", enPath: "/en/team/", lastModified: now, changeFrequency: "monthly", priority: 0.8 }),
     pageEntry({ path: "/en/team/", zhPath: "/team/", enPath: "/en/team/", lastModified: now, changeFrequency: "monthly", priority: 0.72 }),
     pageEntry({ path: "/companies/", zhPath: "/companies/", enPath: "/en/companies/", lastModified: now, changeFrequency: "monthly", priority: 0.8 }),

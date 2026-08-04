@@ -9,6 +9,7 @@ const navItems = {
   zh: [
     { href: "/", label: "首頁" },
     { href: "/services/", label: "服務" },
+    { href: "/partner-referral-program/", label: "合作夥伴" },
     { href: "/team/", label: "團隊" },
     { href: "/companies/", label: "相關公司" },
     { href: "/#insights", label: "觀點與動態" },
@@ -18,6 +19,7 @@ const navItems = {
   en: [
     { href: "/", label: "Home" },
     { href: "/services/", label: "Services" },
+    { href: "/partner-referral-program/", label: "Partners" },
     { href: "/team/", label: "Team" },
     { href: "/companies/", label: "Companies" },
     { href: "/#insights", label: "Insights" },
