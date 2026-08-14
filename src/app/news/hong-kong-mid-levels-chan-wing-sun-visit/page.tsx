@@ -8,6 +8,7 @@ const pagePath = "/news/hong-kong-mid-levels-chan-wing-sun-visit/";
 const pageTitle = "墨石資本到訪 Hanten 與 YGM 主席陳永燊香港半山別墅";
 const pageDescription =
   "墨石資本團隊到訪 Hanten 與 YGM 主席陳永燊位於香港半山的別墅，從半山老宅、城市夜景與維港視角，記錄香港商業文化與城市記憶。";
+const pageImage = "/hong-kong-mid-levels-chan-wing-sun-visit.jpg";
 
 const notes = [
   "今日到訪 Hanten 與 YGM 主席陳永燊位於香港半山的別墅。",
@@ -31,8 +32,8 @@ export const metadata: Metadata = {
     locale: "zh_TW",
     images: [
       {
-        url: "/inkstone-office-wall.jpg",
-        alt: "Inkstone Capital",
+        url: pageImage,
+        alt: "Hanten 與 YGM 主席陳永燊與墨石資本代表於香港半山夜景前合影",
       },
     ],
     publishedTime: "2026-08-14",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${pageTitle} | ${siteName}`,
     description: pageDescription,
-    images: ["/inkstone-office-wall.jpg"],
+    images: [pageImage],
   },
 };
 
@@ -68,6 +69,7 @@ export default function HongKongMidLevelsChanWingSunVisitPage() {
     mainEntityOfPage: `${siteUrl}${pagePath}`,
     url: `${siteUrl}${pagePath}`,
     inLanguage: "zh-Hant",
+    image: `${siteUrl}${pageImage}`,
     articleSection: "Hong Kong Visit",
     keywords: "Inkstone Capital, Hong Kong, Mid-Levels, Hanten, YGM, Chan Wing Sun, 陳永燊",
   };
@@ -106,23 +108,15 @@ export default function HongKongMidLevelsChanWingSunVisitPage() {
             Hong Kong, just like in the movies.
           </p>
 
-          <div className="mt-8 overflow-hidden border border-stone-light/25 bg-[radial-gradient(circle_at_20%_15%,rgba(196,161,90,0.32),transparent_30%),linear-gradient(135deg,#050506_0%,#111827_50%,#1f2937_100%)]">
+          <div className="mt-8 overflow-hidden border border-stone-light/25 bg-ink">
             <div className="relative min-h-[360px] p-6 sm:min-h-[460px] sm:p-8">
-              <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-accent-gold/16 to-transparent" />
-              {[
-                ["10%", "120px", "34px"],
-                ["22%", "220px", "48px"],
-                ["38%", "160px", "40px"],
-                ["56%", "260px", "56px"],
-                ["74%", "180px", "42px"],
-                ["86%", "230px", "48px"],
-              ].map(([left, height, width]) => (
-                <div
-                  key={left}
-                  className="absolute bottom-0 bg-stone-800/70"
-                  style={{ left, height, width }}
-                />
-              ))}
+              <img
+                src={pageImage}
+                alt="Hanten 與 YGM 主席陳永燊與墨石資本代表於香港半山夜景前合影"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/58 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/18 to-transparent" />
               <div className="relative z-10 flex h-full min-h-[300px] flex-col justify-end">
                 <div className="max-w-xl">
                   <div className="text-[0.68rem] uppercase tracking-[0.2em] text-accent-gold">
