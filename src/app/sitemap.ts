@@ -52,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pageEntry({ path: "/news/", zhPath: "/news/", enPath: "/en/news/", lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
     pageEntry({ path: "/en/news/", zhPath: "/news/", enPath: "/en/news/", lastModified: now, changeFrequency: "weekly", priority: 0.72 }),
     {
+      url: `${siteUrl}/news/hong-kong-mid-levels-chan-wing-sun-visit/`,
+      lastModified: new Date("2026-08-14"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${siteUrl}/news/sec-aimfinity-docter-independent-director-nominees/`,
       lastModified: now,
       changeFrequency: "monthly",
