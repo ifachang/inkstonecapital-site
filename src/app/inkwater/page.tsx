@@ -256,6 +256,27 @@ export default function InkwaterPage() {
         </p>
       </section>
 
+      <section className="inkwater-section inkwater-ecosystem-section">
+        <div>
+          <p className="inkwater-eyebrow">Corporate Ecosystem</p>
+          <h2>Connected capabilities across Inkwater&apos;s technology portfolio.</h2>
+        </div>
+        <a
+          className="inkwater-ecosystem-card"
+          href="https://www.docter.one/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>100% owned subsidiary</span>
+          <strong>Docter Inc.</strong>
+          <p>
+            Docter Inc. is a wholly owned company under Inkwater Holding Inc.,
+            supporting the broader technology and commercial ecosystem.
+          </p>
+          <small>Visit docter.one</small>
+        </a>
+      </section>
+
       <section className="inkwater-section" id="news">
         <div className="inkwater-section-heading compact">
           <p className="inkwater-eyebrow">Press &amp; News</p>
