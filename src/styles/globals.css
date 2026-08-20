@@ -412,9 +412,118 @@ a {
 .inkwater-news-grid p,
 .inkwater-quote-card p,
 .inkwater-safety-section p,
+.inkwater-legacy-section p,
+.inkwater-architecture-copy p,
+.inkwater-usecase-grid p,
+.inkwater-proof-grid p,
+.inkwater-faq-list p,
 .inkwater-contact-section p {
   color: #56615d;
   line-height: 1.65;
+}
+
+.inkwater-workflow-section {
+  padding-top: 0;
+}
+
+.inkwater-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inkwater-workflow-grid article {
+  min-height: 320px;
+  border: 1px solid #d8d2c7;
+  background: #141a18;
+  padding: 30px;
+  color: #f7f4ef;
+}
+
+.inkwater-workflow-grid span {
+  display: block;
+  margin-bottom: 74px;
+  color: #d7e99c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.inkwater-workflow-grid h3 {
+  font-size: 28px;
+  line-height: 1.12;
+}
+
+.inkwater-workflow-grid p {
+  color: rgba(247, 244, 239, 0.72);
+  line-height: 1.65;
+}
+
+.inkwater-legacy-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 46px;
+  border-top: 1px solid #d8d2c7;
+}
+
+.inkwater-legacy-section h2 {
+  margin-bottom: 22px;
+}
+
+.inkwater-legacy-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.inkwater-legacy-list article {
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 24px;
+}
+
+.inkwater-legacy-list h3 {
+  font-size: 21px;
+  line-height: 1.18;
+}
+
+.inkwater-architecture-section {
+  background:
+    linear-gradient(180deg, rgba(247, 244, 239, 0), rgba(231, 235, 227, 0.7)),
+    #f7f4ef;
+}
+
+.inkwater-architecture-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  gap: 38px;
+  align-items: stretch;
+}
+
+.inkwater-architecture-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.inkwater-architecture-stack span {
+  border: 1px solid #cfd5ca;
+  background: rgba(255, 250, 240, 0.86);
+  padding: 18px 20px;
+  color: #17201d;
+  font-weight: 800;
+}
+
+.inkwater-architecture-stack span:nth-child(odd) {
+  transform: translateX(18px);
+}
+
+.inkwater-architecture-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-left: 1px solid #d8d2c7;
+  padding-left: 34px;
+  font-size: 19px;
 }
 
 .inkwater-quote-band {
@@ -495,6 +604,53 @@ a {
   border-top: 1px solid rgba(247, 244, 239, 0.22);
   padding-top: 14px;
   font-size: clamp(26px, 4vw, 44px);
+}
+
+.inkwater-usecase-section {
+  padding-top: 0;
+}
+
+.inkwater-usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inkwater-usecase-grid article {
+  min-height: 238px;
+  border-top: 1px solid #d9d3c9;
+  padding: 24px 4px 0;
+}
+
+.inkwater-usecase-grid h3 {
+  font-size: 25px;
+  line-height: 1.12;
+}
+
+.inkwater-proof-section {
+  padding-top: 0;
+}
+
+.inkwater-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inkwater-proof-grid article {
+  min-height: 230px;
+  background: #fffaf0;
+  border: 1px solid #d8d2c7;
+  padding: 28px;
+}
+
+.inkwater-proof-grid span {
+  display: block;
+  margin-bottom: 50px;
+  color: #2f8c82;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.16;
 }
 
 .inkwater-quote-grid-section {
@@ -579,6 +735,32 @@ a {
 .inkwater-ecosystem-card small {
   color: #b06a3a;
   font-weight: 800;
+}
+
+.inkwater-faq-section {
+  padding-top: 0;
+}
+
+.inkwater-faq-list {
+  border-top: 1px solid #d8d2c7;
+}
+
+.inkwater-faq-list article {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  gap: 30px;
+  border-bottom: 1px solid #d8d2c7;
+  padding: 28px 0;
+}
+
+.inkwater-faq-list h3 {
+  margin-bottom: 0;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.inkwater-faq-list p {
+  margin-bottom: 0;
 }
 
 .inkwater-news-grid {
@@ -673,11 +855,29 @@ a {
 
   .inkwater-hero-grid,
   .inkwater-two-column,
+  .inkwater-workflow-grid,
+  .inkwater-legacy-section,
+  .inkwater-legacy-list,
+  .inkwater-architecture-layout,
   .inkwater-market-layout,
+  .inkwater-usecase-grid,
+  .inkwater-proof-grid,
   .inkwater-quote-grid-section,
   .inkwater-safety-section,
-  .inkwater-ecosystem-section {
+  .inkwater-ecosystem-section,
+  .inkwater-faq-list article {
     grid-template-columns: 1fr;
+  }
+
+  .inkwater-architecture-stack span:nth-child(odd) {
+    transform: none;
+  }
+
+  .inkwater-architecture-copy {
+    border-left: 0;
+    border-top: 1px solid #d8d2c7;
+    padding-top: 28px;
+    padding-left: 0;
   }
 
   .inkwater-hero-grid {

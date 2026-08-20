@@ -15,6 +15,122 @@ const markets = [
   "GPS-denied, underground and dual-use environments",
 ];
 
+const workflowSteps = [
+  {
+    step: "01",
+    title: "Sense existing signals",
+    body: "Use wireless signals already present in the venue, together with endpoint sensor inputs, as the environmental reference layer.",
+  },
+  {
+    step: "02",
+    title: "Estimate X/Y/Z position",
+    body: "Translate signal and sensing observations into horizontal position and floor-level awareness for complex indoor and GPS-denied spaces.",
+  },
+  {
+    step: "03",
+    title: "Self-optimize over time",
+    body: "Improve positioning performance as real-world observations accumulate, reducing dependence on recurring manual fingerprint surveys.",
+  },
+];
+
+const legacySystems = [
+  {
+    title: "Bluetooth beacons",
+    body: "Can require venue-by-venue hardware installation, battery maintenance and ongoing operational management.",
+  },
+  {
+    title: "UWB anchors",
+    body: "Can deliver precision, but often require dedicated infrastructure, installation planning and higher deployment cost.",
+  },
+  {
+    title: "Manual Wi-Fi fingerprinting",
+    body: "Can depend on repeated site surveys, map association and recalibration as RF environments change.",
+  },
+  {
+    title: "GPS-only navigation",
+    body: "Works well outdoors, but cannot reliably carry people, vehicles or robots through indoor, underground and obstructed environments.",
+  },
+];
+
+const architectureItems = [
+  "Existing wireless-signal environment",
+  "Endpoint sensor fusion",
+  "Spatial map association",
+  "Floor-level and Z-axis inference",
+  "Adaptive error correction",
+  "Edge and cloud learning loop",
+];
+
+const useCases = [
+  {
+    title: "Airports and stations",
+    body: "Guide passengers, staff and assets through terminals, platforms, concourses, parking structures and transfer paths.",
+  },
+  {
+    title: "Commercial complexes",
+    body: "Enable indoor navigation, customer flow intelligence, parking-to-store guidance and large venue operations.",
+  },
+  {
+    title: "Hospitals and elder care",
+    body: "Support Location Safety, staff workflows, patient movement and emergency response in buildings where GPS is unreliable.",
+  },
+  {
+    title: "Factories and warehouses",
+    body: "Help autonomous equipment, workers and assets maintain spatial awareness across dense industrial environments.",
+  },
+  {
+    title: "Humanoid robotics",
+    body: "Give mobile machines a positioning layer before they decide where to go, what is around them and what to do next.",
+  },
+  {
+    title: "Low-altitude economy",
+    body: "Explore continuity for drones, autonomous mobility platforms and GPS-denied operations near buildings and infrastructure.",
+  },
+];
+
+const proofPoints = [
+  {
+    location: "Singapore Changi Airport",
+    challenge: "Multi-level transportation, terminal and passenger movement complexity.",
+  },
+  {
+    location: "Tokyo Station",
+    challenge: "Dense transit flows, underground paths and challenging vertical-position context.",
+  },
+  {
+    location: "Major commercial complexes in China",
+    challenge: "Large indoor retail and mixed-use spaces where GPS cannot support precise last-meter navigation.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Does Inkwater Last-Meter Positioning replace GPS?",
+    answer:
+      "No. The strategy is to complement GPS by extending positioning continuity into environments where satellite signals become weak, blocked or unavailable.",
+  },
+  {
+    question: "Does it require Bluetooth beacons or new venue hardware?",
+    answer:
+      "The core positioning strategy is designed around No GPS, No Beacon and No New Infrastructure, using signals already present in the environment and endpoint sensing capabilities.",
+  },
+  {
+    question: "Can it support floor-level awareness?",
+    answer:
+      "The technology direction includes X/Y/Z spatial awareness, because determining the correct level can be as important as horizontal location in airports, stations, malls and parking structures.",
+  },
+  {
+    question: "Is this only indoor navigation?",
+    answer:
+      "No. Inkwater frames the opportunity as GPS-denied positioning and Spatial Intelligence, spanning indoor, underground, obstructed, robotics, mobility, safety and selected dual-use environments.",
+  },
+  {
+    question: "What partners is Inkwater seeking?",
+    answer:
+      "Inkwater is open to strategic discussions with mapping platforms, robotics companies, venue operators, mobility providers, infrastructure owners and safety-service partners.",
+  },
+];
+
 const newsItems = [
   {
     label: "Press Release",
@@ -189,6 +305,70 @@ export default function InkwaterPage() {
         </div>
       </section>
 
+      <section className="inkwater-section inkwater-workflow-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">How It Works</p>
+          <h2>From ambient signals to a continuously improving location layer.</h2>
+        </div>
+        <div className="inkwater-workflow-grid">
+          {workflowSteps.map((item) => (
+            <article key={item.step}>
+              <span>{item.step}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-legacy-section">
+        <div>
+          <p className="inkwater-eyebrow">Why No Beacon Matters</p>
+          <h2>Indoor positioning has often failed to scale because each venue became a deployment project.</h2>
+          <p>
+            Inkwater&apos;s strategy is not only about accuracy. It is about
+            reducing the infrastructure, maintenance and recalibration burden
+            that has historically slowed broad adoption of indoor and
+            GPS-denied positioning.
+          </p>
+        </div>
+        <div className="inkwater-legacy-list">
+          {legacySystems.map((item) => (
+            <article key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-architecture-section">
+        <div className="inkwater-section-heading">
+          <p className="inkwater-eyebrow">Technical Architecture</p>
+          <h2>A high-level architecture for GPS-denied Spatial Intelligence.</h2>
+        </div>
+        <div className="inkwater-architecture-layout">
+          <div className="inkwater-architecture-stack" aria-label="Technical architecture layers">
+            {architectureItems.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+          <div className="inkwater-architecture-copy">
+            <p>
+              The architecture is designed to transform existing environmental
+              signals and endpoint sensing into a location layer that can
+              support navigation, floor-level awareness and future machine
+              spatial intelligence.
+            </p>
+            <p>
+              As deployments scale, the learning loop can use real-world
+              positioning observations to improve performance and reduce the
+              cost of maintaining accuracy over time.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="inkwater-quote-band">
         <blockquote>
           &quot;GPS changed the way humanity understands location, but it did not
@@ -220,6 +400,36 @@ export default function InkwaterPage() {
             <h3>What is around me?</h3>
             <h3>What should I do next?</h3>
           </div>
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-usecase-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Applications</p>
+          <h2>One positioning layer across people, assets and autonomous systems.</h2>
+        </div>
+        <div className="inkwater-usecase-grid">
+          {useCases.map((item) => (
+            <article key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-proof-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Deployment Proof</p>
+          <h2>Validated in complex real-world environments.</h2>
+        </div>
+        <div className="inkwater-proof-grid">
+          {proofPoints.map((item) => (
+            <article key={item.location}>
+              <span>{item.location}</span>
+              <p>{item.challenge}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -275,6 +485,21 @@ export default function InkwaterPage() {
           </p>
           <small>Visit docter.one</small>
         </a>
+      </section>
+
+      <section className="inkwater-section inkwater-faq-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">FAQ</p>
+          <h2>Technical and partnership questions.</h2>
+        </div>
+        <div className="inkwater-faq-list">
+          {faqs.map((item) => (
+            <article key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="inkwater-section" id="news">
