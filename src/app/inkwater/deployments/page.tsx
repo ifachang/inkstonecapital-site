@@ -34,6 +34,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/inkwater/deployments/",
   },
+  openGraph: {
+    title: "Deployments | Inkwater Last-Meter Positioning",
+    description:
+      "Deployment proof points across complex, high-density GPS-denied environments.",
+    images: ["/inkwater/last-meter-hero.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Deployments | Inkwater Last-Meter Positioning",
+    description:
+      "Proof in complex environments including Changi Airport, Tokyo Station and major commercial complexes in China.",
+    images: ["/inkwater/last-meter-hero.jpg"],
+  },
 };
 
 export default function InkwaterDeploymentsPage() {
@@ -72,6 +85,12 @@ export default function InkwaterDeploymentsPage() {
           <p className="inkwater-eyebrow">Known Environments</p>
           <h2>Airports, stations and commercial complexes create the right test conditions.</h2>
         </div>
+        <figure className="inkwater-feature-image">
+          <img
+            src="/inkwater/last-meter-hero.jpg"
+            alt="Large GPS-denied indoor transit environment with positioning paths"
+          />
+        </figure>
         <div className="inkwater-deployment-detail-grid">
           {deploymentCards.map((card) => (
             <article key={card.location}>

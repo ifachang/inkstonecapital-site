@@ -38,6 +38,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/inkwater/technology/",
   },
+  openGraph: {
+    title: "Technology | Inkwater Last-Meter Positioning",
+    description:
+      "Ambient signals, sensor fusion, X/Y/Z awareness and self-optimizing GPS-denied positioning.",
+    images: ["/inkwater/positioning-architecture.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Technology | Inkwater Last-Meter Positioning",
+    description:
+      "A deeper technical view of infrastructure-free GPS-denied positioning.",
+    images: ["/inkwater/positioning-architecture.jpg"],
+  },
 };
 
 export default function InkwaterTechnologyPage() {
@@ -90,6 +103,12 @@ export default function InkwaterTechnologyPage() {
           <p className="inkwater-eyebrow">Architecture Layers</p>
           <h2>From ambient signals to self-optimizing spatial awareness.</h2>
         </div>
+        <figure className="inkwater-feature-image">
+          <img
+            src="/inkwater/positioning-architecture.jpg"
+            alt="Layered indoor positioning architecture with X/Y/Z spatial inference"
+          />
+        </figure>
         <div className="inkwater-layer-grid">
           {layers.map((layer, index) => (
             <article key={layer.title}>

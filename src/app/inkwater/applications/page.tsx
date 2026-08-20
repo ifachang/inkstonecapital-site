@@ -47,6 +47,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/inkwater/applications/",
   },
+  openGraph: {
+    title: "Applications | Inkwater Last-Meter Positioning",
+    description:
+      "Applications across airports, commercial complexes, hospitals, robotics, Physical AI, Location Safety and low-altitude economy use cases.",
+    images: ["/inkwater/physical-ai-applications.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Applications | Inkwater Last-Meter Positioning",
+    description:
+      "One positioning layer for people, assets and autonomous systems.",
+    images: ["/inkwater/physical-ai-applications.jpg"],
+  },
 };
 
 export default function InkwaterApplicationsPage() {
@@ -98,6 +111,12 @@ export default function InkwaterApplicationsPage() {
           <p className="inkwater-eyebrow">Use Case Families</p>
           <h2>From navigation to safety to machine autonomy.</h2>
         </div>
+        <figure className="inkwater-feature-image">
+          <img
+            src="/inkwater/physical-ai-applications.jpg"
+            alt="Humanoid robotics and people in a GPS-denied indoor positioning environment"
+          />
+        </figure>
         <div className="inkwater-application-grid">
           {applicationGroups.map((group) => (
             <article key={group.title}>

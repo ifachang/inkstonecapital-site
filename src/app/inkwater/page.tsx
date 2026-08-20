@@ -187,12 +187,21 @@ export const metadata: Metadata = {
     url: "https://www.inkstonecapital.com/inkwater/",
     siteName: "Inkstone Capital",
     type: "website",
+    images: [
+      {
+        url: "/inkwater/last-meter-hero.jpg",
+        width: 1536,
+        height: 864,
+        alt: "Inkwater Last-Meter Positioning visual",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Inkwater Last-Meter Positioning",
     description:
       "No GPS. No Beacon. No New Infrastructure. Built for GPS-denied Spatial Intelligence.",
+    images: ["/inkwater/last-meter-hero.jpg"],
   },
 };
 
@@ -246,7 +255,11 @@ export default function InkwaterPage() {
             </div>
           </div>
 
-          <div className="inkwater-signal-panel" aria-label="Last-meter visual">
+          <div className="inkwater-signal-panel inkwater-photo-panel" aria-label="Last-meter positioning visual">
+            <img
+              src="/inkwater/last-meter-hero.jpg"
+              alt="Premium interior positioning visualization in a GPS-denied transit environment"
+            />
             <div className="inkwater-signal-grid">
               <span className="inkwater-path inkwater-path-one" />
               <span className="inkwater-path inkwater-path-two" />
@@ -386,6 +399,12 @@ export default function InkwaterPage() {
           <p className="inkwater-eyebrow">Technical Architecture</p>
           <h2>A high-level architecture for GPS-denied Spatial Intelligence.</h2>
         </div>
+        <figure className="inkwater-feature-image">
+          <img
+            src="/inkwater/positioning-architecture.jpg"
+            alt="Multi-level Last-Meter Positioning architecture visualization"
+          />
+        </figure>
         <div className="inkwater-architecture-layout">
           <div className="inkwater-architecture-stack" aria-label="Technical architecture layers">
             {architectureItems.map((item) => (
@@ -447,6 +466,12 @@ export default function InkwaterPage() {
           <p className="inkwater-eyebrow">Applications</p>
           <h2>One positioning layer across people, assets and autonomous systems.</h2>
         </div>
+        <figure className="inkwater-feature-image compact">
+          <img
+            src="/inkwater/physical-ai-applications.jpg"
+            alt="Humanoid robot and people moving through an indoor positioning environment"
+          />
+        </figure>
         <div className="inkwater-usecase-grid">
           {useCases.map((item) => (
             <article key={item.title}>

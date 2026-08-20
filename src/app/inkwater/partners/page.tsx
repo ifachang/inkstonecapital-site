@@ -42,6 +42,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/inkwater/partners/",
   },
+  openGraph: {
+    title: "Partners | Inkwater Last-Meter Positioning",
+    description:
+      "Partnership opportunities across maps, robotics, venues, mobility, Location Safety, infrastructure and strategic investors.",
+    images: ["/inkwater/physical-ai-applications.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Partners | Inkwater Last-Meter Positioning",
+    description:
+      "Commercialize GPS-denied Spatial Intelligence with Inkwater.",
+    images: ["/inkwater/physical-ai-applications.jpg"],
+  },
 };
 
 export default function InkwaterPartnersPage() {
@@ -79,6 +92,12 @@ export default function InkwaterPartnersPage() {
           <p className="inkwater-eyebrow">Partnership Paths</p>
           <h2>Six practical routes into the Last-Meter Positioning ecosystem.</h2>
         </div>
+        <figure className="inkwater-feature-image">
+          <img
+            src="/inkwater/physical-ai-applications.jpg"
+            alt="Enterprise indoor positioning environment for robotics and venue partnerships"
+          />
+        </figure>
         <div className="inkwater-partner-grid">
           {partnerPaths.map((path) => (
             <article key={path.title}>
