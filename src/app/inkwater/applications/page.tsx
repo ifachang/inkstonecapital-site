@@ -76,6 +76,7 @@ export default function InkwaterApplicationsPage() {
           </a>
           <div className="inkwater-nav-links">
             <a href="/inkwater/">Overview</a>
+            <a href="/inkwater/platform/">Platform</a>
             <a href="/inkwater/technology/">Technology</a>
             <a href="/inkwater/deployments/">Deployments</a>
             <a className="inkwater-nav-cta" href="/inkwater/partners/">Partners</a>

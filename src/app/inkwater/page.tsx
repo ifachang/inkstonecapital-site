@@ -8,6 +8,11 @@ const deployments = [
 
 const deepPages = [
   {
+    title: "Platform",
+    href: "/inkwater/platform/",
+    body: "How Inkwater packages Last-Meter Positioning as a Spatial Intelligence platform for venues, devices and machines.",
+  },
+  {
     title: "Technology",
     href: "/inkwater/technology/",
     body: "A deeper view of the signal layer, sensor fusion, X/Y/Z inference and self-optimizing architecture.",
@@ -26,6 +31,59 @@ const deepPages = [
     title: "Partners",
     href: "/inkwater/partners/",
     body: "Partnership paths for mapping platforms, robotics companies, venue operators, mobility and safety providers.",
+  },
+];
+
+const platformModules = [
+  {
+    title: "Positioning Engine",
+    body: "Transforms ambient signals, endpoint sensing and spatial association into a GPS-denied location layer.",
+  },
+  {
+    title: "Spatial Intelligence Layer",
+    body: "Connects X/Y/Z location context to floors, zones, corridors, entrances, parking areas and vertical transitions.",
+  },
+  {
+    title: "Self-Optimization Loop",
+    body: "Uses repeated real-world observations to refine positioning performance and reduce recurring calibration burden.",
+  },
+  {
+    title: "Location Safety Module",
+    body: "Frames future services for child safety, elder safety, staff workflows and emergency response in GPS-denied spaces.",
+  },
+];
+
+const whyNowItems = [
+  {
+    title: "GPS is mature, but incomplete",
+    body: "Outdoor navigation has become universal, yet the user journey often breaks inside airports, stations, malls, hospitals, parking structures and underground spaces.",
+  },
+  {
+    title: "Physical AI needs spatial context",
+    body: "Humanoid robots, AMRs and autonomous equipment need to understand where they are before they can reason about what is nearby or what to do next.",
+  },
+  {
+    title: "Venues need scalable deployment models",
+    body: "Beacon-first approaches can become hardware projects. Infrastructure-free positioning creates a more practical path for large operators and platforms.",
+  },
+];
+
+const partnershipPackages = [
+  {
+    title: "Venue Pilot",
+    body: "Evaluate GPS-denied positioning in airports, stations, malls, hospitals, campuses, factories or parking structures.",
+  },
+  {
+    title: "Robotics Integration",
+    body: "Explore how Last-Meter Positioning can support humanoids, AMRs and embodied AI systems operating around people.",
+  },
+  {
+    title: "Mapping Platform Partnership",
+    body: "Extend outdoor navigation into the indoor, underground and obstructed environments where users still need continuity.",
+  },
+  {
+    title: "Location Safety Commercialization",
+    body: "Develop safety-oriented services for children, older adults, staff, emergency response and vulnerable-location workflows.",
   },
 ];
 
@@ -218,9 +276,9 @@ export default function InkwaterPage() {
             </span>
           </a>
           <div className="inkwater-nav-links">
+            <a href="/inkwater/platform/">Platform</a>
             <a href="/inkwater/technology/">Technology</a>
             <a href="/inkwater/applications/">Applications</a>
-            <a href="/inkwater/deployments/">Deployments</a>
             <a className="inkwater-nav-cta" href="mailto:corp@inkstonecapital.com">
               Partner
             </a>
@@ -357,6 +415,24 @@ export default function InkwaterPage() {
         </div>
       </section>
 
+      <section className="inkwater-section inkwater-platform-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Platform Model</p>
+          <h2>More than indoor navigation: a Spatial Intelligence layer for the physical world.</h2>
+        </div>
+        <div className="inkwater-platform-grid">
+          {platformModules.map((module) => (
+            <article key={module.title}>
+              <h3>{module.title}</h3>
+              <p>{module.body}</p>
+            </article>
+          ))}
+        </div>
+        <a className="inkwater-inline-link" href="/inkwater/platform/">
+          Explore the platform
+        </a>
+      </section>
+
       <section className="inkwater-section inkwater-workflow-section">
         <div className="inkwater-section-heading compact">
           <p className="inkwater-eyebrow">How It Works</p>
@@ -435,6 +511,21 @@ export default function InkwaterPage() {
         <p>I-Fa Chang, Chairman, Inkwater Holding Inc.</p>
       </section>
 
+      <section className="inkwater-section inkwater-why-now-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Why Now</p>
+          <h2>The market is moving from map location to machine-level Spatial Intelligence.</h2>
+        </div>
+        <div className="inkwater-why-now-grid">
+          {whyNowItems.map((item) => (
+            <article key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="inkwater-section" id="markets">
         <div className="inkwater-section-heading compact">
           <p className="inkwater-eyebrow">Market Direction</p>
@@ -458,6 +549,21 @@ export default function InkwaterPage() {
             <h3>What is around me?</h3>
             <h3>What should I do next?</h3>
           </div>
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-package-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Partnership Packages</p>
+          <h2>Clear starting points for enterprise and strategic conversations.</h2>
+        </div>
+        <div className="inkwater-package-grid">
+          {partnershipPackages.map((item) => (
+            <article key={item.title}>
+              <span>{item.title}</span>
+              <p>{item.body}</p>
+            </article>
+          ))}
         </div>
       </section>
 

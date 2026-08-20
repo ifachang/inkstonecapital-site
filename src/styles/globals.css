@@ -406,7 +406,7 @@ a {
 
 .inkwater-deepnav-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -496,14 +496,18 @@ a {
 .inkwater-layer-section,
 .inkwater-application-section,
 .inkwater-deployment-detail-section,
-.inkwater-partner-section {
+.inkwater-partner-section,
+.inkwater-platform-section {
   padding-top: clamp(68px, 8vw, 108px);
 }
 
 .inkwater-layer-grid,
 .inkwater-application-grid,
 .inkwater-deployment-detail-grid,
-.inkwater-partner-grid {
+.inkwater-partner-grid,
+.inkwater-platform-grid,
+.inkwater-why-now-grid,
+.inkwater-package-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
@@ -512,7 +516,10 @@ a {
 .inkwater-layer-grid article,
 .inkwater-application-grid article,
 .inkwater-deployment-detail-grid article,
-.inkwater-partner-grid article {
+.inkwater-partner-grid article,
+.inkwater-platform-grid article,
+.inkwater-why-now-grid article,
+.inkwater-package-grid article {
   min-height: 292px;
   border: 1px solid #d8d2c7;
   background: #fffaf0;
@@ -533,7 +540,9 @@ a {
 .inkwater-layer-grid h3,
 .inkwater-application-grid h3,
 .inkwater-deployment-detail-grid h3,
-.inkwater-partner-grid h3 {
+.inkwater-partner-grid h3,
+.inkwater-platform-grid h3,
+.inkwater-why-now-grid h3 {
   color: #17201d;
   font-size: 24px;
   line-height: 1.12;
@@ -542,9 +551,112 @@ a {
 .inkwater-layer-grid p,
 .inkwater-application-grid p,
 .inkwater-deployment-detail-grid p,
-.inkwater-partner-grid p {
+.inkwater-partner-grid p,
+.inkwater-platform-grid p,
+.inkwater-why-now-grid p,
+.inkwater-package-grid p,
+.inkwater-trust-section p {
   color: #56615d;
   line-height: 1.6;
+}
+
+.inkwater-inline-link {
+  display: inline-flex;
+  margin-top: 22px;
+  border-bottom: 2px solid #2f8c82;
+  padding-bottom: 6px;
+  color: #16201d;
+  font-weight: 900;
+}
+
+.inkwater-why-now-section {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(215, 233, 156, 0.18), transparent 28%),
+    linear-gradient(180deg, #f7f4ef, #ece7dc);
+}
+
+.inkwater-package-section {
+  padding-top: 0;
+}
+
+.inkwater-package-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.inkwater-package-grid article {
+  min-height: 250px;
+  background:
+    linear-gradient(160deg, rgba(255, 250, 240, 0.96), rgba(232, 226, 214, 0.88)),
+    #fffaf0;
+}
+
+.inkwater-package-grid span {
+  display: block;
+  margin-bottom: 46px;
+  color: #b06a3a;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.12;
+}
+
+.inkwater-flow-section {
+  padding-top: 0;
+}
+
+.inkwater-flow-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1px solid #d8d2c7;
+  background: #141a18;
+}
+
+.inkwater-flow-row div {
+  min-height: 190px;
+  border-right: 1px solid rgba(247, 244, 239, 0.16);
+  padding: 24px;
+  color: #f7f4ef;
+}
+
+.inkwater-flow-row div:last-child {
+  border-right: 0;
+}
+
+.inkwater-flow-row span {
+  display: block;
+  margin-bottom: 54px;
+  color: #d7e99c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.inkwater-flow-row p {
+  margin: 0;
+  color: #f7f4ef;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.inkwater-trust-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 46px;
+  border-top: 1px solid #d8d2c7;
+}
+
+.inkwater-trust-list {
+  display: grid;
+  gap: 10px;
+}
+
+.inkwater-trust-list p {
+  margin: 0;
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 18px 20px;
+  color: #17201d;
+  font-weight: 800;
 }
 
 .inkwater-application-grid ul {
@@ -1128,6 +1240,11 @@ a {
   .inkwater-deployment-detail-grid,
   .inkwater-proof-theme-section,
   .inkwater-partner-grid,
+  .inkwater-platform-grid,
+  .inkwater-why-now-grid,
+  .inkwater-package-grid,
+  .inkwater-flow-row,
+  .inkwater-trust-section,
   .inkwater-discussion-section,
   .inkwater-quote-grid-section,
   .inkwater-safety-section,
