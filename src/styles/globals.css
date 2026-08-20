@@ -579,6 +579,41 @@ a {
   color: rgba(247, 244, 239, 0.7);
 }
 
+.inkwater-contact-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(180px, 0.7fr);
+  gap: 16px;
+  max-width: 760px;
+  margin-top: 26px;
+}
+
+.inkwater-contact-details p {
+  margin: 0;
+  border-top: 1px solid rgba(247, 244, 239, 0.18);
+  padding-top: 14px;
+}
+
+.inkwater-contact-details strong,
+.inkwater-contact-details span,
+.inkwater-contact-details a {
+  display: block;
+}
+
+.inkwater-contact-details strong {
+  margin-bottom: 6px;
+  color: #d7e99c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inkwater-contact-details span,
+.inkwater-contact-details a {
+  color: rgba(247, 244, 239, 0.86);
+  line-height: 1.5;
+}
+
 @media (max-width: 920px) {
   .inkwater-nav {
     align-items: flex-start;
@@ -625,6 +660,10 @@ a {
   .inkwater-contact-section {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .inkwater-contact-details {
+    grid-template-columns: 1fr;
   }
 }
 

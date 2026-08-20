@@ -280,6 +280,16 @@ export default function InkwaterPage() {
             For enterprise, infrastructure, robotics, mapping, mobility and
             strategic partnership discussions, contact the Inkwater team.
           </p>
+          <div className="inkwater-contact-details">
+            <p>
+              <strong>Address</strong>
+              <span>221 W 9th St, PMB 235, Wilmington, Delaware 19801</span>
+            </p>
+            <p>
+              <strong>Phone</strong>
+              <a href="tel:+14253659666">+1 425-365-9666</a>
+            </p>
+          </div>
         </div>
         <a
           className="inkwater-primary-button light"
