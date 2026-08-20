@@ -49,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     pageEntry({ path: "/en/team/", zhPath: "/team/", enPath: "/en/team/", lastModified: now, changeFrequency: "monthly", priority: 0.72 }),
     pageEntry({ path: "/companies/", zhPath: "/companies/", enPath: "/en/companies/", lastModified: now, changeFrequency: "monthly", priority: 0.8 }),
     pageEntry({ path: "/en/companies/", zhPath: "/companies/", enPath: "/en/companies/", lastModified: now, changeFrequency: "monthly", priority: 0.72 }),
+    {
+      url: `${siteUrl}/inkwater/`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     pageEntry({ path: "/news/", zhPath: "/news/", enPath: "/en/news/", lastModified: now, changeFrequency: "weekly", priority: 0.8 }),
     pageEntry({ path: "/en/news/", zhPath: "/news/", enPath: "/en/news/", lastModified: now, changeFrequency: "weekly", priority: 0.72 }),
     {

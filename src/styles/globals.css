@@ -36,3 +36,624 @@ body::before {
 a {
   text-underline-offset: 0.22em;
 }
+
+.inkwater-page {
+  min-height: 100vh;
+  background: #f7f4ef;
+  color: #111514;
+}
+
+.inkwater-page a {
+  text-decoration: none;
+}
+
+.inkwater-page h1,
+.inkwater-page h2,
+.inkwater-page h3,
+.inkwater-page p {
+  margin-top: 0;
+}
+
+.inkwater-hero {
+  min-height: 94vh;
+  padding: 24px clamp(18px, 4vw, 56px) 0;
+  color: #f5f1e9;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(47, 140, 130, 0.4), transparent 32%),
+    radial-gradient(circle at 18% 80%, rgba(176, 106, 58, 0.35), transparent 30%),
+    linear-gradient(135deg, #071312 0%, #10201d 46%, #1d241c 100%);
+  overflow: hidden;
+}
+
+.inkwater-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 0 auto;
+  gap: 24px;
+}
+
+.inkwater-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inkwater-brand-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(245, 241, 233, 0.32);
+  background: rgba(245, 241, 233, 0.08);
+  color: #d7e99c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.inkwater-brand strong,
+.inkwater-brand small {
+  display: block;
+}
+
+.inkwater-brand strong {
+  font-size: 16px;
+}
+
+.inkwater-brand small {
+  margin-top: 2px;
+  color: rgba(245, 241, 233, 0.62);
+  font-size: 12px;
+}
+
+.inkwater-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: rgba(245, 241, 233, 0.72);
+  font-size: 14px;
+}
+
+.inkwater-nav-cta {
+  padding: 11px 16px;
+  border: 1px solid rgba(245, 241, 233, 0.24);
+  color: #f5f1e9;
+}
+
+.inkwater-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+  align-items: center;
+  max-width: 1180px;
+  min-height: calc(94vh - 96px);
+  margin: 0 auto;
+  gap: clamp(34px, 6vw, 88px);
+  padding: 72px 0 92px;
+}
+
+.inkwater-eyebrow {
+  margin: 0 0 16px;
+  color: #b06a3a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.inkwater-hero .inkwater-eyebrow {
+  color: #d7e99c;
+}
+
+.inkwater-page h1 {
+  max-width: 780px;
+  margin-bottom: 22px;
+  font-size: clamp(58px, 9vw, 116px);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.inkwater-hero-lede {
+  max-width: 700px;
+  color: rgba(245, 241, 233, 0.78);
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.5;
+}
+
+.inkwater-promise-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 34px 0;
+}
+
+.inkwater-promise-row span {
+  border: 1px solid rgba(245, 241, 233, 0.24);
+  padding: 12px 15px;
+  background: rgba(245, 241, 233, 0.08);
+  color: #fff8ea;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.inkwater-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.inkwater-primary-button,
+.inkwater-secondary-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  font-weight: 800;
+}
+
+.inkwater-primary-button {
+  background: #d7e99c;
+  color: #0e1614;
+}
+
+.inkwater-primary-button.light {
+  background: #f6f0e2;
+  color: #0b1714;
+}
+
+.inkwater-secondary-button {
+  border: 1px solid rgba(245, 241, 233, 0.24);
+  color: #f5f1e9;
+}
+
+.inkwater-signal-panel {
+  position: relative;
+  min-height: 520px;
+  border: 1px solid rgba(245, 241, 233, 0.15);
+  background:
+    linear-gradient(rgba(245, 241, 233, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 241, 233, 0.07) 1px, transparent 1px),
+    rgba(245, 241, 233, 0.06);
+  background-size: 52px 52px;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.28);
+}
+
+.inkwater-signal-grid {
+  position: absolute;
+  inset: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 241, 233, 0.12);
+}
+
+.inkwater-signal-grid::before {
+  position: absolute;
+  inset: 16%;
+  border: 1px solid rgba(215, 233, 156, 0.28);
+  content: "";
+  transform: perspective(700px) rotateX(62deg) rotateZ(-18deg);
+}
+
+.inkwater-path {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d7e99c, transparent);
+  opacity: 0.9;
+  transform-origin: left center;
+}
+
+.inkwater-path-one {
+  top: 42%;
+  left: 9%;
+  width: 78%;
+  transform: rotate(-24deg);
+}
+
+.inkwater-path-two {
+  top: 63%;
+  left: 18%;
+  width: 66%;
+  background: linear-gradient(90deg, transparent, #2f8c82, transparent);
+  transform: rotate(18deg);
+}
+
+.inkwater-node,
+.inkwater-position-dot {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.inkwater-node {
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(245, 241, 233, 0.28);
+  background: rgba(7, 19, 18, 0.82);
+  color: #f5f1e9;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.inkwater-node-a {
+  top: 9%;
+  left: 10%;
+}
+
+.inkwater-node-b {
+  top: 35%;
+  right: 13%;
+}
+
+.inkwater-node-c {
+  right: 23%;
+  bottom: 16%;
+}
+
+.inkwater-node-d {
+  left: 18%;
+  bottom: 21%;
+}
+
+.inkwater-position-dot {
+  top: 46%;
+  left: 48%;
+  width: 24px;
+  height: 24px;
+  background: #d7e99c;
+  box-shadow: 0 0 0 20px rgba(215, 233, 156, 0.12), 0 0 50px #d7e99c;
+}
+
+.inkwater-panel-caption {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(245, 241, 233, 0.14);
+  padding-top: 16px;
+  color: rgba(245, 241, 233, 0.68);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+}
+
+.inkwater-deployment-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(245, 241, 233, 0.14);
+  padding: 22px 0 26px;
+  color: rgba(245, 241, 233, 0.64);
+}
+
+.inkwater-deployment-strip strong {
+  color: #f5f1e9;
+  font-size: 14px;
+}
+
+.inkwater-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 120px) clamp(18px, 4vw, 56px);
+}
+
+.inkwater-section-heading {
+  max-width: 940px;
+  margin-bottom: 40px;
+}
+
+.inkwater-section-heading.compact {
+  max-width: 760px;
+}
+
+.inkwater-section h2,
+.inkwater-contact-section h2 {
+  color: #141816;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.inkwater-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  color: #44504b;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.inkwater-capability-section {
+  padding-top: 0;
+}
+
+.inkwater-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+}
+
+.inkwater-capability-grid article {
+  min-height: 300px;
+  padding: 32px;
+  border-right: 1px solid #d8d2c7;
+}
+
+.inkwater-capability-grid article:last-child {
+  border-right: 0;
+}
+
+.inkwater-capability-grid span {
+  display: block;
+  margin-bottom: 52px;
+  color: #b06a3a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 800;
+}
+
+.inkwater-capability-grid h3,
+.inkwater-news-grid h3 {
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.inkwater-capability-grid p,
+.inkwater-news-grid p,
+.inkwater-quote-card p,
+.inkwater-safety-section p,
+.inkwater-contact-section p {
+  color: #56615d;
+  line-height: 1.65;
+}
+
+.inkwater-quote-band {
+  padding: clamp(76px, 10vw, 128px) clamp(22px, 7vw, 90px);
+  color: #f7f4ef;
+  background: #141a18;
+}
+
+.inkwater-quote-band blockquote {
+  max-width: 1040px;
+  margin: 0 auto 18px;
+  font-size: clamp(34px, 5.5vw, 76px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.inkwater-quote-band p {
+  max-width: 1040px;
+  margin: 0 auto;
+  color: rgba(247, 244, 239, 0.58);
+}
+
+.inkwater-market-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 34px;
+}
+
+.inkwater-market-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.inkwater-market-item {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid #d9d3c9;
+  padding: 18px 0;
+}
+
+.inkwater-market-item span {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  background: #2f8c82;
+}
+
+.inkwater-market-item p {
+  margin: 0;
+  color: #25302c;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.inkwater-machine-card {
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(160deg, rgba(47, 140, 130, 0.92), rgba(13, 32, 29, 0.96)), #12201d;
+  padding: 32px;
+  color: #f7f4ef;
+}
+
+.inkwater-machine-card p {
+  color: #d7e99c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.inkwater-machine-card h3 {
+  margin: 8px 0 0;
+  border-top: 1px solid rgba(247, 244, 239, 0.22);
+  padding-top: 14px;
+  font-size: clamp(26px, 4vw, 44px);
+}
+
+.inkwater-quote-grid-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 18px;
+  padding-top: 0;
+}
+
+.inkwater-quote-card {
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 30px;
+}
+
+.inkwater-quote-card.large {
+  background: #ebe6dc;
+}
+
+.inkwater-quote-card blockquote {
+  margin: 0 0 28px;
+  color: #1a211e;
+  font-size: clamp(23px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+.inkwater-quote-card:not(.large) blockquote {
+  font-size: 24px;
+}
+
+.inkwater-safety-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 48px;
+  border-top: 1px solid #d8d2c7;
+  border-bottom: 1px solid #d8d2c7;
+}
+
+.inkwater-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inkwater-news-grid article {
+  min-height: 260px;
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 28px;
+}
+
+.inkwater-news-grid span {
+  display: inline-block;
+  margin-bottom: 36px;
+  color: #2f8c82;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.inkwater-contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: clamp(58px, 7vw, 90px) clamp(18px, 4vw, 56px);
+  color: #f7f4ef;
+  background: #0c1513;
+}
+
+.inkwater-contact-section > div {
+  max-width: 760px;
+}
+
+.inkwater-contact-section h2 {
+  margin-bottom: 16px;
+  color: #f7f4ef;
+}
+
+.inkwater-contact-section p {
+  color: rgba(247, 244, 239, 0.7);
+}
+
+@media (max-width: 920px) {
+  .inkwater-nav {
+    align-items: flex-start;
+  }
+
+  .inkwater-nav-links {
+    display: none;
+  }
+
+  .inkwater-hero-grid,
+  .inkwater-two-column,
+  .inkwater-market-layout,
+  .inkwater-quote-grid-section,
+  .inkwater-safety-section {
+    grid-template-columns: 1fr;
+  }
+
+  .inkwater-hero-grid {
+    padding-top: 56px;
+  }
+
+  .inkwater-signal-panel {
+    min-height: 420px;
+  }
+
+  .inkwater-capability-grid,
+  .inkwater-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inkwater-capability-grid article {
+    border-right: 0;
+    border-bottom: 1px solid #d8d2c7;
+  }
+
+  .inkwater-capability-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .inkwater-market-list {
+    grid-template-columns: 1fr;
+  }
+
+  .inkwater-contact-section {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .inkwater-page h1 {
+    font-size: 56px;
+  }
+
+  .inkwater-promise-row span,
+  .inkwater-primary-button,
+  .inkwater-secondary-button {
+    width: 100%;
+  }
+
+  .inkwater-signal-panel {
+    min-height: 340px;
+  }
+
+  .inkwater-node {
+    width: 52px;
+    height: 52px;
+  }
+
+  .inkwater-panel-caption {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .inkwater-deployment-strip {
+    justify-content: flex-start;
+  }
+}
