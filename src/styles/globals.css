@@ -373,6 +373,199 @@ a {
   line-height: 1.7;
 }
 
+.inkwater-deepnav-section {
+  padding-top: 0;
+}
+
+.inkwater-deepnav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.inkwater-deepnav-grid a {
+  display: flex;
+  min-height: 244px;
+  flex-direction: column;
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 26px;
+  color: #141816;
+}
+
+.inkwater-deepnav-grid span {
+  display: block;
+  margin-bottom: 18px;
+  color: #2f8c82;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.inkwater-deepnav-grid p {
+  color: #56615d;
+  line-height: 1.55;
+}
+
+.inkwater-deepnav-grid small {
+  margin-top: auto;
+  color: #b06a3a;
+  font-weight: 900;
+}
+
+.inkwater-subhero {
+  min-height: 62vh;
+  padding: 24px clamp(18px, 4vw, 56px) clamp(70px, 8vw, 112px);
+  color: #f5f1e9;
+  background:
+    linear-gradient(rgba(245, 241, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 241, 233, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 78% 22%, rgba(215, 233, 156, 0.18), transparent 28%),
+    linear-gradient(135deg, #081412 0%, #13231f 52%, #26291c 100%);
+  background-size: 58px 58px, 58px 58px, auto, auto;
+}
+
+.inkwater-subhero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-top: clamp(70px, 10vw, 132px);
+}
+
+.inkwater-subhero h1 {
+  max-width: 980px;
+  margin-bottom: 24px;
+  color: #f7f4ef;
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 0.95;
+}
+
+.inkwater-subhero p:not(.inkwater-eyebrow) {
+  max-width: 760px;
+  color: rgba(247, 244, 239, 0.74);
+  font-size: clamp(18px, 2vw, 23px);
+  line-height: 1.55;
+}
+
+.inkwater-detail-lede,
+.inkwater-question-section,
+.inkwater-proof-theme-section,
+.inkwater-discussion-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 46px;
+  border-bottom: 1px solid #d8d2c7;
+}
+
+.inkwater-detail-lede > p,
+.inkwater-question-section > div > p,
+.inkwater-proof-theme-section > div > p,
+.inkwater-discussion-section > div > p,
+.inkwater-scale-section > p {
+  color: #56615d;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.inkwater-layer-section,
+.inkwater-application-section,
+.inkwater-deployment-detail-section,
+.inkwater-partner-section {
+  padding-top: clamp(68px, 8vw, 108px);
+}
+
+.inkwater-layer-grid,
+.inkwater-application-grid,
+.inkwater-deployment-detail-grid,
+.inkwater-partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inkwater-layer-grid article,
+.inkwater-application-grid article,
+.inkwater-deployment-detail-grid article,
+.inkwater-partner-grid article {
+  min-height: 292px;
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 28px;
+}
+
+.inkwater-layer-grid span,
+.inkwater-deployment-detail-grid span {
+  display: block;
+  margin-bottom: 44px;
+  color: #2f8c82;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.inkwater-layer-grid h3,
+.inkwater-application-grid h3,
+.inkwater-deployment-detail-grid h3,
+.inkwater-partner-grid h3 {
+  color: #17201d;
+  font-size: 24px;
+  line-height: 1.12;
+}
+
+.inkwater-layer-grid p,
+.inkwater-application-grid p,
+.inkwater-deployment-detail-grid p,
+.inkwater-partner-grid p {
+  color: #56615d;
+  line-height: 1.6;
+}
+
+.inkwater-application-grid ul {
+  margin: 22px 0 0;
+  padding-left: 18px;
+  color: #24302c;
+  line-height: 1.65;
+}
+
+.inkwater-principle-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1.2fr);
+  gap: 46px;
+  border-top: 1px solid #d8d2c7;
+}
+
+.inkwater-principle-list,
+.inkwater-question-list,
+.inkwater-proof-theme-list,
+.inkwater-discussion-list {
+  display: grid;
+  gap: 10px;
+}
+
+.inkwater-principle-list p,
+.inkwater-question-list p,
+.inkwater-proof-theme-list p,
+.inkwater-discussion-list p {
+  margin: 0;
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 18px 20px;
+  color: #17201d;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.inkwater-question-section,
+.inkwater-proof-theme-section,
+.inkwater-discussion-section {
+  border-top: 1px solid #d8d2c7;
+}
+
+.inkwater-scale-section {
+  max-width: 940px;
+  border-top: 1px solid #d8d2c7;
+}
+
 .inkwater-capability-section {
   padding-top: 0;
 }
@@ -855,6 +1048,7 @@ a {
 
   .inkwater-hero-grid,
   .inkwater-two-column,
+  .inkwater-deepnav-grid,
   .inkwater-workflow-grid,
   .inkwater-legacy-section,
   .inkwater-legacy-list,
@@ -862,6 +1056,15 @@ a {
   .inkwater-market-layout,
   .inkwater-usecase-grid,
   .inkwater-proof-grid,
+  .inkwater-detail-lede,
+  .inkwater-layer-grid,
+  .inkwater-principle-section,
+  .inkwater-application-grid,
+  .inkwater-question-section,
+  .inkwater-deployment-detail-grid,
+  .inkwater-proof-theme-section,
+  .inkwater-partner-grid,
+  .inkwater-discussion-section,
   .inkwater-quote-grid-section,
   .inkwater-safety-section,
   .inkwater-ecosystem-section,

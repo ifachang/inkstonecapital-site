@@ -6,6 +6,29 @@ const deployments = [
   "Major commercial complexes in China",
 ];
 
+const deepPages = [
+  {
+    title: "Technology",
+    href: "/inkwater/technology/",
+    body: "A deeper view of the signal layer, sensor fusion, X/Y/Z inference and self-optimizing architecture.",
+  },
+  {
+    title: "Applications",
+    href: "/inkwater/applications/",
+    body: "How Last-Meter Positioning may support airports, malls, hospitals, factories, robotics, safety and mobility.",
+  },
+  {
+    title: "Deployments",
+    href: "/inkwater/deployments/",
+    body: "Real-world proof points across Changi Airport, Tokyo Station and major commercial complexes in China.",
+  },
+  {
+    title: "Partners",
+    href: "/inkwater/partners/",
+    body: "Partnership paths for mapping platforms, robotics companies, venue operators, mobility and safety providers.",
+  },
+];
+
 const markets = [
   "Global maps and location services",
   "Physical AI and humanoid robotics",
@@ -186,9 +209,9 @@ export default function InkwaterPage() {
             </span>
           </a>
           <div className="inkwater-nav-links">
-            <a href="#technology">Technology</a>
-            <a href="#markets">Markets</a>
-            <a href="#news">News</a>
+            <a href="/inkwater/technology/">Technology</a>
+            <a href="/inkwater/applications/">Applications</a>
+            <a href="/inkwater/deployments/">Deployments</a>
             <a className="inkwater-nav-cta" href="mailto:corp@inkstonecapital.com">
               Partner
             </a>
@@ -270,6 +293,22 @@ export default function InkwaterPage() {
             environments, with a path toward continuous Spatial Intelligence in
             three-dimensional physical space.
           </p>
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-deepnav-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Explore Deeper</p>
+          <h2>Inkwater Last-Meter Positioning is now organized as a deeper technical site.</h2>
+        </div>
+        <div className="inkwater-deepnav-grid">
+          {deepPages.map((page) => (
+            <a href={page.href} key={page.title}>
+              <span>{page.title}</span>
+              <p>{page.body}</p>
+              <small>Open section</small>
+            </a>
+          ))}
         </div>
       </section>
 
