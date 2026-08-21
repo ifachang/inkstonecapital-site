@@ -462,10 +462,10 @@ export default function InkwaterPage() {
           <h2>Existing signals flow into an AI core, then become position and floor awareness.</h2>
         </div>
         <p>
-          We integrated the original team&apos;s wayio / OMCOR demo explanation
-          into the Inkwater platform story, including a clearer animated model
-          of how Wi-Fi, 5G, Bluetooth, UWB and endpoint sensing become indoor
-          X/Y/Z positioning.
+          The Inkwater platform story now includes a clearer animated model of
+          how Wi-Fi, 5G, Bluetooth, UWB and endpoint sensing converge through
+          one AI core before becoming indoor X/Y/Z positioning, floor awareness
+          and route context.
           <a href="/inkwater/platform/"> View the platform explanation.</a>
         </p>
       </section>

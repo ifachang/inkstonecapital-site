@@ -28,24 +28,24 @@ const platformModules = [
 ];
 
 const signalInputs = ["Phone", "Wi-Fi", "5G", "Bluetooth", "UWB"];
-const engineOutputs = ["Position", "Floor / Level", "Route Context"];
+const engineOutputs = ["X/Y/Z Position", "Floor / Level", "Route Context"];
 
 const omcorHighlights = [
   {
-    title: "Pure AI positioning engine",
-    body: "The original demo frames OMCOR as a software-first indoor positioning engine, using AI to interpret existing venue signals rather than beginning with a dedicated hardware network.",
+    title: "One AI convergence point",
+    body: "Multiple ambient signals are not treated as separate positioning systems. They are fused through one AI engine that interprets signal context, device observations and venue geometry together.",
   },
   {
     title: "Existing signal reuse",
-    body: "Wi-Fi, 5G, Bluetooth and UWB can become positioning inputs when interpreted through a spatial model and endpoint sensing context.",
+    body: "Wi-Fi, 5G, Bluetooth and UWB can become practical positioning inputs when the system understands their relationship to floors, routes, zones and movement patterns.",
   },
   {
     title: "Position plus floor awareness",
-    body: "The most buyer-friendly message is simple: indoor positioning must identify not only where someone is horizontally, but also which floor or level they are on.",
+    body: "The buyer message is simple: indoor positioning must identify not only where someone is horizontally, but also which floor or level they are on.",
   },
   {
     title: "Fast venue evaluation",
-    body: "The demo emphasizes practical deployment: assess signal coverage, identify weak areas, then connect positioning output to navigation, asset tracking or safety workflows.",
+    body: "The platform story becomes practical: evaluate signal coverage, identify weak areas, then connect positioning output to navigation, asset tracking or safety workflows.",
   },
 ];
 
@@ -131,36 +131,52 @@ export default function InkwaterPlatformPage() {
 
       <section className="inkwater-section inkwater-omcor-section">
         <div className="inkwater-section-heading compact">
-          <p className="inkwater-eyebrow">OMCOR Demo Reference</p>
-          <h2>A clearer way to explain the AI engine behind indoor positioning.</h2>
+          <p className="inkwater-eyebrow">AI Signal Fusion</p>
+          <h2>All available signals converge through one positioning intelligence core.</h2>
           <p>
-            The original team&apos;s wayio / OMCOR demo makes the buyer story very
-            intuitive: existing signals flow into an AI core, then the system
-            outputs position, floor and route context. The Inkwater site now
-            carries that explanation in its own Spatial Intelligence language.
+            Inkwater&apos;s Last-Meter Positioning engine is easiest to understand
+            as a convergence model: the phone and surrounding Wi-Fi, 5G,
+            Bluetooth and UWB signals all pass through a central AI core before
+            becoming position, floor and route context.
           </p>
         </div>
         <div className="inkwater-omcor-layout">
-          <div className="inkwater-omcor-visual" aria-label="Existing signals flow into an AI positioning core and produce location outputs">
+          <div className="inkwater-omcor-visual" aria-label="Phone, Wi-Fi, 5G, Bluetooth and UWB signals converge into an AI positioning core, then output position, floor and route context">
             <div className="inkwater-omcor-column inputs">
-              {signalInputs.map((item) => (
-                <span key={item}>{item}</span>
+              {signalInputs.map((item, index) => (
+                <span className={`inkwater-omcor-node input-${index + 1}`} key={item}>
+                  {item}
+                </span>
               ))}
             </div>
+            <div className="inkwater-omcor-hub-label">Signal Convergence</div>
             <div className="inkwater-omcor-core">
               <span className="inkwater-omcor-pulse" />
+              <span className="inkwater-omcor-pulse delay" />
               <strong>AI Core</strong>
               <small>Last-Meter Positioning</small>
             </div>
             <div className="inkwater-omcor-column outputs">
-              {engineOutputs.map((item) => (
-                <span key={item}>{item}</span>
+              {engineOutputs.map((item, index) => (
+                <span className={`inkwater-omcor-node output-${index + 1}`} key={item}>
+                  {item}
+                </span>
               ))}
             </div>
-            <span className="inkwater-omcor-line line-a" />
-            <span className="inkwater-omcor-line line-b" />
-            <span className="inkwater-omcor-line line-c" />
-            <span className="inkwater-omcor-line line-d" />
+            {signalInputs.map((item, index) => (
+              <span
+                aria-hidden="true"
+                className={`inkwater-omcor-line input-line-${index + 1}`}
+                key={`${item}-line`}
+              />
+            ))}
+            {engineOutputs.map((item, index) => (
+              <span
+                aria-hidden="true"
+                className={`inkwater-omcor-line output-line-${index + 1}`}
+                key={`${item}-line`}
+              />
+            ))}
           </div>
           <div className="inkwater-omcor-grid">
             {omcorHighlights.map((item) => (
@@ -171,14 +187,6 @@ export default function InkwaterPlatformPage() {
             ))}
           </div>
         </div>
-        <a
-          className="inkwater-inline-link"
-          href="https://jasonzhuang-pm.github.io/wayio-omcor-demo/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View original team demo
-        </a>
       </section>
 
       <section className="inkwater-section inkwater-platform-section">

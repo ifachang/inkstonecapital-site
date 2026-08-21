@@ -704,24 +704,12 @@ a {
 }
 
 .inkwater-omcor-column {
+  display: contents;
+}
+
+.inkwater-omcor-node {
   position: absolute;
-  top: 48px;
-  bottom: 48px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.inkwater-omcor-column.inputs {
-  left: 28px;
-}
-
-.inkwater-omcor-column.outputs {
-  right: 28px;
-}
-
-.inkwater-omcor-column span {
+  z-index: 3;
   display: grid;
   min-width: 116px;
   min-height: 44px;
@@ -731,6 +719,89 @@ a {
   color: #f7f4ef;
   font-size: 13px;
   font-weight: 900;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+}
+
+.inkwater-omcor-node::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d7e99c;
+  box-shadow: 0 0 18px #d7e99c;
+  content: "";
+}
+
+.inkwater-omcor-node.input-1 {
+  top: 42px;
+  left: 38px;
+}
+
+.inkwater-omcor-node.input-2 {
+  top: 132px;
+  left: 86px;
+}
+
+.inkwater-omcor-node.input-3 {
+  top: 226px;
+  left: 36px;
+}
+
+.inkwater-omcor-node.input-4 {
+  top: 318px;
+  left: 86px;
+}
+
+.inkwater-omcor-node.input-5 {
+  bottom: 42px;
+  left: 38px;
+}
+
+.inkwater-omcor-node.input-1::before,
+.inkwater-omcor-node.input-3::before,
+.inkwater-omcor-node.input-5::before {
+  right: -5px;
+}
+
+.inkwater-omcor-node.input-2::before,
+.inkwater-omcor-node.input-4::before {
+  right: -5px;
+}
+
+.inkwater-omcor-node.output-1 {
+  top: 116px;
+  right: 36px;
+}
+
+.inkwater-omcor-node.output-2 {
+  top: 218px;
+  right: 74px;
+}
+
+.inkwater-omcor-node.output-3 {
+  bottom: 116px;
+  right: 36px;
+}
+
+.inkwater-omcor-node.output-1::before,
+.inkwater-omcor-node.output-2::before,
+.inkwater-omcor-node.output-3::before {
+  left: -5px;
+  background: #81cabd;
+  box-shadow: 0 0 18px #81cabd;
+}
+
+.inkwater-omcor-hub-label {
+  position: absolute;
+  top: calc(50% - 128px);
+  left: 50%;
+  z-index: 3;
+  color: rgba(247, 244, 239, 0.72);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
 }
 
 .inkwater-omcor-core {
@@ -744,7 +815,9 @@ a {
   place-items: center;
   border: 1px solid rgba(215, 233, 156, 0.42);
   border-radius: 50%;
-  background: radial-gradient(circle, #d7e99c 0%, #81cabd 52%, #14312c 100%);
+  background:
+    radial-gradient(circle at 50% 40%, #f7f4ef 0 7%, transparent 8%),
+    radial-gradient(circle, #d7e99c 0%, #81cabd 50%, #14312c 100%);
   color: #0b1714;
   text-align: center;
   transform: translate(-50%, -50%);
@@ -783,48 +856,97 @@ a {
   animation: inkwaterPulse 2.3s ease-out infinite;
 }
 
+.inkwater-omcor-pulse.delay {
+  animation-delay: 0.9s;
+}
+
 .inkwater-omcor-line {
   position: absolute;
-  z-index: 1;
-  left: 22%;
-  right: 22%;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: var(--line-width);
   height: 2px;
-  background: linear-gradient(90deg, transparent, #2fbcac, #d7e99c, transparent);
+  background: linear-gradient(90deg, transparent, rgba(215, 233, 156, 0.88), rgba(129, 202, 189, 0.72), transparent);
   opacity: 0.86;
-  transform-origin: center;
+  transform: rotate(var(--line-angle));
+  transform-origin: 0 50%;
 }
 
 .inkwater-omcor-line::after {
   position: absolute;
   top: -3px;
-  left: 0;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #d7e99c;
   box-shadow: 0 0 18px #d7e99c;
   content: "";
-  animation: inkwaterSignal 2.1s linear infinite;
+  animation-duration: var(--signal-speed, 2.1s);
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.35, 1);
 }
 
-.inkwater-omcor-line.line-a {
-  top: 30%;
-  transform: rotate(14deg);
+.inkwater-omcor-line[class*="input-line"]::after {
+  animation-name: inkwaterSignalIn;
 }
 
-.inkwater-omcor-line.line-b {
-  top: 44%;
-  transform: rotate(-8deg);
+.inkwater-omcor-line[class*="output-line"] {
+  background: linear-gradient(90deg, transparent, rgba(129, 202, 189, 0.88), rgba(247, 244, 239, 0.5), transparent);
 }
 
-.inkwater-omcor-line.line-c {
-  top: 58%;
-  transform: rotate(8deg);
+.inkwater-omcor-line[class*="output-line"]::after {
+  background: #81cabd;
+  box-shadow: 0 0 18px #81cabd;
+  animation-name: inkwaterSignalOut;
 }
 
-.inkwater-omcor-line.line-d {
-  top: 72%;
-  transform: rotate(-14deg);
+.inkwater-omcor-line.input-line-1 {
+  --line-angle: 214deg;
+  --line-width: 244px;
+  --signal-speed: 2s;
+}
+
+.inkwater-omcor-line.input-line-2 {
+  --line-angle: 194deg;
+  --line-width: 210px;
+  --signal-speed: 2.25s;
+}
+
+.inkwater-omcor-line.input-line-3 {
+  --line-angle: 180deg;
+  --line-width: 236px;
+  --signal-speed: 2.08s;
+}
+
+.inkwater-omcor-line.input-line-4 {
+  --line-angle: 166deg;
+  --line-width: 210px;
+  --signal-speed: 2.32s;
+}
+
+.inkwater-omcor-line.input-line-5 {
+  --line-angle: 146deg;
+  --line-width: 244px;
+  --signal-speed: 2.16s;
+}
+
+.inkwater-omcor-line.output-line-1 {
+  --line-angle: -34deg;
+  --line-width: 244px;
+  --signal-speed: 2.22s;
+}
+
+.inkwater-omcor-line.output-line-2 {
+  --line-angle: 0deg;
+  --line-width: 214px;
+  --signal-speed: 2.06s;
+}
+
+.inkwater-omcor-line.output-line-3 {
+  --line-angle: 34deg;
+  --line-width: 244px;
+  --signal-speed: 2.28s;
 }
 
 .inkwater-omcor-grid {
@@ -850,9 +972,41 @@ a {
   line-height: 1.6;
 }
 
-@keyframes inkwaterSignal {
+@keyframes inkwaterSignalIn {
+  from {
+    left: calc(var(--line-width) - 6px);
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  18% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
   to {
-    transform: translateX(320px);
+    left: 0;
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes inkwaterSignalOut {
+  from {
+    left: 0;
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  18% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  to {
+    left: calc(var(--line-width) - 6px);
+    opacity: 0;
+    transform: scale(0.8);
   }
 }
 
@@ -1605,21 +1759,51 @@ a {
     min-height: 540px;
   }
 
-  .inkwater-omcor-column span {
+  .inkwater-omcor-node {
     min-width: 94px;
+    min-height: 40px;
     font-size: 12px;
   }
 
-  .inkwater-omcor-column.inputs {
-    left: 16px;
+  .inkwater-omcor-node.input-1,
+  .inkwater-omcor-node.input-3,
+  .inkwater-omcor-node.input-5 {
+    left: 14px;
   }
 
-  .inkwater-omcor-column.outputs {
-    right: 16px;
+  .inkwater-omcor-node.input-2,
+  .inkwater-omcor-node.input-4 {
+    left: 44px;
+  }
+
+  .inkwater-omcor-node.output-1,
+  .inkwater-omcor-node.output-3 {
+    right: 14px;
+  }
+
+  .inkwater-omcor-node.output-2 {
+    right: 42px;
   }
 
   .inkwater-omcor-core {
     width: 138px;
     height: 138px;
+  }
+
+  .inkwater-omcor-core strong {
+    font-size: 20px;
+  }
+
+  .inkwater-omcor-line.input-line-1,
+  .inkwater-omcor-line.input-line-5,
+  .inkwater-omcor-line.output-line-1,
+  .inkwater-omcor-line.output-line-3 {
+    --line-width: 190px;
+  }
+
+  .inkwater-omcor-line.input-line-2,
+  .inkwater-omcor-line.input-line-4,
+  .inkwater-omcor-line.output-line-2 {
+    --line-width: 160px;
   }
 }
