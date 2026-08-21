@@ -1626,11 +1626,23 @@ a {
   transform: translateY(-3px);
 }
 
+.inkwater-logo-wall img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid rgba(247, 244, 239, 0.18);
+  border-radius: 8px;
+  background: rgba(247, 244, 239, 0.92);
+  object-fit: contain;
+}
+
 .inkwater-logo-wall strong {
   color: #f7f4ef;
   font-size: clamp(20px, 2.4vw, 31px);
   font-weight: 950;
   line-height: 1;
+  order: 2;
 }
 
 .inkwater-logo-wall span {
@@ -1639,6 +1651,7 @@ a {
   font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
+  order: 1;
 }
 
 .inkwater-media-coverage {
