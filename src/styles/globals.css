@@ -599,6 +599,60 @@ a {
   line-height: 1.12;
 }
 
+.inkwater-video-section {
+  padding-top: 0;
+}
+
+.inkwater-video-section .inkwater-section-heading p:not(.inkwater-eyebrow) {
+  color: #56615d;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.inkwater-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.inkwater-video-grid article {
+  border: 1px solid #d8d2c7;
+  background:
+    linear-gradient(145deg, rgba(255, 250, 240, 0.97), rgba(236, 231, 220, 0.92)),
+    #fffaf0;
+  padding: 30px;
+}
+
+.inkwater-video-grid h3 {
+  color: #17201d;
+  font-size: 28px;
+  line-height: 1.12;
+}
+
+.inkwater-video-grid p {
+  color: #56615d;
+  line-height: 1.6;
+}
+
+.inkwater-video-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.inkwater-video-links a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2f8c82;
+  background: #10201d;
+  padding: 10px 14px;
+  color: #f7f4ef;
+  font-weight: 900;
+}
+
 .inkwater-flow-section {
   padding-top: 0;
 }
@@ -1243,6 +1297,7 @@ a {
   .inkwater-platform-grid,
   .inkwater-why-now-grid,
   .inkwater-package-grid,
+  .inkwater-video-grid,
   .inkwater-flow-row,
   .inkwater-trust-section,
   .inkwater-discussion-section,

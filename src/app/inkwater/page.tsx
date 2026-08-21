@@ -87,6 +87,29 @@ const partnershipPackages = [
   },
 ];
 
+const buyerVideoGroups = [
+  {
+    location: "Beijing MixC / Beijing Wanxianghui",
+    body: "Multilingual reference videos for a major commercial complex environment.",
+    links: [
+      { label: "繁中", href: "https://youtu.be/G0X47Q_Aa-4" },
+      { label: "简中", href: "https://youtu.be/eAqNuPJ3ggY" },
+      { label: "日本語", href: "https://youtu.be/FmsvyjvBRoY" },
+      { label: "English", href: "https://youtu.be/EkkEl45uaCY" },
+    ],
+  },
+  {
+    location: "Tokyo Station",
+    body: "Multilingual reference videos for one of the world's most complex transit environments.",
+    links: [
+      { label: "繁中", href: "https://youtu.be/YZbQF9u7YPo" },
+      { label: "简中", href: "https://youtu.be/7dULHcqBpWw" },
+      { label: "日本語", href: "https://youtu.be/RzASQt8axDo" },
+      { label: "English", href: "https://youtu.be/Z03W1U0KAKc" },
+    ],
+  },
+];
+
 const markets = [
   "Global maps and location services",
   "Physical AI and humanoid robotics",
@@ -598,6 +621,33 @@ export default function InkwaterPage() {
             <article key={item.location}>
               <span>{item.location}</span>
               <p>{item.challenge}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-video-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Buyer Video References</p>
+          <h2>Multilingual deployment videos for potential buyers and partners.</h2>
+        </div>
+        <div className="inkwater-video-grid">
+          {buyerVideoGroups.map((group) => (
+            <article key={group.location}>
+              <h3>{group.location}</h3>
+              <p>{group.body}</p>
+              <div className="inkwater-video-links">
+                {group.links.map((link) => (
+                  <a
+                    href={link.href}
+                    key={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </article>
           ))}
         </div>

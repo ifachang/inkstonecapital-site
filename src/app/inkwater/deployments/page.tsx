@@ -27,10 +27,35 @@ const proofThemes = [
   "Real-world optimization loops",
 ];
 
+const deploymentVideos = [
+  {
+    location: "Beijing MixC / Beijing Wanxianghui",
+    context:
+      "Reference videos for a major commercial complex environment, available in Traditional Chinese, Simplified Chinese, Japanese and English.",
+    links: [
+      { label: "繁中", href: "https://youtu.be/G0X47Q_Aa-4" },
+      { label: "简中", href: "https://youtu.be/eAqNuPJ3ggY" },
+      { label: "日本語", href: "https://youtu.be/FmsvyjvBRoY" },
+      { label: "English", href: "https://youtu.be/EkkEl45uaCY" },
+    ],
+  },
+  {
+    location: "Tokyo Station",
+    context:
+      "Reference videos for a complex, high-density transit environment, available in Traditional Chinese, Simplified Chinese, Japanese and English.",
+    links: [
+      { label: "繁中", href: "https://youtu.be/YZbQF9u7YPo" },
+      { label: "简中", href: "https://youtu.be/7dULHcqBpWw" },
+      { label: "日本語", href: "https://youtu.be/RzASQt8axDo" },
+      { label: "English", href: "https://youtu.be/Z03W1U0KAKc" },
+    ],
+  },
+];
+
 export const metadata: Metadata = {
   title: "Deployments | Inkwater Last-Meter Positioning",
   description:
-    "Deployment proof points for Inkwater Last-Meter Positioning, including Singapore Changi Airport, Tokyo Station and major commercial complexes in China.",
+    "Deployment proof points and multilingual video references for Inkwater Last-Meter Positioning, including Singapore Changi Airport, Tokyo Station and major commercial complexes in China.",
   alternates: {
     canonical: "/inkwater/deployments/",
   },
@@ -116,6 +141,38 @@ export default function InkwaterDeploymentsPage() {
         <div className="inkwater-proof-theme-list">
           {proofThemes.map((theme) => (
             <p key={theme}>{theme}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="inkwater-section inkwater-video-section">
+        <div className="inkwater-section-heading compact">
+          <p className="inkwater-eyebrow">Video References</p>
+          <h2>Multilingual videos for buyer evaluation.</h2>
+          <p>
+            Potential buyers and strategic partners can review selected
+            deployment reference videos in the language most relevant to their
+            decision team.
+          </p>
+        </div>
+        <div className="inkwater-video-grid">
+          {deploymentVideos.map((group) => (
+            <article key={group.location}>
+              <h3>{group.location}</h3>
+              <p>{group.context}</p>
+              <div className="inkwater-video-links">
+                {group.links.map((link) => (
+                  <a
+                    href={link.href}
+                    key={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </section>
