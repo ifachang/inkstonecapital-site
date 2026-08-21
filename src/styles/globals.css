@@ -653,6 +653,220 @@ a {
   font-weight: 900;
 }
 
+.inkwater-demo-reference-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 46px;
+  border-top: 1px solid #d8d2c7;
+  border-bottom: 1px solid #d8d2c7;
+}
+
+.inkwater-demo-reference-section > p {
+  color: #56615d;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.inkwater-demo-reference-section a {
+  color: #2f8c82;
+  font-weight: 900;
+}
+
+.inkwater-omcor-section {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(47, 140, 130, 0.14), transparent 30%),
+    linear-gradient(180deg, #f7f4ef, #ece7dc);
+}
+
+.inkwater-omcor-section .inkwater-section-heading p:not(.inkwater-eyebrow) {
+  color: #56615d;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.inkwater-omcor-layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.96fr) minmax(0, 1.04fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.inkwater-omcor-visual {
+  position: relative;
+  min-height: 480px;
+  overflow: hidden;
+  border: 1px solid #d8d2c7;
+  background:
+    linear-gradient(rgba(215, 233, 156, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(215, 233, 156, 0.08) 1px, transparent 1px),
+    linear-gradient(145deg, #101916, #152a25 58%, #2a2b1b);
+  background-size: 46px 46px, 46px 46px, auto;
+}
+
+.inkwater-omcor-column {
+  position: absolute;
+  top: 48px;
+  bottom: 48px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inkwater-omcor-column.inputs {
+  left: 28px;
+}
+
+.inkwater-omcor-column.outputs {
+  right: 28px;
+}
+
+.inkwater-omcor-column span {
+  display: grid;
+  min-width: 116px;
+  min-height: 44px;
+  place-items: center;
+  border: 1px solid rgba(247, 244, 239, 0.22);
+  background: rgba(247, 244, 239, 0.08);
+  color: #f7f4ef;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.inkwater-omcor-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  display: grid;
+  width: 174px;
+  height: 174px;
+  place-items: center;
+  border: 1px solid rgba(215, 233, 156, 0.42);
+  border-radius: 50%;
+  background: radial-gradient(circle, #d7e99c 0%, #81cabd 52%, #14312c 100%);
+  color: #0b1714;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 70px rgba(47, 188, 172, 0.36);
+}
+
+.inkwater-omcor-core strong,
+.inkwater-omcor-core small {
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.inkwater-omcor-core strong {
+  align-self: end;
+  font-size: 24px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.inkwater-omcor-core small {
+  align-self: start;
+  max-width: 110px;
+  color: rgba(11, 23, 20, 0.72);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.inkwater-omcor-pulse {
+  position: absolute;
+  inset: -22px;
+  border: 1px solid rgba(215, 233, 156, 0.38);
+  border-radius: 50%;
+  animation: inkwaterPulse 2.3s ease-out infinite;
+}
+
+.inkwater-omcor-line {
+  position: absolute;
+  z-index: 1;
+  left: 22%;
+  right: 22%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2fbcac, #d7e99c, transparent);
+  opacity: 0.86;
+  transform-origin: center;
+}
+
+.inkwater-omcor-line::after {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d7e99c;
+  box-shadow: 0 0 18px #d7e99c;
+  content: "";
+  animation: inkwaterSignal 2.1s linear infinite;
+}
+
+.inkwater-omcor-line.line-a {
+  top: 30%;
+  transform: rotate(14deg);
+}
+
+.inkwater-omcor-line.line-b {
+  top: 44%;
+  transform: rotate(-8deg);
+}
+
+.inkwater-omcor-line.line-c {
+  top: 58%;
+  transform: rotate(8deg);
+}
+
+.inkwater-omcor-line.line-d {
+  top: 72%;
+  transform: rotate(-14deg);
+}
+
+.inkwater-omcor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.inkwater-omcor-grid article {
+  border: 1px solid #d8d2c7;
+  background: #fffaf0;
+  padding: 24px;
+}
+
+.inkwater-omcor-grid h3 {
+  color: #17201d;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.inkwater-omcor-grid p {
+  color: #56615d;
+  line-height: 1.6;
+}
+
+@keyframes inkwaterSignal {
+  to {
+    transform: translateX(320px);
+  }
+}
+
+@keyframes inkwaterPulse {
+  from {
+    opacity: 0.75;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.34);
+  }
+}
+
 .inkwater-flow-section {
   padding-top: 0;
 }
@@ -1298,6 +1512,9 @@ a {
   .inkwater-why-now-grid,
   .inkwater-package-grid,
   .inkwater-video-grid,
+  .inkwater-demo-reference-section,
+  .inkwater-omcor-layout,
+  .inkwater-omcor-grid,
   .inkwater-flow-row,
   .inkwater-trust-section,
   .inkwater-discussion-section,
@@ -1382,5 +1599,27 @@ a {
 
   .inkwater-deployment-strip {
     justify-content: flex-start;
+  }
+
+  .inkwater-omcor-visual {
+    min-height: 540px;
+  }
+
+  .inkwater-omcor-column span {
+    min-width: 94px;
+    font-size: 12px;
+  }
+
+  .inkwater-omcor-column.inputs {
+    left: 16px;
+  }
+
+  .inkwater-omcor-column.outputs {
+    right: 16px;
+  }
+
+  .inkwater-omcor-core {
+    width: 138px;
+    height: 138px;
   }
 }
