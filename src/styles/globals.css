@@ -1577,6 +1577,70 @@ a {
   text-transform: uppercase;
 }
 
+.inkwater-pickup-wall {
+  margin-top: 28px;
+  border: 1px solid #d8d2c7;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(47, 140, 130, 0.13), transparent 32%),
+    #17201d;
+}
+
+.inkwater-pickup-wall .inkwater-media-heading {
+  border-bottom-color: rgba(247, 244, 239, 0.16);
+}
+
+.inkwater-pickup-wall .inkwater-media-heading h3 {
+  color: #f7f4ef;
+}
+
+.inkwater-logo-wall {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.inkwater-logo-wall a {
+  display: grid;
+  min-height: 142px;
+  align-content: center;
+  gap: 12px;
+  padding: 24px;
+  border-right: 1px solid rgba(247, 244, 239, 0.14);
+  border-bottom: 1px solid rgba(247, 244, 239, 0.14);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.inkwater-logo-wall a:nth-child(4n) {
+  border-right: 0;
+}
+
+.inkwater-logo-wall a:nth-last-child(-n + 4) {
+  border-bottom: 0;
+}
+
+.inkwater-logo-wall a:hover {
+  background: rgba(247, 244, 239, 0.07);
+  transform: translateY(-3px);
+}
+
+.inkwater-logo-wall strong {
+  color: #f7f4ef;
+  font-size: clamp(20px, 2.4vw, 31px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.inkwater-logo-wall span {
+  color: rgba(215, 233, 156, 0.82);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .inkwater-media-coverage {
   margin-top: 28px;
   border: 1px solid #d8d2c7;
@@ -1775,6 +1839,7 @@ a {
 
   .inkwater-capability-grid,
   .inkwater-news-grid,
+  .inkwater-logo-wall,
   .inkwater-media-list {
     grid-template-columns: 1fr;
   }
@@ -1795,6 +1860,18 @@ a {
   }
 
   .inkwater-media-list a:last-child {
+    border-bottom: 0;
+  }
+
+  .inkwater-logo-wall a,
+  .inkwater-logo-wall a:nth-child(4n),
+  .inkwater-logo-wall a:nth-last-child(-n + 4) {
+    min-height: 112px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(247, 244, 239, 0.14);
+  }
+
+  .inkwater-logo-wall a:last-child {
     border-bottom: 0;
   }
 

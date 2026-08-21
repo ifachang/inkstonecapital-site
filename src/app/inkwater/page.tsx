@@ -282,6 +282,69 @@ const chineseMediaCoverage = [
   },
 ];
 
+const mediaPickupBadges = [
+  {
+    source: "AP News",
+    category: "Press pickup",
+    href: "https://apnews.com/press-release/ein-presswire-newsmatics/press-release-56fcdd5d6b556818eb685133b895640b",
+  },
+  {
+    source: "EIN Presswire",
+    category: "Distribution report",
+    href: "https://www.einpresswire.com/article/935737983/inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "Google News",
+    category: "News discovery",
+    href: "http://www.google.com/search?q=%2522Inkwater+Advances+%2527Last-Meter+Positioning%2527+Technology+for+a+GPS-Denied+World%2522&ie=utf-8&oe=utf-8&tbm=nws",
+  },
+  {
+    source: "Yahoo",
+    category: "Search discovery",
+    href: "http://search.yahoo.com/search?p=%2522Inkwater+Advances+%2527Last-Meter+Positioning%2527+Technology+for+a+GPS-Denied+World%2522&ei=UTF-8",
+  },
+  {
+    source: "Bing News",
+    category: "News discovery",
+    href: "http://www.bing.com/news/search?q=%2522Inkwater+Advances+%2527Last-Meter+Positioning%2527+Technology+for+a+GPS-Denied+World%2522",
+  },
+  {
+    source: "Technology Today",
+    category: "Technology",
+    href: "https://tech.einnews.com/pr_news/935737983/inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "IT Industry Today",
+    category: "Technology",
+    href: "https://it.einnews.com/pr_news/935737983/inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "Software Industry Today",
+    category: "Software",
+    href: "https://software.einnews.com/pr_news/935737983/inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "Airline Industry Today",
+    category: "Aviation",
+    href: "https://airlines.einnews.com/pr_news/935737983/inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "Shipping & Logistics Industry Today",
+    category: "Logistics",
+    href: "https://shipping.einnews.com/pr_news/935737983/inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "Taiwan Sci-Tech Weekly",
+    category: "Taiwan tech",
+    href: "https://www.taiwanscitechweekly.com/article/935737983-inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+  {
+    source: "Taipei City Times",
+    category: "Taiwan media",
+    href: "https://www.taipeicitytimes.com/article/935737983-inkwater-advances-last-meter-positioning-technology-for-a-gps-denied-world",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Inkwater Last-Meter Positioning",
   description:
@@ -777,6 +840,25 @@ export default function InkwaterPage() {
               <p>{item.body}</p>
             </article>
           ))}
+        </div>
+        <div className="inkwater-pickup-wall">
+          <div className="inkwater-media-heading">
+            <p className="inkwater-eyebrow">Media Pickup</p>
+            <h3>Selected distribution and discovery placements from the EIN report.</h3>
+          </div>
+          <div className="inkwater-logo-wall" aria-label="Selected media pickup sources">
+            {mediaPickupBadges.map((item) => (
+              <a
+                href={item.href}
+                key={item.source}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>{item.source}</strong>
+                <span>{item.category}</span>
+              </a>
+            ))}
+          </div>
         </div>
         <div className="inkwater-media-coverage">
           <div className="inkwater-media-heading">
