@@ -1577,6 +1577,80 @@ a {
   text-transform: uppercase;
 }
 
+.inkwater-media-coverage {
+  margin-top: 28px;
+  border: 1px solid #d8d2c7;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(176, 106, 58, 0.12), transparent 28%),
+    #f7f4ef;
+}
+
+.inkwater-media-heading {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.56fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: end;
+  padding: 28px;
+  border-bottom: 1px solid #d8d2c7;
+}
+
+.inkwater-media-heading h3 {
+  margin: 0;
+  color: #17201d;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.inkwater-media-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.inkwater-media-list a {
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px;
+  border-right: 1px solid #d8d2c7;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.inkwater-media-list a:last-child {
+  border-right: 0;
+}
+
+.inkwater-media-list a:hover {
+  background: #fffaf0;
+  transform: translateY(-3px);
+}
+
+.inkwater-media-list span {
+  color: #b06a3a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.inkwater-media-list strong {
+  color: #17201d;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.inkwater-media-list small {
+  color: #2f8c82;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .inkwater-contact-section {
   display: flex;
   align-items: center;
@@ -1669,6 +1743,7 @@ a {
   .inkwater-demo-reference-section,
   .inkwater-omcor-layout,
   .inkwater-omcor-grid,
+  .inkwater-media-heading,
   .inkwater-flow-row,
   .inkwater-trust-section,
   .inkwater-discussion-section,
@@ -1699,7 +1774,8 @@ a {
   }
 
   .inkwater-capability-grid,
-  .inkwater-news-grid {
+  .inkwater-news-grid,
+  .inkwater-media-list {
     grid-template-columns: 1fr;
   }
 
@@ -1709,6 +1785,16 @@ a {
   }
 
   .inkwater-capability-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .inkwater-media-list a {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid #d8d2c7;
+  }
+
+  .inkwater-media-list a:last-child {
     border-bottom: 0;
   }
 

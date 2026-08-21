@@ -254,6 +254,34 @@ const newsItems = [
   },
 ];
 
+const chineseMediaCoverage = [
+  {
+    source: "Anue 鉅亨網",
+    title: "Inkwater布局「最後一公尺」空間定位技術：GPS消失 定位仍可繼續",
+    href: "https://m.cnyes.com/news/id/6583287",
+  },
+  {
+    source: "Yahoo 股市",
+    title: "Inkwater布局「最後一公尺」空間定位技術：GPS消失 定位仍可繼續",
+    href: "https://tw.stock.yahoo.com/share/18a5207c-1583-3467-aec3-ef7feeb4de48",
+  },
+  {
+    source: "CMoney",
+    title: "Inkwater布局「最後一公尺」空間定位技術：GPS消失 定位仍可繼續",
+    href: "https://www.cmoney.tw/forum/article/182757704",
+  },
+  {
+    source: "永豐金證券 Rich Club",
+    title: "Inkwater布局「最後一公尺」空間定位技術：GPS消失 定位仍可繼續",
+    href: "https://www.sinotrade.com.tw/richclub/news/6a87b121b17ee73678069417",
+  },
+  {
+    source: "LINE TODAY",
+    title: "Inkwater布局「最後一公尺」空間定位技術：GPS消失 定位仍可繼續",
+    href: "https://liff.line.me/1454987169-1WAXAP3K/v3/article/RBq1XyM?utm_source=lineshare",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Inkwater Last-Meter Positioning",
   description:
@@ -749,6 +777,26 @@ export default function InkwaterPage() {
               <p>{item.body}</p>
             </article>
           ))}
+        </div>
+        <div className="inkwater-media-coverage">
+          <div className="inkwater-media-heading">
+            <p className="inkwater-eyebrow">Chinese Media Coverage</p>
+            <h3>Inkwater&apos;s Last-Meter Positioning story in Chinese-language financial media.</h3>
+          </div>
+          <div className="inkwater-media-list">
+            {chineseMediaCoverage.map((item) => (
+              <a
+                href={item.href}
+                key={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{item.source}</span>
+                <strong>{item.title}</strong>
+                <small>Read coverage</small>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
