@@ -32,6 +32,17 @@ export const affiliatedCompanies = [
     imageAlt: "Datou America Inc. official logo",
     imageClassName: "object-contain p-8 sm:p-10",
   },
+  {
+    href: "https://medviasia.com/",
+    category: "Health Technology",
+    name: "MedviAsia",
+    description:
+      "聚焦預防醫學與健康管理，結合數位工具與專業服務，協助個人與企業落實長期健康策略。",
+    domain: "medviasia.com",
+    imageSrc: "/company-medviasia.svg",
+    imageAlt: "MedviAsia official logo",
+    imageClassName: "object-contain p-8 sm:p-10",
+  },
 ] as const;
 
 export const advisoryTracks = [

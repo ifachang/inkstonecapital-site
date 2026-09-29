@@ -10,7 +10,7 @@ import { createPageMetadata, JsonLd, organizationJsonLd } from "../../../lib/seo
 export const metadata: Metadata = createPageMetadata({
   title: "Affiliated Companies",
   description:
-    "Learn about companies and brands introduced by Inkstone Capital, including Yushan.AI, Docter Inc. and Datou America Inc.",
+    "Learn about companies and brands introduced by Inkstone Capital, including Yushan.AI, Docter Inc., Datou America Inc. and MedviAsia.",
   path: "/en/companies/",
   locale: "en",
   zhPath: "/companies/",

@@ -10,7 +10,7 @@ import { createPageMetadata, JsonLd, organizationJsonLd } from "../../lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "相關公司",
   description:
-    "了解墨石資本網站介紹的相關公司與品牌，包括 Yushan.AI、Docter Inc. 與大投美國股份有限公司。",
+    "了解墨石資本網站介紹的相關公司與品牌，包括 Yushan.AI、Docter Inc.、大投美國股份有限公司與 MedviAsia。",
   path: "/companies/",
   locale: "zh",
   zhPath: "/companies/",
