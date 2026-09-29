@@ -111,15 +111,15 @@ const sectionCopy = {
     ],
     showcaseTitle: "從資本結構到產業落地，形成可延展的成長路徑",
     showcaseBody:
-      "首頁以更精簡的方式呈現墨石資本的核心工作面向，讓訪客能快速理解服務、團隊、相關公司與最新動態之間的關聯。",
+      "從交易架構設計到產業落地執行，我們協助成長型企業打通資本與市場的關鍵環節。",
     servicesCta: "查看完整服務",
-    advisoryVisual: "以交易文件、資本市場資料與跨境城市意象，呈現墨石資本在策略規劃與執行協調中的專業工作情境。",
+    advisoryVisual: "從策略規劃到執行協調，以嚴謹的交易架構協助企業穩健成長。",
     readInsight: "閱讀本期完整文章",
     recentUpdates: "最新動態摘要",
     allNews: "全部消息",
     insightsTitle: "觀點與動態",
     insightsBody:
-      "用較精煉的方式整理墨石資本對產業與資本市場的觀察，同時收錄近期公開動態，讓訪客更快掌握我們正在關注的議題與節奏。",
+      "我們定期分享對產業趨勢與資本市場的觀察，以及墨石資本的最新動態。",
     readFullArticle: "閱讀完整文章",
     viewSource: "查看外部來源",
     archiveTitle: "一期一期整理觀點",
@@ -161,7 +161,7 @@ const sectionCopy = {
     ecosystemBody:
       "相關公司不是單純名單，而是墨石資本關注的產業方向：技術基礎、健康服務與消費品牌如何進入可擴張的商業化階段。",
     ecosystemVisual:
-      "以 AI 基礎建設、健康科技裝置與消費品牌包裝，呈現相關公司跨產業布局的視覺連結。",
+      "AI 基礎建設、健康科技與消費品牌，構成墨石資本長期關注的產業生態系。",
     contactTitle: "聯絡我們",
     contactBody:
       "如欲進一步了解墨石資本，或分享合作與投資機會，歡迎透過電話或電子郵件與我們聯繫。我們將依需求安排後續溝通，提供更適切的交流與協作方式。",
@@ -189,15 +189,15 @@ const sectionCopy = {
     ],
     showcaseTitle: "From capital structure to industry deployment, building scalable growth paths",
     showcaseBody:
-      "The homepage presents Inkstone Capital's core work in a concise way, helping visitors understand how services, team capabilities, affiliated companies and public updates connect.",
+      "From transaction structuring to industry execution, we help growth companies connect capital with market opportunities.",
     servicesCta: "View full services",
-    advisoryVisual: "Transaction documents, capital-market data and cross-border city imagery frame the firm's strategic planning and execution work.",
+    advisoryVisual: "From strategic planning to execution, we support steady growth with disciplined transaction structuring.",
     readInsight: "Read the full insight",
     recentUpdates: "Recent updates",
     allNews: "All news",
     insightsTitle: "Insights & Updates",
     insightsBody:
-      "Selected observations on industries and capital markets, together with recent public updates, help visitors understand the themes and timing Inkstone Capital is watching.",
+      "We regularly share observations on industry trends and capital markets, along with the latest updates from Inkstone Capital.",
     readFullArticle: "Read full article",
     viewSource: "View source",
     archiveTitle: "Insight archive",
@@ -239,7 +239,7 @@ const sectionCopy = {
     ecosystemBody:
       "These companies are not merely a list; they reflect industry themes Inkstone Capital follows: technical foundations, health services and consumer brands moving toward scalable commercialization.",
     ecosystemVisual:
-      "AI infrastructure, health-technology devices and consumer-brand packaging visualize cross-industry ecosystem links.",
+      "AI infrastructure, health technology and consumer brands form the industry ecosystem Inkstone Capital follows.",
     contactTitle: "Contact Us",
     contactBody:
       "To learn more about Inkstone Capital or discuss cooperation and investment opportunities, please contact us by phone or email. We will arrange the appropriate follow-up based on your needs.",
@@ -1153,7 +1153,7 @@ export function ContactSection({ locale = "zh" }: { locale?: Locale }) {
             <div className="mt-5 grid gap-3 sm:mt-6 sm:gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-stone-light/20 bg-black/25 p-4">
                 <div className="text-[0.64rem] uppercase tracking-[0.18em] text-stone-500">
-                  Telephone
+                  Telephone · Taipei
                 </div>
                 <div className="mt-2 font-mono text-sm text-stone-100">+886 2 7755 7057</div>
               </div>

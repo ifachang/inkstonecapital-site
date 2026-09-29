@@ -10,7 +10,7 @@ import { SiteHeader } from "../components/SiteHeader";
 import { createPageMetadata, JsonLd, organizationJsonLd } from "../lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "首頁",
+  title: "跨境資本市場顧問｜併購重組、私募融資、上市規劃",
   description:
     "墨石資本專注於跨境資本市場、併購重組、私募融資與上市規劃，協助成長型企業連結資本與實體經濟。",
   path: "/",

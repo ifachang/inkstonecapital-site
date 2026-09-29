@@ -123,7 +123,6 @@ export const teamMembers: readonly TeamMember[] = [
     role: "資源整合與跨界策展顧問",
     email: "popoming.chen@partner.inkstonecapital.com",
     emailContext: "team_chen_po_ming",
-    cvHref: "/cv-chen-po-ming.pdf",
     paragraphs: [
       "畢業於世新大學公共傳播學系，專長資源整合、PR 規劃與跨界策展，產業經歷橫跨電影、公關、視覺科技、文旅與園區開發。曾任 BD ART 弼達多媒體藝術行銷有限公司總經理、The Pan Bay 大鵬灣國際開發有限公司總管理處總監、杭州晴光科技有限公司創辦人暨執行長等職務，並參與新北市電影藝術節、宜蘭國際綠色影展、文旅景區規劃與 BOT 開發案等專案。",
       "目前掛職安泰商業銀行股份有限公司副董事長特別助理，並擔任象藝創意有限公司業務總監。",
