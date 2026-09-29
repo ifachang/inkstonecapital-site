@@ -45,8 +45,8 @@ export function Hero({ locale = "zh" }: { locale?: Locale }) {
   const content = heroContent[locale];
 
   return (
-    <section className="relative overflow-hidden border-b border-stone-light/30 bg-[linear-gradient(180deg,#050506_0%,#0b0b0d_48%,#15161a_100%)]">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_18%_0%,rgba(196,161,90,0.16),transparent_34%)]" />
+    <section className="relative overflow-hidden border-b border-stone-light/30 bg-[linear-gradient(180deg,#0d0c0a_0%,#14120f_48%,#1d1915_100%)]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_18%_0%,rgba(210,169,79,0.22),transparent_34%)]" />
       <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-18 lg:py-24">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-start lg:gap-8">
           <div className="space-y-6 sm:space-y-8">

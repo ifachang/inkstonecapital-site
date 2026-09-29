@@ -254,7 +254,7 @@ export function AboutSection({ locale = "zh" }: { locale?: Locale }) {
   const copy = sectionCopy[locale];
 
   return (
-    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#0f1013_0%,#111216_54%,#15161a_100%)]">
+    <section className="border-b border-stone-light/40 bg-[linear-gradient(180deg,#171410_0%,#1a1611_54%,#1e1a14_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
         <div className="grid gap-7 sm:gap-10 lg:grid-cols-[1.1fr_minmax(320px,0.9fr)] lg:items-start">
           <div className="space-y-6 sm:space-y-7">
@@ -966,7 +966,7 @@ export function TeamOperatingSection({ locale = "zh" }: { locale?: Locale }) {
   const capabilities = locale === "en" ? teamCapabilitiesEn : teamCapabilities;
 
   return (
-    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#17191d_0%,#101115_100%)]">
+    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#1f1b15_0%,#171410_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div className="overflow-hidden rounded-[1.8rem] border border-stone-light/25 bg-white/[0.035]">
@@ -1075,7 +1075,7 @@ export function CompanyEcosystemSection({ locale = "zh" }: { locale?: Locale }) 
   const themes = locale === "en" ? ecosystemThemesEn : ecosystemThemes;
 
   return (
-    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#0f1013_0%,#15161a_100%)]">
+    <section className="border-b border-stone-light/35 bg-[linear-gradient(180deg,#171410_0%,#1e1a14_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
         <div className="mb-7 max-w-3xl">
           <div className="text-[0.68rem] uppercase tracking-[0.22em] text-stone-500">
@@ -1130,7 +1130,7 @@ export function ContactSection({ locale = "zh" }: { locale?: Locale }) {
   const steps = locale === "en" ? contactFollowUpStepsEn : contactFollowUpSteps;
 
   return (
-    <section className="border-t border-stone-light/20 bg-[linear-gradient(180deg,#0d0e11_0%,#09090b_100%)]">
+    <section className="border-t border-stone-light/20 bg-[linear-gradient(180deg,#14110d_0%,#0d0c0a_100%)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:py-18">
         <div className="grid gap-5 sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="rounded-[1.8rem] border border-stone-light/30 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.18))] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] sm:rounded-[2.2rem] sm:p-7">

@@ -9,15 +9,15 @@ export default {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0A0A0B",
-          dark: "#050506",
+          DEFAULT: "#14120F",
+          dark: "#0D0C0A",
         },
         stone: {
-          DEFAULT: "#1E1F23",
-          light: "#2A2B30",
+          DEFAULT: "#25211C",
+          light: "#35302A",
         },
         accent: {
-          gold: "#C4A15A",
+          gold: "#D2A94F",
         },
       },
       fontFamily: {
